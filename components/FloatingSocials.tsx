@@ -12,14 +12,17 @@ export default function FloatingSocials() {
   ];
 
   return (
-    <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-4">
+    // تم تغيير الـ top-1/2 إلى bottom-10 لضمان وجودها في الأسفل بعيداً عن محتوى الصفحة
+    <div className="fixed right-4 bottom-10 z-50 flex flex-col gap-3">
       {socials.map((social, index) => (
         <motion.a
           key={index}
           href={social.link}
           target="_blank"
+          rel="noopener noreferrer"
           whileHover={{ scale: 1.2, x: -5 }}
-          className={`${social.color} p-3 rounded-full text-white shadow-lg transition-colors`}
+          // إضافة transition بسيطة للحركة
+          className={`${social.color} p-3 rounded-full text-white shadow-xl`}
         >
           {social.icon}
         </motion.a>

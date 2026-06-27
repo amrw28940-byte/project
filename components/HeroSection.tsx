@@ -22,7 +22,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8 }}
           className="text-3xl md:text-6xl font-black text-white mb-6 leading-tight"
         >
-          <span className="text-yellow-500">WordPress</span> و <span className="text-yellow-500">Next.js</span> نصمم مستقبلك الرقمي بـ 
+          <span className="text-yellow-500">WordPress</span> و <span className="text-yellow-500">Next.js</span>  الرقمي بـنصمم مستقبلك  
           <br />
           <span className="text-2xl md:text-4xl text-gray-200 font-bold mt-4 block">
             (SEO) مع استراتيجيات احترافية لتصدر نتائج البحث 

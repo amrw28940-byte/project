@@ -12,17 +12,17 @@ export default function FloatingSocials() {
   ];
 
   return (
-    // تم تغيير الـ top-1/2 إلى bottom-10 لضمان وجودها في الأسفل بعيداً عن محتوى الصفحة
-    <div className="fixed right-4 bottom-10 z-50 flex flex-col gap-3">
+    <div className="fixed right-6 bottom-10 z-50 flex flex-col gap-4">
       {socials.map((social, index) => (
         <motion.a
           key={index}
           href={social.link}
           target="_blank"
           rel="noopener noreferrer"
-          whileHover={{ scale: 1.2, x: -5 }}
-          // إضافة transition بسيطة للحركة
-          className={`${social.color} p-3 rounded-full text-white shadow-xl`}
+          whileHover={{ scale: 1.15, x: -5 }}
+          whileTap={{ scale: 0.95 }}
+          /* تم إضافة برواز أحمر، حواف دائرية كاملة، وظل قوي جداً لمنح الأزرار بروزاً نيون ضخماً */
+          className={`${social.color} p-3 rounded-full text-white border-4 border-[#ff001e] shadow-[0_15px_30px_rgba(0,0,0,0.6)] flex items-center justify-center transition-transform duration-200`}
         >
           {social.icon}
         </motion.a>

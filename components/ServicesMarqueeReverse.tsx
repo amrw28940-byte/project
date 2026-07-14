@@ -18,7 +18,7 @@ export default function ServicesMarqueeReverse() {
   ];
 
   return (
-    <div className="bg-green-600 py-3 overflow-hidden border-b-4 border-black relative">
+    <div className="bg-red-600 py-3 overflow-hidden border-b-4 border-black relative">
       {/* استخدمنا كلاس animate-marquee-reverse للحركة العكسية */}
       <div className="flex animate-marquee-reverse whitespace-nowrap">
         {[...services, ...services].map((service, index) => (

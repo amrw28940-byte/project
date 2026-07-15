@@ -1,15 +1,15 @@
-import Header from '@/components/Header';
-import HeroSection from '@/components/HeroSection';
-import ServicesMarquee from '@/components/ServicesMarquee';
-import ServicesMarqueeReverse from '@/components/ServicesMarqueeReverse';
-import ExperienceSection from '@/components/ExperienceSection';
-import ServicesSection from '@/components/ServicesSection';
-import ProjectsSection from '@/components/ProjectsSection';
-import AboutSection from '@/components/AboutSection';
-import TestimonialsSection from '@/components/TestimonialsSection';
-import FloatingSocials from '@/components/FloatingSocials'; 
-import ContactSection from '@/components/ContactSection'; 
-import Contact from '@/components/Contact'; 
+import Header from '../components/Header';
+import HeroSection from '../components/HeroSection';
+import ServicesMarquee from '../components/ServicesMarquee';
+import ServicesMarqueeReverse from '../components/ServicesMarqueeReverse';
+import ExperienceSection from '../components/ExperienceSection';
+import ServicesSection from '../components/ServicesSection';
+import ProjectsSection from '../components/ProjectsSection';
+import AboutSection from '../components/AboutSection';
+import TestimonialsSection from '../components/TestimonialsSection';
+import FloatingSocials from '../components/FloatingSocials'; 
+import ContactSection from '../components/ContactSection'; 
+import Contact from '../components/Contact'; 
 
 export default function HomePage() {
   return (

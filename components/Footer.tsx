@@ -41,7 +41,7 @@ export default function Footer() {
 
   return (
     /* الفوتر بالكامل ببرواز علوي أحمر عريض، توهج نيون، وظل أسود ضخم */
-    <footer className="relative w-full pt-20 pb-12 px-6 overflow-hidden bg-white border-t-8 border-[#ff001e] shadow-[0_-25px_50px_rgba(0,0,0,0.5)]" dir="rtl">
+    <footer className="relative w-full pt-20 pb-12 px-6 overflow-hidden bg-white border-t-8 border-[#000000] shadow-[0_-25px_50px_rgba(0,0,0,0.5)]" dir="rtl">
       
       {/* شبكة المربعات الهندسية الخلفية للفوتر */}
       <div 
@@ -81,7 +81,7 @@ export default function Footer() {
           
           {/* قسم خدمات السيو */}
           <div>
-            <h3 className="text-2xl font-black text-black mb-8 border-r-4 border-[#ff001e] pr-3">
+            <h3 className="text-2xl font-black text-black mb-8 border-r-4 border-[#000000] pr-3">
               خدمات الأرشفة والـ SEO
             </h3>
             <div className="flex flex-wrap gap-4">
@@ -90,9 +90,9 @@ export default function Footer() {
                   key={index}
                   whileHover={{ scale: 1.04, y: -3 }}
                   /* مستطيل أبيض، برواز أحمر، حواف دائرية، بروز وظل أسود قوي جداً */
-                  className="bg-white/95 backdrop-blur-sm border-2 border-[#ff001e] px-4 py-3 rounded-2xl shadow-[0_10px_20px_rgba(0,0,0,0.4)] transition-all"
+                  className="bg-white/95 backdrop-blur-sm border-2 border-[#000000] px-4 py-3 rounded-2xl shadow-[0_10px_20px_rgba(0,0,0,0.4)] transition-all"
                 >
-                  <Link href={`/${link.slug}`} className="text-black font-black text-sm hover:text-[#ff001e] transition-colors block">
+                  <Link href={`/${link.slug}`} className="text-black font-black text-sm hover:text-[#000000] transition-colors block">
                     {link.title}
                   </Link>
                 </motion.div>
@@ -102,7 +102,7 @@ export default function Footer() {
 
           {/* قسم خدمات تصميم المواقع */}
           <div>
-            <h3 className="text-2xl font-black text-black mb-8 border-r-4 border-[#ff001e] pr-3">
+            <h3 className="text-2xl font-black text-black mb-8 border-r-4 border-[#000000] pr-3">
               خدمات تصميم المواقع الإلكترونية
             </h3>
             <div className="flex flex-wrap gap-4">
@@ -111,9 +111,9 @@ export default function Footer() {
                   key={index}
                   whileHover={{ scale: 1.04, y: -3 }}
                   /* مستطيل أبيض، برواز أحمر، حواف دائرية، بروز وظل أسود قوي جداً */
-                  className="bg-white/95 backdrop-blur-sm border-2 border-[#ff001e] px-4 py-3 rounded-2xl shadow-[0_10px_20px_rgba(0,0,0,0.4)] transition-all"
+                  className="bg-white/95 backdrop-blur-sm border-2 border-[#000000] px-4 py-3 rounded-2xl shadow-[0_10px_20px_rgba(0,0,0,0.4)] transition-all"
                 >
-                  <Link href={`/${link.slug}`} className="text-black font-black text-sm hover:text-[#ff001e] transition-colors block">
+                  <Link href={`/${link.slug}`} className="text-black font-black text-sm hover:text-[#000000] transition-colors block">
                     {link.title}
                   </Link>
                 </motion.div>
@@ -124,7 +124,7 @@ export default function Footer() {
         </div>
 
         {/* خط فاصل سفلي أحمر عريض */}
-        <div className="w-full h-1 bg-[#ff001e] rounded-full opacity-80 mb-8 shadow-[0_0_10px_rgba(255,0,30,0.5)]" />
+        <div className="w-full h-1 bg-[#000000] rounded-full opacity-80 mb-8 shadow-[0_0_10px_rgba(255,0,30,0.5)]" />
 
         {/* الجزء السفلي: السوشيال ميديا وحقوق الملكية */}
         <div className="flex flex-col md:flex-row items-center justify-between w-full gap-6">
@@ -142,7 +142,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.15, y: -4 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white border-2 border-[#ff001e] p-3 rounded-xl text-[#ff001e] shadow-[0_8px_16px_rgba(0,0,0,0.3)] hover:bg-[#ff001e] hover:text-white transition-all flex items-center justify-center"
+                className="bg-white border-2 border-[#000000] p-3 rounded-xl text-[#000000] shadow-[0_8px_16px_rgba(0,0,0,0.3)] hover:bg-[#000000] hover:text-white transition-all flex items-center justify-center"
               >
                 {social.icon}
               </motion.a>

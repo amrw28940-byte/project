@@ -11,7 +11,13 @@ interface VideoProject {
   embedUrl: string;
   gridClass: string;
   thumbnail: string;
+  coverImage: string; 
   description: string;
+}
+
+interface FAQItem {
+  question: string;
+  answer: string;
 }
 
 export default function AiVideoProductionPage() {
@@ -20,6 +26,7 @@ export default function AiVideoProductionPage() {
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
   const [selectedVideo, setSelectedVideo] = useState<VideoProject | null>(null);
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
   const services = [
     {
@@ -60,6 +67,94 @@ export default function AiVideoProductionPage() {
     }
   ];
 
+  const benefits = [
+    {
+      title: "توفير 90% من التكاليف التقليدية",
+      description: "وداعاً للميزانيات الفلكية لتأجير الكاميرات، الاستوديوهات، والممثلين. الذكاء الاصطناعي السينمائي يوفر لك مخرجات فائقة الدقة بكسر بسيط من التكلفة المعتادة.",
+      icon: "💰",
+      gradient: "from-red-500/20 to-transparent"
+    },
+    {
+      title: "سرعة تنفيذ قياسية فائقة",
+      description: "نحن لا نحتاج لأسابيع للتصوير والتحضير، بفضل أدواتنا المتقدمة يمكننا تسليم الفيديوهات الترويجية والوثائقية المعقدة في أيام معدودة وبأعلى جودة إخراجية.",
+      icon: "⚡",
+      gradient: "from-amber-500/20 to-transparent"
+    },
+    {
+      title: "إبداع سينمائي غير محدود",
+      description: "هل تتخيل منتجك يدور في الفضاء أو مراجعة في أعماق المحيط؟ لا توجد قيود فيزيائية، كل فكرة خيالية أو سيناريو معقد يمكننا تحويله لواقع مرئي يبهر العملاء.",
+      icon: "🌌",
+      gradient: "from-purple-500/20 to-transparent"
+    },
+    {
+      title: "تخصيص كامل للهوية البصرية",
+      description: "نلتزم بنسبة 100% بألوان علامتك التجارية، الخطوط الخاصة بك، واللوجو، مما يضمن أن الفيديوهات المنتجة تعزز هيبة ومكانة براند شركتك بشكل احترافي.",
+      icon: "🎯",
+      gradient: "from-blue-500/20 to-transparent"
+    }
+  ];
+
+  const tips = [
+    {
+      number: "01",
+      title: "كن محددًا في طلباتك",
+      description: "حدد جمهورك المستهدف بدقة، طول الفيديو الأنسب للمنصة، والنبرة المطلوبة مسبقًا (حماسية، جادة، أو ودية) لضمان توافق السيناريو والمشاهد البصرية تماماً مع رؤيتك.",
+      icon: "🎯",
+      gradient: "from-red-500/10 to-transparent"
+    },
+    {
+      number: "02",
+      title: "قم بتضمين سياق ومراجع كافية",
+      description: "تزويدنا بروابط المنتجات، أو فيديوهات مرجعية سابقة نالت إعجابك، يساعد أدواتنا وفريقنا التقني في محاكاة الطابع العام والمستوى الإخراجي المطلوب بدقة متناهية.",
+      icon: "🔗",
+      gradient: "from-purple-500/10 to-transparent"
+    },
+    {
+      number: "03",
+      title: "وصف النمط الإخراجي المطلوب",
+      description: "حدد مسبقاً إذا كنت ترغب في نمط فيديو توضيحي، أو فيديو يعتمد على مراجعات وآراء حقيقية (Testimonial)، أو إعلان سينمائي ترويجي، أو محتوى تعليمي تفاعلي.",
+      icon: "🎬",
+      gradient: "from-amber-500/10 to-transparent"
+    }
+  ];
+
+  const faqs: FAQItem[] = [
+    {
+      question: "هل تبدو الشخصيات والأصوات في فيديوهات الذكاء الاصطناعي حقيقية وطبيعية؟",
+      answer: "نعم تماماً. نستخدم في Giotec أحدث نماذج توليد الأفاتار البصري والصوتي المتطورة، والتي تقدم حركات شفاه وجسد متطابقة للغاية مع النطق، بالإضافة إلى نبرات صوت بشرية تفاعلية خالية من الآلية والبرود المعتاد."
+    },
+    {
+      question: "ما هي المدة الزمنية المطلوبة لتسليم الفيديو الإعلاني أو الوثائقي؟",
+      answer: "بفضل خط الإنتاج التقني المتقدم لدينا، يتم تسليم الفيديوهات في مدة تتراوح بين 3 إلى 5 أيام عمل فقط، حسب طول الفيديو ونوع المؤثرات والسيناريو المطلوب، وهي سرعة قياسية مقارنة بطرق الإنتاج التقليدي."
+    },
+    {
+      question: "هل يمكنني تعديل السيناريو أو المشاهد بعد تسليم الفيديو؟",
+      answer: "بالتأكيد. نوفر لعملائنا جولات مخصصة للمراجعة والتعديل لضمان توافق المنتج البصري النهائي مع تطلعاتهم وهوية علامتهم التجارية بنسبة 100%."
+    },
+    {
+      question: "هل الفيديوهات التي يتم إنتاجها تكون حصرية وخالية من حقوق الملكية؟",
+      answer: "نعم، كافة الفيديوهات والمشاهد والتوليدات الصوتية والموسيقى التصويرية التي نسلمها لك تكون مرخصة ومملوكة لك بالكامل، مما يتيح لك استخدامها بحرية مطلقة في الحملات الإعلانية والمنصات الرقمية دون القلق من قضايا حقوق الملكية."
+    },
+    {
+      question: "كيف أبدأ مشروعي معكم وما هي المتطلبات الأساسية؟",
+      answer: "كل ما عليك هو الضغط على زر التواصل عبر الواتساب لتتحدث مع مستشارنا الفني؛ سنحتاج فقط لمعرفة فكرة مشروعك، أو صور لمنتجك، أو الهوية العامة لعلامتك التجارية لنقوم نحن بصياغة السيناريو والإنتاج الكامل فوراً."
+    }
+  ];
+
+  // سكيما الأسئلة الشائعة بصيغة JSON-LD لتحسين الـ SEO في نتائج جوجل
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
   const videoProjects: VideoProject[] = [
     {
       id: 1,
@@ -68,6 +163,7 @@ export default function AiVideoProductionPage() {
       embedUrl: "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1283272729828415%2F&show_text=false",
       gridClass: "md:col-span-2 md:row-span-2 min-h-[380px] md:min-h-[480px]",
       thumbnail: "🔮",
+      coverImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800",
       description: "العمل الرئيسي المستعرض لأعلى قدرات دمج الخيال البصري، وتوليد المشاهد والتحركات الاحترافية المذهلة من خلال نماذج الذكاء الاصطناعي المتطورة."
     },
     {
@@ -77,6 +173,7 @@ export default function AiVideoProductionPage() {
       embedUrl: "https://drive.google.com/file/d/1F8rs8-6mAaV5KVCByGNTTkzFgld3_u70/preview",
       gridClass: "md:col-span-1 md:row-span-2 min-h-[350px]",
       thumbnail: "🤖",
+      coverImage: "https://images.unsplash.com/photo-1677442136019-21780efad99a?q=80&w=800",
       description: "فيديو إعلاني يستعرض آليات دمج تقنيات التوليد البصري والذكاء الاصطناعي لإخراج مقاطع إعلانية سينمائية بأقل تكلفة وأعلى كفاءة تسويقية."
     },
     {
@@ -86,24 +183,27 @@ export default function AiVideoProductionPage() {
       embedUrl: "https://drive.google.com/file/d/1lFcVy1uD7kqRm9nfXraWKaytU2UlMUuL/preview",
       gridClass: "md:col-span-1 md:row-span-1 min-h-[220px]",
       thumbnail: "💼",
-      description: "إنتاج مرئي ترويجي يسلط الضوء على مميزات العمل الحر ومنصة كفيل، مصمم بجاذبية بصرية تحفز المشاهدين على اتخاذ إجراء."
+      coverImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800",
+      description: "إنتاج مرئي ترويجي يسلط الضوء على مميزات العمل حر ومنصة كفيل، مصمم بجاذبية بصرية تحفز المشاهدين على اتخاذ إجراء."
     },
     {
       id: 4,
-      title: "فيديو وثائقي تفصيلي عن نشأة وتاريخ شركة جوجل العالمية",
+      title: "فيديو وثائقي تفصيلي عن نشأة الدارك ويب",
       category: "أفلام وثائقية وقصصية",
       embedUrl: "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F874438095381112%2F&show_text=false",
       gridClass: "md:col-span-1 md:row-span-1 min-h-[220px]",
       thumbnail: "🌐",
-      description: "سرد سينمائي وتاريخي مشوق يستعرض البدايات الأولى لمحرك البحث الأشهر عالمياً وكيف غير وجه التكنولوجيا الرقمية."
+      coverImage: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800",
+      description: "سرد سينمائي وتاريخي مشوق يستعرض البدايات الأولى لنشأة الدارك ويب."
     },
     {
       id: 5,
       title: "وثائقي نشأة جوجل - الجزء الثاني والأسرار التقنية",
       category: "أفلام وثائقية وقصصية",
-      embedUrl: "https://www.facebook.com/plugins/video.php?height=317&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F839435782037938%2F&show_text=false",
+      embedUrl: "https://www.facebook.com/plugins/video.php?height=317&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F839435782037938%2F&show_text=false&width=560&t=0",
       gridClass: "md:col-span-1 md:row-span-1 min-h-[220px]",
       thumbnail: "📈",
+      coverImage: "https://images.unsplash.com/photo-1572021335469-31706a17aaef?q=80&w=800",
       description: "متابعة وثائقية شيقة تسلط الضوء على قفزات شركة جوجل ومراحل تطور خوارزمياتها وبنيتها التحتية العملاقة."
     },
     {
@@ -113,6 +213,7 @@ export default function AiVideoProductionPage() {
       embedUrl: "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1132209208931953%2F&show_text=false",
       gridClass: "md:col-span-1 md:row-span-1 min-h-[220px]",
       thumbnail: "🚀",
+      coverImage: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800",
       description: "خاتمة السلسلة الوثائقية عن الإمبراطورية الرقمية لجوجل واستراتيجيات الهيمنة على سوق البيانات والذكاء الاصطناعي."
     },
     {
@@ -122,6 +223,7 @@ export default function AiVideoProductionPage() {
       embedUrl: "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1339074467519916%2F&show_text=false",
       gridClass: "md:col-span-1 md:row-span-1 min-h-[220px]",
       thumbnail: "🕵️‍♂️",
+      coverImage: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=800",
       description: "فيديو ترويجي يستعرض الجوانب الخفية لشبكة الإنترنت المظلم بأسلوب إخراجي غامض يشد الانتباه ويرفع معدلات الاحتفاظ بالمشاهد."
     },
     {
@@ -131,7 +233,8 @@ export default function AiVideoProductionPage() {
       embedUrl: "https://www.facebook.com/plugins/video.php?height=416&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1451334533222164%2F&show_text=false",
       gridClass: "md:col-span-2 md:row-span-1 min-h-[240px]",
       thumbnail: "🧟",
-      description: "موناجه متطور ومؤثرات بصرية وصوتية قوية تشرح تاريخ الأساطير والظواهر السينمائية بطريقة ترفيهية ومثيرة."
+      coverImage: "https://images.unsplash.com/photo-1509248961158-e54f6934749c?q=80&w=800",
+      description: "مونتاج متطور ومؤثرات بصرية وصوتية قوية تشرح تاريخ الأساطير والظواهر السينمائية بطريقة ترفيهية ومثيرة."
     },
     {
       id: 9,
@@ -140,6 +243,7 @@ export default function AiVideoProductionPage() {
       embedUrl: "https://www.facebook.com/plugins/video.php?height=312&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F876732714766185%2F&show_text=false",
       gridClass: "md:col-span-1 md:row-span-1 min-h-[220px]",
       thumbnail: "🦅",
+      coverImage: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=800",
       description: "توثيق رياضي رائع يستعرض الجذور التاريخية لتأسيس القلعة الحمراء والمحطات المفصلية في تاريخ الرياضة العربية والإفريقية."
     },
     {
@@ -149,15 +253,17 @@ export default function AiVideoProductionPage() {
       embedUrl: "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F901114159339286%2F&show_text=false",
       gridClass: "md:col-span-1 md:row-span-1 min-h-[220px]",
       thumbnail: "📚",
+      coverImage: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=800",
       description: "إنتاج مرئي وقور بروح فنية عالية يروي أدق التفاصيل عن رحلة الإمام البخاري المباركة في خدمة السنة النبوية الشريفة."
     },
     {
       id: 11,
       title: "وثائقي تاريخي ممتع ومميز عن نشأة وبدايات بطولة كأس العالم",
       category: "وثائقيات رياضية",
-      embedUrl: "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F673016585803021%2F&show_text=false",
+      embedUrl: "https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fnadersalm123%2Fposts%2Fpfbid01hCBNqasvisBGpABYGxrM6bcafeu1X2t95hgEKdhUkWLEYmWwRvQNohoKAj5iLol&show_text=false&width=500",
       gridClass: "md:col-span-1 md:row-span-1 min-h-[220px]",
       thumbnail: "🏆",
+      coverImage: "https://images.unsplash.com/photo-1540747737956-37872404797a?q=80&w=800",
       description: "رحلة شيقة عبر الزمن لاستكشاف كيف تحولت فكرة بسيطة إلى الحدث الرياضي والملتقى الكروي الأكبر والأكثر جماهيرية على كوكب الأرض."
     },
     {
@@ -167,6 +273,7 @@ export default function AiVideoProductionPage() {
       embedUrl: "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F845147871854900%2F&show_text=false",
       gridClass: "md:col-span-2 md:row-span-1 min-h-[240px]",
       thumbnail: "🏰",
+      coverImage: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=800",
       description: "وثائقي ملهم يوضح كيف تحول الإصرار والشغف برسم الرسوم المتحركة إلى أكبر إمبراطورية ترفيهية وإنتاجية حول العالم."
     },
     {
@@ -176,20 +283,62 @@ export default function AiVideoProductionPage() {
       embedUrl: "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F2550930995303923%2F&show_text=false",
       gridClass: "md:col-span-1 md:row-span-1 min-h-[220px]",
       thumbnail: "🥔",
+      coverImage: "https://images.unsplash.com/photo-1634128221889-82ed6efebfc3?q=80&w=800",
       description: "نموذج لصناعة المحتوى الكوميدي التفاعلي الخفيف المصمم بذكاء للمحافظة على جاذبية المنصات وزيادة أعداد المتابعين تلقائياً."
     }
   ];
 
+  const toggleFaq = (index: number) => {
+    setOpenFaqIndex(openFaqIndex === index ? null : index);
+  };
+
   return (
     <>
+      {/* حقن سكيما الأسئلة الشائعة لقوقل */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
       <div className="relative z-50">
         <Header />
       </div>
 
-      <main className="bg-slate-950 text-white min-h-screen" dir="rtl">
+      <main className="relative bg-white text-black min-h-screen overflow-hidden" dir="rtl">
         
+        {/* شبكة المربعات الهندسية الخلفية للفوتر والموقع بالكامل */}
+        <div 
+          style={{
+            position: "absolute",
+            inset: 0,
+            zIndex: 0,
+            pointerEvents: "none",
+            backgroundImage: `
+              linear-gradient(to right, rgba(255, 0, 30, 0.08) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(255, 0, 30, 0.08) 1px, transparent 1px)
+            `,
+            backgroundSize: "60px 60px",
+          }}
+        />
+
+        {/* هالة حمراء ممتدة في الخلفية للوهج النيون */}
+        <div 
+          style={{
+            position: "absolute",
+            bottom: "10%",
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "1200px",
+            height: "600px",
+            background: "radial-gradient(circle, rgba(255, 0, 30, 0.06) 0%, transparent 80%)",
+            zIndex: 0,
+            pointerEvents: "none",
+            filter: "blur(130px)",
+          }}
+        />
+
         {/* 🎬 السكشن الأول: الهيرو */}
-        <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-slate-950 pt-32 md:pt-40 pb-16">
+        <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-32 md:pt-40 pb-16 border-b-8 border-[#ff001e]">
           <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
             <video
               src="/vidio ai.mp4"
@@ -198,9 +347,9 @@ export default function AiVideoProductionPage() {
               loop
               playsInline
               controls={false}
-              className="w-full h-full object-cover opacity-75 scale-[1.01]" 
+              className="w-full h-full object-cover opacity-35 scale-[1.01]" 
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-slate-950/20 to-slate-950/60" />
+            <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-white/10 to-white/70" />
           </div>
 
           <div className="max-w-5xl mx-auto text-center px-6 relative z-10 space-y-8">
@@ -208,7 +357,7 @@ export default function AiVideoProductionPage() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 bg-purple-500/20 border border-purple-500/40 text-purple-300 backdrop-blur-md px-4 py-1.5 rounded-full text-sm font-bold mx-auto"
+              className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/30 text-red-600 backdrop-blur-md px-4 py-1.5 rounded-full text-sm font-bold mx-auto"
             >
               🎬 الجيل القادم من صناعة المحتوى المرئي السينمائي
             </motion.div>
@@ -217,10 +366,10 @@ export default function AiVideoProductionPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-4xl md:text-7xl font-black leading-tight tracking-tight text-white"
+              className="text-4xl md:text-7xl font-black leading-tight tracking-tight text-black"
             >
               صمم فيديوهات <br />
-              <span className="bg-gradient-to-r from-purple-400 via-pink-500 to-cyan-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-red-600 via-[#ff001e] to-purple-600 bg-clip-text text-transparent">
                 ذكاء اصطناعي احترافية
               </span> <br />
               تأسر جمهورك وتضاعف مبيعاتك
@@ -230,7 +379,7 @@ export default function AiVideoProductionPage() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.4 }}
-              className="text-lg md:text-xl text-slate-100 max-w-3xl mx-auto leading-relaxed font-medium"
+              className="text-lg md:text-xl text-gray-800 max-w-3xl mx-auto leading-relaxed font-black"
             >
               في Giotec ندمج أحدث تقنيات الإخراج السينمائي بالذكاء الاصطناعي لتوليد فيديوهات إعلانية وتسويقية مذهلة وبدقة متناهية، تمنح براند عملك الهيبة الفنية وتوفر 90% من تكاليف الإنتاج التقليدي.
             </motion.p>
@@ -245,7 +394,7 @@ export default function AiVideoProductionPage() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-black px-12 py-5 rounded-2xl text-xl hover:from-purple-700 hover:to-indigo-700 transition-all shadow-[0_0_40px_rgba(147,51,234,0.35)] w-full sm:w-auto text-center"
+                className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-red-600 to-[#ff001e] text-white font-black px-12 py-5 rounded-2xl text-xl hover:from-red-700 hover:to-red-800 transition-all shadow-[0_15px_30px_rgba(255,0,30,0.3)] w-full sm:w-auto text-center"
               >
                 <span>ابدأ إنتاج فيديو الذكاء الاصطناعي الخاص بك</span>
                 <span className="text-2xl">⚡</span>
@@ -255,15 +404,15 @@ export default function AiVideoProductionPage() {
         </section>
 
         {/* 📦 السكشن الثاني: الخدمات */}
-        <section className="relative w-full bg-slate-950 py-24 px-6 overflow-hidden border-t border-slate-900">
+        <section className="relative w-full py-24 px-6 overflow-hidden border-t-8 border-[#ff001e]">
           <div className="max-w-7xl mx-auto relative z-10">
             <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
-              <motion.span className="text-purple-400 font-bold tracking-wider uppercase text-sm bg-purple-500/10 border border-purple-500/20 px-4 py-1 rounded-full">
+              <motion.span className="text-[#ff001e] font-black tracking-wider uppercase text-sm bg-red-500/10 border border-[#ff001e]/20 px-4 py-1 rounded-full">
                 حلول إنتاج متكاملة
               </motion.span>
-              <motion.h2 className="text-3xl md:text-5xl font-black text-white leading-tight">
+              <motion.h2 className="text-3xl md:text-5xl font-black text-black leading-tight">
                 إيه اللي هنقدمهولك في خدمة <br className="hidden md:block"/>
-                <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">فيديوهات الذكاء الاصطناعي؟</span>
+                <span className="bg-gradient-to-r from-red-600 to-[#ff001e] bg-clip-text text-transparent">فيديوهات الذكاء الاصطناعي؟</span>
               </motion.h2>
             </div>
 
@@ -275,16 +424,16 @@ export default function AiVideoProductionPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   whileHover={{ y: -6 }}
-                  className="group relative bg-slate-900/40 border border-slate-800 hover:border-purple-500/40 rounded-2xl backdrop-blur-sm transition-all shadow-xl overflow-hidden"
+                  className="group relative bg-white/95 border-2 border-[#ff001e] rounded-2xl backdrop-blur-sm transition-all shadow-[0_10px_20px_rgba(0,0,0,0.25)] overflow-hidden"
                 >
                   <Link href={`/services/vidioai/${service.slug}`} className="block p-8 h-full w-full">
-                    <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-slate-800 text-3xl mb-6 group-hover:bg-purple-600 transition-colors">
+                    <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-gray-100 text-3xl mb-6 group-hover:bg-[#ff001e] group-hover:text-white transition-all">
                       {service.icon}
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-4 group-hover:text-purple-300">
+                    <h3 className="text-xl font-black text-black mb-4 group-hover:text-[#ff001e] transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-slate-400 leading-relaxed font-medium text-base">
+                    <p className="text-gray-700 leading-relaxed font-bold text-base">
                       {service.description}
                     </p>
                   </Link>
@@ -294,16 +443,16 @@ export default function AiVideoProductionPage() {
           </div>
         </section>
 
-        {/* 🎞️ السكشن الثالث: معرض الأعمال المطور والـ Bento Grid */}
-        <section className="relative w-full bg-slate-950 py-24 px-6 overflow-hidden border-t border-slate-900">
+        {/* 🎞️ السكشن الثالث: معرض الأعمال والـ Bento Grid */}
+        <section className="relative w-full py-24 px-6 overflow-hidden border-t-8 border-[#ff001e]">
           <div className="max-w-7xl mx-auto relative z-10">
             <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-              <motion.span className="text-cyan-400 font-bold tracking-wider uppercase text-sm bg-cyan-500/10 border border-cyan-500/20 px-4 py-1 rounded-full">
+              <motion.span className="text-[#ff001e] font-black tracking-wider uppercase text-sm bg-red-500/10 border border-[#ff001e]/20 px-4 py-1 rounded-full">
                 روائع الإخراج المرئي
               </motion.span>
-              <motion.h2 className="text-3xl md:text-5xl font-black text-white">
+              <motion.h2 className="text-3xl md:text-5xl font-black text-black">
                 شاهد كفاءة الإنتاج والتصميم <br />
-                <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">بتقنيات Giotec الرقمية</span>
+                <span className="bg-gradient-to-r from-red-600 to-[#ff001e] bg-clip-text text-transparent">بتقنيات Giotec الرقمية</span>
               </motion.h2>
             </div>
 
@@ -316,25 +465,35 @@ export default function AiVideoProductionPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   whileHover={{ scale: 1.02 }}
-                  className={`group relative bg-slate-900/50 border border-slate-800/80 hover:border-cyan-500/50 rounded-3xl overflow-hidden cursor-pointer flex flex-col justify-end p-6 ${project.gridClass} shadow-2xl transition-all duration-300`}
+                  className={`group relative border-2 border-[#ff001e] rounded-3xl overflow-hidden cursor-pointer flex flex-col justify-end p-6 ${project.gridClass} shadow-[0_12px_24px_rgba(0,0,0,0.3)] transition-all duration-300`}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent z-10" />
+                  {/* صورة الغلاف */}
+                  <div 
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110 z-0"
+                    style={{ backgroundImage: `url(${project.coverImage})` }}
+                  />
+                  
+                  {/* طبقة تظليل سوداء ناعمة فوق الصورة لضمان وضوح نصوص العناوين */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent z-10" />
+                  
                   <div className="absolute inset-0 flex items-center justify-center z-20">
-                    <div className="w-14 h-14 rounded-full bg-slate-950/80 border border-cyan-500/30 flex items-center justify-center text-xl text-cyan-400 group-hover:bg-cyan-500 group-hover:text-black transition-all duration-300">
+                    <div className="w-14 h-14 rounded-full bg-white/90 border-2 border-[#ff001e] flex items-center justify-center text-xl text-[#ff001e] group-hover:bg-[#ff001e] group-hover:text-white transition-all duration-300 shadow-md">
                       ▶
                     </div>
                   </div>
-                  <div className="absolute top-6 left-6 text-7xl opacity-5 group-hover:opacity-15 transition-all z-0">
+                  
+                  <div className="absolute top-6 left-6 text-7xl opacity-10 group-hover:opacity-25 transition-all z-0">
                     {project.thumbnail}
                   </div>
-                  <div className="relative z-20 space-y-2">
-                    <span className="text-[11px] font-black text-cyan-400 bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20">
+                  
+                  <div className="relative z-20 space-y-2 text-right">
+                    <span className="text-[11px] font-black text-white bg-[#ff001e] px-3 py-1 rounded-full border border-red-500">
                       {project.category}
                     </span>
-                    <h3 className="text-base md:text-lg font-black text-white pt-2 group-hover:text-cyan-200 line-clamp-2">
+                    <h3 className="text-base md:text-lg font-black text-white pt-2 group-hover:text-red-200 line-clamp-2">
                       {project.title}
                     </h3>
-                    <p className="text-xs text-slate-400 line-clamp-2">
+                    <p className="text-xs text-gray-200 line-clamp-2 font-bold">
                       {project.description}
                     </p>
                   </div>
@@ -344,9 +503,176 @@ export default function AiVideoProductionPage() {
           </div>
         </section>
 
+        {/* 🏆 السكشن الرابع: مميزات التعامل معنا */}
+        <section className="relative w-full py-24 px-6 overflow-hidden border-t-8 border-[#ff001e] bg-gray-50/50">
+          <div className="max-w-7xl mx-auto relative z-10">
+            <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
+              <motion.span className="text-[#ff001e] font-black tracking-wider uppercase text-sm bg-red-500/10 border border-[#ff001e]/20 px-4 py-1 rounded-full">
+                لماذا نحن خيارك الأفضل؟
+              </motion.span>
+              <motion.h2 className="text-3xl md:text-5xl font-black text-black leading-tight">
+                المميزات اللي هتحصل عليها <br />
+                <span className="bg-gradient-to-r from-red-600 to-[#ff001e] bg-clip-text text-transparent">عند إنتاج فيديوهاتك مع Giotec</span>
+              </motion.h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              {benefits.map((benefit, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="group relative bg-white border-4 border-black rounded-[2.5rem] p-8 md:p-10 transition-all duration-300 transform hover:-translate-y-3 hover:scale-[1.03] shadow-[0_20px_45px_rgba(255,0,30,0.15)] hover:shadow-[0_30px_60px_rgba(255,0,30,0.35)] overflow-hidden"
+                  style={{
+                    boxShadow: "12px 12px 0px 0px #ff001e, 16px 16px 0px 0px #000"
+                  }}
+                >
+                  <div className={`absolute -right-16 -top-16 w-40 h-40 rounded-full blur-3xl bg-gradient-to-br ${benefit.gradient} opacity-40 transition-opacity group-hover:opacity-100 duration-500`} />
+
+                  <div className="flex flex-col md:flex-row gap-6 items-start relative z-10">
+                    <div className="flex-shrink-0 w-16 h-16 flex items-center justify-center rounded-2xl bg-[#ff001e] text-white text-3xl shadow-[0_8px_20px_rgba(255,0,30,0.4)] border-2 border-black transform group-hover:rotate-12 transition-transform duration-300">
+                      {benefit.icon}
+                    </div>
+                    
+                    <div className="space-y-3 text-right">
+                      <h3 className="text-2xl font-black text-black tracking-tight group-hover:text-[#ff001e] transition-colors duration-300">
+                        {benefit.title}
+                      </h3>
+                      <p className="text-gray-800 leading-relaxed font-bold text-base">
+                        {benefit.description}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 💡 السكشن الخامس: 3 نصائح للاستفادة القصوى */}
+        <section className="relative w-full py-24 px-6 overflow-hidden border-t-8 border-[#ff001e]">
+          <div className="max-w-7xl mx-auto relative z-10">
+            <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
+              <motion.span className="text-[#ff001e] font-black tracking-wider uppercase text-sm bg-red-500/10 border border-[#ff001e]/20 px-4 py-1 rounded-full">
+                دليلك للنجاح الرقمي
+              </motion.span>
+              <motion.h2 className="text-3xl md:text-5xl font-black text-black leading-tight">
+                3 نصائح للاستفادة القصوى <br />
+                <span className="bg-gradient-to-r from-red-600 to-[#ff001e] bg-clip-text text-transparent">من إنشاء الفيديو بالذكاء الاصطناعي</span>
+              </motion.h2>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+              {tips.map((tip, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.15 }}
+                  className="group relative bg-white border-4 border-black rounded-[2.5rem] p-8 md:p-10 transition-all duration-300 transform hover:-translate-y-3 hover:scale-[1.03] overflow-hidden"
+                  style={{
+                    boxShadow: "12px 12px 0px 0px #ff001e, 16px 16px 0px 0px #000"
+                  }}
+                >
+                  <div className={`absolute -right-16 -top-16 w-40 h-40 rounded-full blur-3xl bg-gradient-to-br ${tip.gradient} opacity-40 transition-opacity group-hover:opacity-100 duration-500`} />
+
+                  <div className="relative z-10 space-y-6 text-right">
+                    <div className="flex items-center justify-between">
+                      <span className="text-4xl md:text-5xl font-black text-black/10 group-hover:text-[#ff001e]/20 transition-colors duration-300">
+                        {tip.number}
+                      </span>
+                      <div className="w-14 h-14 flex items-center justify-center rounded-2xl bg-gray-100 text-3xl border-2 border-black group-hover:bg-[#ff001e] group-hover:text-white group-hover:rotate-6 transition-all duration-300">
+                        {tip.icon}
+                      </div>
+                    </div>
+
+                    <h3 className="text-2xl font-black text-black tracking-tight group-hover:text-[#ff001e] transition-colors duration-300">
+                      {tip.title}
+                    </h3>
+                    
+                    <div className="h-[2px] w-12 bg-[#ff001e]" />
+                    
+                    <p className="text-gray-800 leading-relaxed font-bold text-base">
+                      {tip.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ❓ السكشن السادس والأخير: الأسئلة الشائعة (FAQ) */}
+        <section className="relative w-full py-24 px-6 overflow-hidden border-t-8 border-[#ff001e] bg-gray-50/50">
+          <div className="max-w-4xl mx-auto relative z-10">
+            <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
+              <motion.span className="text-[#ff001e] font-black tracking-wider uppercase text-sm bg-red-500/10 border border-[#ff001e]/20 px-4 py-1 rounded-full">
+                لديك استفسار؟
+              </motion.span>
+              <motion.h2 className="text-3xl md:text-5xl font-black text-black leading-tight">
+                الأسئلة الشائعة حول <br />
+                <span className="bg-gradient-to-r from-red-600 to-[#ff001e] bg-clip-text text-transparent">صناعة الفيديو بالذكاء الاصطناعي</span>
+              </motion.h2>
+            </div>
+
+            <div className="space-y-8">
+              {faqs.map((faq, index) => {
+                const isOpen = openFaqIndex === index;
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    onClick={() => toggleFaq(index)}
+                    className="group relative bg-white border-4 border-black rounded-3xl p-6 md:p-8 cursor-pointer transition-all duration-300 transform hover:-translate-y-1.5 hover:scale-[1.01] overflow-hidden select-none"
+                    style={{
+                      boxShadow: isOpen 
+                        ? "6px 6px 0px 0px #ff001e, 10px 10px 0px 0px #000" 
+                        : "12px 12px 0px 0px #ff001e, 16px 16px 0px 0px #000"
+                    }}
+                  >
+                    {/* السؤال */}
+                    <div className="flex items-center justify-between gap-4 text-right">
+                      <h3 className="text-lg md:text-xl font-black text-black group-hover:text-[#ff001e] transition-colors duration-300">
+                        {faq.question}
+                      </h3>
+                      
+                      <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-gray-100 border-2 border-black flex items-center justify-center text-xl font-black text-black group-hover:bg-[#ff001e] group-hover:text-white transition-all duration-300">
+                        {isOpen ? "−" : "+"}
+                      </div>
+                    </div>
+
+                    {/* الإجابة */}
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0, marginTop: 0 }}
+                          animate={{ height: "auto", opacity: 1, marginTop: 20 }}
+                          exit={{ height: 0, opacity: 0, marginTop: 0 }}
+                          transition={{ duration: 0.3, ease: "easeInOut" }}
+                          className="overflow-hidden border-t-2 border-gray-100 pt-5"
+                        >
+                          <p className="text-gray-800 leading-relaxed font-bold text-base">
+                            {faq.answer}
+                          </p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
       </main>
 
-      {/* 🎬 تأثير الـ Cinema Focus والمشغل المتطور الذكي */}
+      {/* 🎬 تأثير الـ Cinema Focus ومستعرض الفيديو الذكي */}
       <AnimatePresence>
         {selectedVideo && (
           <motion.div
@@ -354,24 +680,23 @@ export default function AiVideoProductionPage() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedVideo(null)}
-            className="fixed inset-0 bg-slate-950/95 backdrop-blur-2xl z-[999] flex items-center justify-center p-4 md:p-8"
+            className="fixed inset-0 bg-black/90 backdrop-blur-xl z-[999] flex items-center justify-center p-4 md:p-8"
           >
             <motion.div
               initial={{ scale: 0.93, y: 15, opacity: 0 }}
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.93, y: 15, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-5xl bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(34,211,238,0.2)] grid grid-cols-1 lg:grid-cols-3"
+              className="relative w-full max-w-5xl bg-white border-4 border-[#ff001e] rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] grid grid-cols-1 lg:grid-cols-3"
             >
               
               <button 
                 onClick={() => setSelectedVideo(null)}
-                className="absolute top-4 right-4 z-50 w-10 h-10 rounded-full bg-slate-950/80 border border-slate-800 text-slate-400 hover:text-white flex items-center justify-center font-bold"
+                className="absolute top-4 right-4 z-50 w-10 h-10 rounded-full bg-white border-2 border-[#ff001e] text-black hover:bg-[#ff001e] hover:text-white flex items-center justify-center font-black transition-colors"
               >
                 ✕
               </button>
 
-              {/* مشغل الفيديو المزود بصلاحيات أمان معززة لضمان تشغيل تضمين فيسبوك وجوجل درايف */}
               <div className="lg:col-span-2 bg-black aspect-video lg:aspect-auto lg:h-[550px] relative">
                 <iframe
                   src={selectedVideo.embedUrl}
@@ -382,31 +707,31 @@ export default function AiVideoProductionPage() {
                 ></iframe>
               </div>
 
-              <div className="p-8 flex flex-col justify-between space-y-6 bg-slate-900 border-t lg:border-t-0 lg:border-r border-slate-800/80">
-                <div className="space-y-4">
-                  <span className="inline-block text-xs font-bold text-cyan-400 bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20">
+              <div className="p-8 flex flex-col justify-between space-y-6 bg-white border-t lg:border-t-0 lg:border-r-4 border-[#ff001e]">
+                <div className="space-y-4 text-right">
+                  <span className="inline-block text-xs font-black text-white bg-[#ff001e] px-3 py-1 rounded-full border border-red-500">
                     {selectedVideo.category}
                   </span>
-                  <h3 className="text-xl font-black text-white leading-tight">
+                  <h3 className="text-xl font-black text-black leading-tight">
                     {selectedVideo.title}
                   </h3>
-                  <div className="h-[2px] w-12 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full" />
-                  <p className="text-slate-300 text-sm font-medium">
+                  <div className="h-[3px] w-12 bg-[#ff001e] rounded-full" />
+                  <p className="text-gray-800 text-sm font-black">
                     {selectedVideo.description}
                   </p>
                 </div>
 
-                <div className="space-y-3 pt-6 border-t border-slate-800/60">
-                  <div className="flex items-center justify-between text-xs text-slate-500">
+                <div className="space-y-3 pt-6 border-t-2 border-gray-100">
+                  <div className="flex items-center justify-between text-xs text-gray-500 font-bold">
                     <span>تقنيات المونتاج</span>
-                    <span className="text-slate-300">Giotec Advanced Studio</span>
+                    <span className="text-black">Giotec Advanced Studio</span>
                   </div>
                   
                   <Link
                     href={whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 to-indigo-600 text-black font-black py-3.5 px-4 rounded-xl text-sm hover:from-cyan-600 hover:to-indigo-700 hover:text-white transition-all text-center shadow-lg"
+                    className="mt-4 w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-red-600 to-[#ff001e] text-white font-black py-3.5 px-4 rounded-xl text-sm hover:from-red-700 hover:to-red-800 transition-all text-center shadow-md"
                   >
                     <span>اطلب إنتاج فيديو احترافي لشركتك</span>
                     <span>⚡</span>

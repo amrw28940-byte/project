@@ -14,9 +14,9 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section className="relative w-full py-24 px-6 overflow-hidden bg-white" dir="rtl">
+    <section className="relative w-full py-24 px-6 overflow-hidden bg-[#f5f7f5]" dir="rtl">
       
-      {/* شبكة المربعات الهندسية الخلفية */}
+      {/* شبكة المربعات الهندسية الخلفية باللون الأخضر الهادئ */}
       <div 
         style={{
           position: "absolute",
@@ -24,14 +24,14 @@ export default function ServicesSection() {
           zIndex: 0,
           pointerEvents: "none",
           backgroundImage: `
-            linear-gradient(to right, rgba(255, 0, 30, 0.14) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255, 0, 30, 0.14) 1px, transparent 1px)
+            linear-gradient(to right, rgba(16, 185, 129, 0.08) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(16, 185, 129, 0.08) 1px, transparent 1px)
           `,
           backgroundSize: "60px 60px",
         }}
       />
 
-      {/* هالة حمراء للتوهج الخلفي */}
+      {/* هالة خضراء للتوهج الخلفي */}
       <div 
         style={{
           position: "absolute",
@@ -40,7 +40,7 @@ export default function ServicesSection() {
           transform: "translate(-50%, -50%)",
           width: "800px",
           height: "500px",
-          background: "radial-gradient(circle, rgba(255, 0, 30, 0.04) 0%, transparent 75%)",
+          background: "radial-gradient(circle, rgba(16, 185, 129, 0.06) 0%, transparent 75%)",
           zIndex: 0,
           pointerEvents: "none",
           filter: "blur(100px)",
@@ -48,7 +48,7 @@ export default function ServicesSection() {
       />
 
       <div className="max-w-6xl mx-auto relative z-10">
-        <h2 className="text-4xl md:text-5xl font-black text-black text-center mb-16 tracking-wide">
+        <h2 className="text-4xl md:text-5xl font-black text-slate-900 text-center mb-16 tracking-wide">
           خدماتنا الاحترافية
         </h2>
         
@@ -61,24 +61,23 @@ export default function ServicesSection() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="bg-white/90 backdrop-blur-sm rounded-3xl overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] border-4 border-[#ff001e] flex flex-col justify-between transition-all group"
+              className="bg-white/90 backdrop-blur-sm rounded-3xl overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.12)] border-4 border-emerald-500 flex flex-col justify-between transition-all group"
             >
-              <div className="relative h-64 bg-gray-50 border-b-4 border-[#ff001e]">
+              <div className="relative h-64 bg-gray-50 border-b-4 border-emerald-500">
                 <Image 
                   src={service.img} 
                   alt={service.title} 
                   fill 
-                  /* إضافة خاصية sizes هنا لحل التحذير تماماً وتحسين أداء السيو */
-                  sizes="(max-w-768px) 100vw, (max-w-1200px) 50vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-contain p-6 group-hover:scale-105 transition-transform duration-500" 
                 />
-                <Link href={service.slug} className="absolute top-4 left-4 bg-[#ff001e] text-white px-5 py-2 rounded-xl text-sm font-black shadow-md hover:bg-red-700 transition-colors">
+                <Link href={service.slug} className="absolute top-4 left-4 bg-emerald-600 text-white px-5 py-2 rounded-xl text-sm font-black shadow-md hover:bg-emerald-500 transition-colors">
                   اعرف المزيد ←
                 </Link>
               </div>
 
               <div className="p-8 text-center bg-white">
-                <h3 className="text-2xl font-black text-black group-hover:text-[#ff001e] transition-colors">
+                <h3 className="text-2xl font-black text-slate-900 group-hover:text-emerald-600 transition-colors">
                   {service.title}
                 </h3>
               </div>

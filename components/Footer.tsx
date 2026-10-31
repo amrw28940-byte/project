@@ -33,15 +33,15 @@ export default function Footer() {
   ];
 
   const socialIcons = [
-    { icon: <FaWhatsapp size={24} />, link: "#" }, // ضع رابط الواتساب هنا لاحقاً
-    { icon: <FaFacebook size={24} />, link: "#" }, // ضع رابط الفيسبوك هنا لاحقاً
-    { icon: <FaLinkedin size={24} />, link: "#" }, // ضع رابط لينكد إن هنا لاحقاً
-    { icon: <FaYoutube size={24} />, link: "#" },  // ضع رابط اليوتيوب هنا لاحقاً
+    { icon: <FaWhatsapp size={24} />, link: "#" }, 
+    { icon: <FaFacebook size={24} />, link: "https://www.facebook.com/nadersalm123" }, 
+    { icon: <FaLinkedin size={24} />, link: "https://www.linkedin.com/in/amr-salem-5765b0401/" }, 
+    { icon: <FaYoutube size={24} />, link: "#" },  
   ];
 
   return (
-    /* الفوتر بالكامل ببرواز علوي أحمر عريض، توهج نيون، وظل أسود ضخم */
-    <footer className="relative w-full pt-20 pb-12 px-6 overflow-hidden bg-white border-t-8 border-[#000000] shadow-[0_-25px_50px_rgba(0,0,0,0.5)]" dir="rtl">
+    /* الفوتر بالكامل ببرواز علوي أخضر عريض، توهج هادئ، وظل عميق */
+    <footer className="relative w-full pt-20 pb-12 px-6 overflow-hidden bg-[#f5f7f5] border-t-8 border-emerald-500 shadow-[0_-25px_50px_rgba(0,0,0,0.1)]" dir="rtl">
       
       {/* شبكة المربعات الهندسية الخلفية للفوتر */}
       <div 
@@ -51,14 +51,14 @@ export default function Footer() {
           zIndex: 0,
           pointerEvents: "none",
           backgroundImage: `
-            linear-gradient(to right, rgba(255, 0, 30, 0.12) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255, 0, 30, 0.12) 1px, transparent 1px)
+            linear-gradient(to right, rgba(16, 185, 129, 0.08) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(16, 185, 129, 0.08) 1px, transparent 1px)
           `,
           backgroundSize: "60px 60px",
         }}
       />
 
-      {/* هالة حمراء خلفية للتوهج */}
+      {/* هالة خضراء خلفية للتوهج */}
       <div 
         style={{
           position: "absolute",
@@ -67,7 +67,7 @@ export default function Footer() {
           transform: "translateX(-50%)",
           width: "1000px",
           height: "400px",
-          background: "radial-gradient(circle, rgba(255, 0, 30, 0.05) 0%, transparent 75%)",
+          background: "radial-gradient(circle, rgba(16, 185, 129, 0.06) 0%, transparent 75%)",
           zIndex: 0,
           pointerEvents: "none",
           filter: "blur(120px)",
@@ -81,7 +81,7 @@ export default function Footer() {
           
           {/* قسم خدمات السيو */}
           <div>
-            <h3 className="text-2xl font-black text-black mb-8 border-r-4 border-[#000000] pr-3">
+            <h3 className="text-2xl font-black text-slate-900 mb-8 border-r-4 border-emerald-500 pr-3">
               خدمات الأرشفة والـ SEO
             </h3>
             <div className="flex flex-wrap gap-4">
@@ -89,10 +89,10 @@ export default function Footer() {
                 <motion.div
                   key={index}
                   whileHover={{ scale: 1.04, y: -3 }}
-                  /* مستطيل أبيض، برواز أحمر، حواف دائرية، بروز وظل أسود قوي جداً */
-                  className="bg-white/95 backdrop-blur-sm border-2 border-[#000000] px-4 py-3 rounded-2xl shadow-[0_10px_20px_rgba(0,0,0,0.4)] transition-all"
+                  /* مستطيل أبيض، برواز أخضر، حواف دائرية، بروز وظل هادئ */
+                  className="bg-white/95 backdrop-blur-sm border-2 border-emerald-300 px-4 py-3 rounded-2xl shadow-[0_10px_20px_rgba(0,0,0,0.06)] transition-all"
                 >
-                  <Link href={`/${link.slug}`} className="text-black font-black text-sm hover:text-[#000000] transition-colors block">
+                  <Link href={`/${link.slug}`} className="text-slate-900 font-black text-sm hover:text-emerald-600 transition-colors block">
                     {link.title}
                   </Link>
                 </motion.div>
@@ -102,7 +102,7 @@ export default function Footer() {
 
           {/* قسم خدمات تصميم المواقع */}
           <div>
-            <h3 className="text-2xl font-black text-black mb-8 border-r-4 border-[#000000] pr-3">
+            <h3 className="text-2xl font-black text-slate-900 mb-8 border-r-4 border-emerald-500 pr-3">
               خدمات تصميم المواقع الإلكترونية
             </h3>
             <div className="flex flex-wrap gap-4">
@@ -110,10 +110,10 @@ export default function Footer() {
                 <motion.div
                   key={index}
                   whileHover={{ scale: 1.04, y: -3 }}
-                  /* مستطيل أبيض، برواز أحمر، حواف دائرية، بروز وظل أسود قوي جداً */
-                  className="bg-white/95 backdrop-blur-sm border-2 border-[#000000] px-4 py-3 rounded-2xl shadow-[0_10px_20px_rgba(0,0,0,0.4)] transition-all"
+                  /* مستطيل أبيض، برواز أخضر، حواف دائرية، بروز وظل هادئ */
+                  className="bg-white/95 backdrop-blur-sm border-2 border-emerald-300 px-4 py-3 rounded-2xl shadow-[0_10px_20px_rgba(0,0,0,0.06)] transition-all"
                 >
-                  <Link href={`/${link.slug}`} className="text-black font-black text-sm hover:text-[#000000] transition-colors block">
+                  <Link href={`/${link.slug}`} className="text-slate-900 font-black text-sm hover:text-emerald-600 transition-colors block">
                     {link.title}
                   </Link>
                 </motion.div>
@@ -123,16 +123,16 @@ export default function Footer() {
 
         </div>
 
-        {/* خط فاصل سفلي أحمر عريض */}
-        <div className="w-full h-1 bg-[#000000] rounded-full opacity-80 mb-8 shadow-[0_0_10px_rgba(255,0,30,0.5)]" />
+        {/* خط فاصل سفلي أخضر عريض */}
+        <div className="w-full h-1 bg-emerald-500 rounded-full opacity-80 mb-8 shadow-[0_0_10px_rgba(16,185,129,0.3)]" />
 
         {/* الجزء السفلي: السوشيال ميديا وحقوق الملكية */}
         <div className="flex flex-col md:flex-row items-center justify-between w-full gap-6">
-          <p className="text-black font-black text-lg">
+          <p className="text-slate-900 font-black text-lg">
             جميع الحقوق محفوظة © {new Date().getFullYear()}
           </p>
 
-          {/* أزرار السوشيال ميديا باللون الأحمر النيون المتناسق */}
+          {/* أزرار السوشيال ميديا باللون الأخضر المتناسق */}
           <div className="flex gap-4">
             {socialIcons.map((social, index) => (
               <motion.a
@@ -142,7 +142,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.15, y: -4 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white border-2 border-[#000000] p-3 rounded-xl text-[#000000] shadow-[0_8px_16px_rgba(0,0,0,0.3)] hover:bg-[#000000] hover:text-white transition-all flex items-center justify-center"
+                className="bg-white border-2 border-emerald-500 p-3 rounded-xl text-emerald-600 shadow-[0_8px_16px_rgba(0,0,0,0.08)] hover:bg-emerald-600 hover:text-white transition-all flex items-center justify-center"
               >
                 {social.icon}
               </motion.a>

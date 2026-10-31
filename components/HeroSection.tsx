@@ -1,53 +1,105 @@
-"use client"; // ضروري لاستخدام framer-motion
-import { motion } from 'framer-motion';
+'use client';
 
-export default function HeroSection() {
+import Link from 'next/link';
+
+interface HeroProps {
+  lang?: 'ar' | 'en';
+}
+
+export default function Hero({ lang = 'ar' }: HeroProps) {
+  const t = lang === 'ar' ? {
+    title: "تصميم مواقع احترافية وتحسين محركات بحث SEO",
+    subtitle: "نحول رؤيتك الرقمية إلى واقع ملموس بتصميم استثنائي وأداء فائق السرعة يضمن ظهورك في قمة محركات البحث.",
+    ctaExplore: "استكشف أعمالي السابقة",
+    ctaContact: "ابدأ مشروعك معنا"
+  } : {
+    title: "Professional Web Design & SEO Services",
+    subtitle: "Transforming your digital vision into reality with exceptional design and lightning-fast performance.",
+    ctaExplore: "Explore My Work",
+    ctaContact: "Start Your Project"
+  };
+
+  const whatsappNumber = "201020347946";
+  const whatsappMessage = encodeURIComponent(
+    lang === 'ar' 
+      ? "مرحباً عمرو، أرغب في مناقشة مشروع جديد معك." 
+      : "Hello Amr, I would like to discuss a new project with you."
+  );
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
   return (
-    <section className="relative w-full h-[80vh] overflow-hidden">
-      <video
-        autoPlay muted loop playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover z-0"
-      >
-        <source src="/dddd.mp4" type="video/mp4" />
-      </video>
+    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#f5f7f5] py-16 px-4 text-slate-900">
       
-      <div className="absolute top-0 left-0 w-full h-full bg-black/60 z-10" />
-      
-      <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-4">
-        
-        {/* إضافة dir="rtl" لتجبر المتصفح على قراءة السطر بالاتجاه الصحيح في البرودكشن */}
-        <motion.h1 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          dir="rtl"
-          className="text-3xl md:text-6xl font-black text-white mb-6 leading-tight whitespace-pre-line"
-        >
-          نصمم مستقبلك الرقمي بـ <span className="text-red-500 inline-block" dir="ltr">Next.js</span> و <span className="text-red-500 inline-block" dir="ltr">WordPress</span>
-          <br />
-          <span className="text-2xl md:text-4xl text-gray-200 font-bold mt-4 block">
-            مع استراتيجيات احترافية لتصدر نتائج البحث (SEO)
-          </span>
-        </motion.h1>
-        
-        <motion.p 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 1 }}
-          dir="rtl"
-          className="text-white text-lg md:text-xl mb-10 max-w-2xl"
-        >
-          نحن نحول أفكارك إلى منصات رقمية سريعة ⚡، آمنة 🛡️، ومتوافقة تماماً مع محركات البحث.
-        </motion.p>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#f5f7f5] via-[#eaf4ee] to-[#f5f7f5]" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-200/30 rounded-full blur-3xl pointer-events-none" />
 
-        <motion.a 
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          href="/calculate" 
-          className="bg-red-500 text-black px-10 py-4 rounded-full font-black text-xl hover:bg-red-400 transition-all shadow-[0_0_20px_rgba(234,179,8,0.5)]"
-        >
-          احسب تكلفة خدمتك الآن 💰
-        </motion.a>
+      <div className="relative z-10 max-w-5xl mx-auto w-full flex flex-col items-center text-center">
+        
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100/90 border border-emerald-300 text-emerald-800 text-sm mb-6 shadow-sm backdrop-blur-md">
+          <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
+          AMR SALEM DIGITAL STUDIO
+        </div>
+
+        <div className="relative w-full rounded-3xl p-3 bg-white/60 backdrop-blur-xl border-2 border-emerald-400/60 shadow-[0_0_90px_15px_rgba(16,185,129,0.2)] group overflow-hidden">
+          
+          <div className="flex items-center justify-between px-4 py-2 mb-2">
+            <div className="flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full bg-slate-300" />
+              <span className="w-3 h-3 rounded-full bg-slate-300" />
+              <span className="w-3 h-3 rounded-full bg-emerald-500" />
+            </div>
+            <div className="text-xs text-slate-500 font-mono tracking-widest font-semibold">
+              hero.mp4 — preview
+            </div>
+            <div className="w-12" />
+          </div>
+
+          <div className="relative w-full min-h-[550px] sm:min-h-[600px] rounded-2xl overflow-hidden shadow-2xl bg-slate-950 flex flex-col items-center justify-between p-6 sm:p-12">
+            
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            >
+              <source src="/hero.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+
+            <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/40 to-slate-950/80 pointer-events-none" />
+
+            <div className="relative z-20 flex flex-col items-center text-center max-w-3xl mt-4">
+              <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-4 leading-tight">
+                {t.title}
+              </h1>
+              
+              <p className="text-base sm:text-lg text-slate-200 max-w-xl leading-relaxed">
+                {t.subtitle}
+              </p>
+            </div>
+
+            <div className="relative z-20 flex flex-col sm:flex-row items-center justify-center gap-4 w-full mt-8">
+              <Link
+                href="/projects"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-teal-600 hover:bg-teal-500 text-white font-semibold transition-all shadow-lg shadow-teal-900/50 text-center tracking-wide backdrop-blur-md border border-teal-400/30"
+              >
+                {t.ctaExplore}
+              </Link>
+
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold transition-all shadow-lg shadow-emerald-900/50 text-center tracking-wide backdrop-blur-md border border-emerald-400/30 flex items-center justify-center gap-2"
+              >
+                <span>{t.ctaContact}</span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </section>
   );

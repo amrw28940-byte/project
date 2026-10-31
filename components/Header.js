@@ -47,7 +47,13 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 w-full z-50 bg-[#f5f7f5] border-b-[6px] border-emerald-500 h-28 md:h-32 px-4 md:px-10 flex items-center justify-between shadow-sm overflow-visible">
-      <button className="md:hidden text-slate-900 z-30" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+      {/* تم إضافة aria-label و title لزر القائمة لحل مشكلة إمكانية الوصول Accessibility */}
+      <button 
+        className="md:hidden text-slate-900 z-30" 
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        aria-label="القائمة الرئيسية"
+        title="القائمة الرئيسية"
+      >
         {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
       </button>
 
@@ -99,7 +105,7 @@ export default function Header() {
         ))}
       </nav>
 
-      {/* تم رفع الـ z-index الخاص باللوجو ليظهر فوق الخط الأخضر تماماً */}
+      {/* اللوجو بحجمه الكبير ومرتكز فوق الخط الأخضر تماماً */}
       <Link href="/" title="الرئيسية" className="flex-shrink-0 cursor-pointer transition-transform duration-200 hover:scale-105 flex items-center z-40">
         <div className="relative h-32 w-64 md:h-40 md:w-80 bg-[#f5f7f5] rounded-b-2xl p-1 shadow-sm">
           <Image 

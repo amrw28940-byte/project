@@ -1,5 +1,5 @@
 "use client";
-import Header from '@/components/Header';
+import Header from '../../../components/Header';
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
@@ -141,7 +141,6 @@ export default function AiVideoProductionPage() {
     }
   ];
 
-  // سكيما الأسئلة الشائعة بصيغة JSON-LD لتحسين الـ SEO في نتائج جوجل
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -294,7 +293,6 @@ export default function AiVideoProductionPage() {
 
   return (
     <>
-      {/* حقن سكيما الأسئلة الشائعة لقوقل */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -306,7 +304,6 @@ export default function AiVideoProductionPage() {
 
       <main className="relative bg-white text-black min-h-screen overflow-hidden" dir="rtl">
         
-        {/* شبكة المربعات الهندسية الخلفية للفوتر والموقع بالكامل */}
         <div 
           style={{
             position: "absolute",
@@ -321,7 +318,6 @@ export default function AiVideoProductionPage() {
           }}
         />
 
-        {/* هالة حمراء ممتدة في الخلفية للوهج النيون */}
         <div 
           style={{
             position: "absolute",
@@ -337,7 +333,6 @@ export default function AiVideoProductionPage() {
           }}
         />
 
-        {/* 🎬 السكشن الأول: الهيرو */}
         <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-32 md:pt-40 pb-16 border-b-8 border-[#ff001e]">
           <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
             <video
@@ -403,7 +398,6 @@ export default function AiVideoProductionPage() {
           </div>
         </section>
 
-        {/* 📦 السكشن الثاني: الخدمات */}
         <section className="relative w-full py-24 px-6 overflow-hidden border-t-8 border-[#ff001e]">
           <div className="max-w-7xl mx-auto relative z-10">
             <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
@@ -443,7 +437,6 @@ export default function AiVideoProductionPage() {
           </div>
         </section>
 
-        {/* 🎞️ السكشن الثالث: معرض الأعمال والـ Bento Grid */}
         <section className="relative w-full py-24 px-6 overflow-hidden border-t-8 border-[#ff001e]">
           <div className="max-w-7xl mx-auto relative z-10">
             <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
@@ -467,13 +460,11 @@ export default function AiVideoProductionPage() {
                   whileHover={{ scale: 1.02 }}
                   className={`group relative border-2 border-[#ff001e] rounded-3xl overflow-hidden cursor-pointer flex flex-col justify-end p-6 ${project.gridClass} shadow-[0_12px_24px_rgba(0,0,0,0.3)] transition-all duration-300`}
                 >
-                  {/* صورة الغلاف */}
                   <div 
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110 z-0"
                     style={{ backgroundImage: `url(${project.coverImage})` }}
                   />
                   
-                  {/* طبقة تظليل سوداء ناعمة فوق الصورة لضمان وضوح نصوص العناوين */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent z-10" />
                   
                   <div className="absolute inset-0 flex items-center justify-center z-20">
@@ -503,7 +494,6 @@ export default function AiVideoProductionPage() {
           </div>
         </section>
 
-        {/* 🏆 السكشن الرابع: مميزات التعامل معنا */}
         <section className="relative w-full py-24 px-6 overflow-hidden border-t-8 border-[#ff001e] bg-gray-50/50">
           <div className="max-w-7xl mx-auto relative z-10">
             <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
@@ -551,7 +541,6 @@ export default function AiVideoProductionPage() {
           </div>
         </section>
 
-        {/* 💡 السكشن الخامس: 3 نصائح للاستفادة القصوى */}
         <section className="relative w-full py-24 px-6 overflow-hidden border-t-8 border-[#ff001e]">
           <div className="max-w-7xl mx-auto relative z-10">
             <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
@@ -605,7 +594,6 @@ export default function AiVideoProductionPage() {
           </div>
         </section>
 
-        {/* ❓ السكشن السادس والأخير: الأسئلة الشائعة (FAQ) */}
         <section className="relative w-full py-24 px-6 overflow-hidden border-t-8 border-[#ff001e] bg-gray-50/50">
           <div className="max-w-4xl mx-auto relative z-10">
             <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
@@ -636,7 +624,6 @@ export default function AiVideoProductionPage() {
                         : "12px 12px 0px 0px #ff001e, 16px 16px 0px 0px #000"
                     }}
                   >
-                    {/* السؤال */}
                     <div className="flex items-center justify-between gap-4 text-right">
                       <h3 className="text-lg md:text-xl font-black text-black group-hover:text-[#ff001e] transition-colors duration-300">
                         {faq.question}
@@ -647,7 +634,6 @@ export default function AiVideoProductionPage() {
                       </div>
                     </div>
 
-                    {/* الإجابة */}
                     <AnimatePresence initial={false}>
                       {isOpen && (
                         <motion.div
@@ -672,7 +658,6 @@ export default function AiVideoProductionPage() {
 
       </main>
 
-      {/* 🎬 تأثير الـ Cinema Focus ومستعرض الفيديو الذكي */}
       <AnimatePresence>
         {selectedVideo && (
           <motion.div

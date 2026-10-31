@@ -1,6 +1,6 @@
 "use client";
-import Header from '@/components/Header';
-import FloatingSocials from '@/components/FloatingSocials'; 
+import Header from '../../../components/Header';
+import FloatingSocials from '../../../components/FloatingSocials'; 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 import Image from "next/image";

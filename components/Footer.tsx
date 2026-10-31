@@ -4,39 +4,39 @@ import Link from "next/link";
 import { FaWhatsapp, FaFacebook, FaLinkedin, FaYoutube } from "react-icons/fa";
 
 export default function Footer() {
-  // مصفوفة روابط السيو
+  // مصفوفة روابط السيو (تم تحويل الـ slug إلى حروف صغيرة)
   const seoLinks = [
-    { title: "شركة سيو في السعودية", slug: "SEOCompanySaudiArabia" },
-    { title: "شركة سيو في الرياض", slug: "SEOcompanyinRiyadh" },
+    { title: "شركة سيو في السعودية", slug: "seocompanysaudiarabia" },
+    { title: "شركة سيو في الرياض", slug: "seocompanyinriyadh" },
     { title: "شركة سيو في جدة", slug: "seocompanyjeddah" },
-    { title: "شركة سيو في الامارات", slug: "SEOCompanyUAE" },
-    { title: "شركة سيو في الشارقة", slug: "SEOCompanySharjah" },
-    { title: "شركة سيو في دبي", slug: "SEOCompanyDubai" },
-    { title: "شركة سيو في الكويت", slug: "SEOCompanyKuwait" },
-    { title: "شركة سيو في مصر", slug: "SEOCompanyEgypt" },
-    { title: "شركة سيو في اسكندرية", slug: "SEOCompanyAlexandria" },
-    { title: "شركة سيو في القاهرة", slug: "SEOCompanyCairo" },
+    { title: "شركة سيو في الامارات", slug: "seocompanyuae" },
+    { title: "شركة سيو في الشارقة", slug: "seocompanysharjah" },
+    { title: "شركة سيو في دبي", slug: "seocompanydubai" },
+    { title: "شركة سيو في الكويت", slug: "seocompanykuwait" },
+    { title: "شركة سيو في مصر", slug: "seocompanyegypt" },
+    { title: "شركة سيو في اسكندرية", slug: "seocompanyalexandria" },
+    { title: "شركة سيو في القاهرة", slug: "seocompanycairo" },
   ];
 
-  // مصفوفة روابط تصميم المواقع
+  // مصفوفة روابط تصميم المواقع (تم تحويل الـ slug إلى حروف صغيرة)
   const designLinks = [
-    { title: "شركة تصميم مواقع الكترونية في السعودية", slug: "WebsiteDesignCompanySaudiArabia" },
-    { title: "شركة تصميم مواقع الكترونية في الرياض", slug: "WebsiteDesignCompanyRiyadh" },
-    { title: "شركة تصميم مواقع الكترونية في جدة", slug: "WebsiteDesignCompanyJeddah" },
-    { title: "شركة تصميم مواقع الكترونية في الكويت", slug: "WebsiteDesignCompanyKuwait" },
-    { title: "شركة تصميم مواقع الكترونية في الامارات", slug: "WebsiteDesignCompanyUAE" },
-    { title: "شركة تصميم مواقع الكترونية في الشارقة", slug: "WebsiteDesignCompanySharjah" },
-    { title: "شركة تصميم مواقع الكترونية في دبي", slug: "WebsiteDesignCompanyDubai" },
-    { title: "شركة تصميم مواقع الكترونية في مصر", slug: "WebsiteDesignCompanyEgypt" },
-    { title: "شركة تصميم مواقع الكترونية في اسكندرية", slug: "WebsiteDesignCompanyAlexandria" },
-    { title: "شركة تصميم مواقع الكترونية في القاهرة", slug: "WebsiteDesignCompanyCairo" },
+    { title: "شركة تصميم مواقع الكترونية في السعودية", slug: "websitedesigncompanysaudiarabia" },
+    { title: "شركة تصميم مواقع الكترونية في الرياض", slug: "websitedesigncompanyriyadh" },
+    { title: "شركة تصميم مواقع الكترونية في جدة", slug: "websitedesigncompanyjeddah" },
+    { title: "شركة تصميم مواقع الكترونية في الكويت", slug: "websitedesigncompanykuwait" },
+    { title: "شركة تصميم مواقع الكترونية في الامارات", slug: "websitedesigncompanyuae" },
+    { title: "شركة تصميم مواقع الكترونية في الشارقة", slug: "websitedesigncompanysharjah" },
+    { title: "شركة تصميم مواقع الكترونية في دبي", slug: "websitedesigncompanydubai" },
+    { title: "شركة تصميم مواقع الكترونية في مصر", slug: "websitedesigncompanyegypt" },
+    { title: "شركة تصميم مواقع الكترونية في اسكندرية", slug: "websitedesigncompanyalexandria" },
+    { title: "شركة تصميم مواقع الكترونية في القاهرة", slug: "websitedesigncompanycairo" },
   ];
 
   const socialIcons = [
-    { icon: <FaWhatsapp size={24} />, link: "#" }, 
-    { icon: <FaFacebook size={24} />, link: "https://www.facebook.com/nadersalm123" }, 
-    { icon: <FaLinkedin size={24} />, link: "https://www.linkedin.com/in/amr-salem-5765b0401/" }, 
-    { icon: <FaYoutube size={24} />, link: "#" },  
+    { icon: <FaWhatsapp size={24} />, link: "#", label: "تواصل معنا عبر واتساب" }, 
+    { icon: <FaFacebook size={24} />, link: "https://www.facebook.com/nadersalm123", label: "تابعنا على فيسبوك" }, 
+    { icon: <FaLinkedin size={24} />, link: "https://www.linkedin.com/in/amr-salem-5765b0401/", label: "تابعنا على لينكد إن" }, 
+    { icon: <FaYoutube size={24} />, link: "#", label: "قناتنا على يوتيوب" },  
   ];
 
   return (
@@ -92,7 +92,7 @@ export default function Footer() {
                   /* مستطيل أبيض، برواز أخضر، حواف دائرية، بروز وظل هادئ */
                   className="bg-white/95 backdrop-blur-sm border-2 border-emerald-300 px-4 py-3 rounded-2xl shadow-[0_10px_20px_rgba(0,0,0,0.06)] transition-all"
                 >
-                  <Link href={`/${link.slug}`} className="text-slate-900 font-black text-sm hover:text-emerald-600 transition-colors block">
+                  <Link href={`/${link.slug}`} title={link.title} className="text-slate-900 font-black text-sm hover:text-emerald-600 transition-colors block">
                     {link.title}
                   </Link>
                 </motion.div>
@@ -113,7 +113,7 @@ export default function Footer() {
                   /* مستطيل أبيض، برواز أخضر، حواف دائرية، بروز وظل هادئ */
                   className="bg-white/95 backdrop-blur-sm border-2 border-emerald-300 px-4 py-3 rounded-2xl shadow-[0_10px_20px_rgba(0,0,0,0.06)] transition-all"
                 >
-                  <Link href={`/${link.slug}`} className="text-slate-900 font-black text-sm hover:text-emerald-600 transition-colors block">
+                  <Link href={`/${link.slug}`} title={link.title} className="text-slate-900 font-black text-sm hover:text-emerald-600 transition-colors block">
                     {link.title}
                   </Link>
                 </motion.div>
@@ -140,6 +140,8 @@ export default function Footer() {
                 href={social.link}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={social.label}
+                title={social.label}
                 whileHover={{ scale: 1.15, y: -4 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-white border-2 border-emerald-500 p-3 rounded-xl text-emerald-600 shadow-[0_8px_16px_rgba(0,0,0,0.08)] hover:bg-emerald-600 hover:text-white transition-all flex items-center justify-center"

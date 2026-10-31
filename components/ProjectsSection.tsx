@@ -54,7 +54,6 @@ export default function ProjectsSection() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => {
-            // استخدام رابط معاينة موثوق وسريع يجلب لقطة شاشة حقيقية لكل موقع أوتوماتيكياً
             const liveScreenshot = `https://image.thum.io/get/width/600/crop/800/${project.link}`;
 
             return (
@@ -67,13 +66,20 @@ export default function ProjectsSection() {
                 whileHover={{ y: -12, scale: 1.02 }}
                 className="bg-white/90 backdrop-blur-sm rounded-3xl overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.12)] flex flex-col justify-between cursor-pointer border-4 border-emerald-500 transition-all group"
               >
-                <Link href={project.link} target="_blank" className="block w-full h-full">
+                <Link 
+                  href={project.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  title={`زيارة موقع ${project.title}`}
+                  className="block w-full h-full"
+                >
                   
                   {/* حاوية تعكس صورة الموقع الحقيقية أوتوماتيكياً */}
                   <div className="relative w-full h-48 bg-gray-100 overflow-hidden border-b-4 border-emerald-500">
                     <Image
                       src={liveScreenshot}
-                      alt={`موقع ${project.title}`}
+                      alt={`معاينة موقع ${project.title}`}
+                      title={`معاينة موقع ${project.title}`}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover object-top group-hover:scale-105 transition-transform duration-500"

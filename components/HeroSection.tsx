@@ -28,7 +28,7 @@ export default function Hero({ lang = 'ar' }: HeroProps) {
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#f5f7f5] py-16 px-4 text-slate-900">
+    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#f5f7f5] py-16 px-4 text-slate-900" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
       
       <div className="absolute inset-0 bg-gradient-to-b from-[#f5f7f5] via-[#eaf4ee] to-[#f5f7f5]" />
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-200/30 rounded-full blur-3xl pointer-events-none" />
@@ -82,6 +82,7 @@ export default function Hero({ lang = 'ar' }: HeroProps) {
             <div className="relative z-20 flex flex-col sm:flex-row items-center justify-center gap-4 w-full mt-8">
               <Link
                 href="/projects"
+                title={t.ctaExplore}
                 className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-teal-600 hover:bg-teal-500 text-white font-semibold transition-all shadow-lg shadow-teal-900/50 text-center tracking-wide backdrop-blur-md border border-teal-400/30"
               >
                 {t.ctaExplore}
@@ -91,6 +92,7 @@ export default function Hero({ lang = 'ar' }: HeroProps) {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                title={t.ctaContact}
                 className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold transition-all shadow-lg shadow-emerald-900/50 text-center tracking-wide backdrop-blur-md border border-emerald-400/30 flex items-center justify-center gap-2"
               >
                 <span>{t.ctaContact}</span>

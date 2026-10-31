@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function ContactSection() {
   return (
-    <section className="relative w-full py-24 px-6 overflow-hidden bg-[#f5f7f5]">
+    <section className="relative w-full py-24 px-6 overflow-hidden bg-[#f5f7f5]" dir="rtl">
       
       {/* شبكة المربعات الهندسية الخلفية باللون الأخضر الهادئ */}
       <div 

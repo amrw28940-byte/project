@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
 import ServicesMarquee from '../components/ServicesMarquee';
@@ -10,6 +11,22 @@ import TestimonialsSection from '../components/TestimonialsSection';
 import FloatingSocials from '../components/FloatingSocials'; 
 import ContactSection from '../components/ContactSection'; 
 import Contact from '../components/Contact'; 
+
+// إعدادات الـ SEO الاحترافية والتسويقية للصفحة الرئيسية
+export const metadata: Metadata = {
+  title: 'شركة تصميم مواقع وتحسين محركات البحث SEO | عمرو سالم',
+  description: 'احصل على تصميم مواقع احترافية وتطبيقات Next.js سريعة ومتاجر إلكترونية متكاملة مع خدمات تحسين محركات البحث SEO لضمان تصدر موقعك قمة نتائج جوجل.',
+  keywords: ['تصميم مواقع', 'تحسين محركات البحث', 'SEO', 'Next.js', 'تطوير واجهات', 'عمرو سالم'],
+  authors: [{ name: 'Amr Salem' }],
+  openGraph: {
+    title: 'شركة تصميم مواقع وتحسين محركات البحث SEO | عمرو سالم',
+    description: 'نحول رؤيتك الرقمية إلى واقع ملموس بتصميم استثنائي وأداء فائق السرعة يضمن ظهورك في قمة محركات البحث.',
+    url: 'https://yourwebsite.com',
+    siteName: 'Amr Salem Digital Studio',
+    locale: 'ar_AR',
+    type: 'website',
+  },
+};
 
 export default function HomePage() {
   return (

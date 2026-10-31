@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function ExperienceSection() {
   return (
-    <section className="relative flex flex-col md:flex-row w-full overflow-hidden bg-[#f5f7f5] min-h-[500px] gap-8 p-8 md:p-16 items-center justify-center">
+    <section className="relative flex flex-col md:flex-row w-full overflow-hidden bg-[#f5f7f5] min-h-[500px] gap-8 p-8 md:p-16 items-center justify-center" dir="rtl">
       
       {/* شبكة المربعات الهندسية الخلفية باللون الأخضر الهادئ */}
       <div 

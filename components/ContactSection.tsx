@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function ContactSection() {
   return (
-    <section className="relative flex flex-col md:flex-row w-full min-h-[500px] overflow-hidden bg-[#f5f7f5]">
+    <section className="relative flex flex-col md:flex-row w-full min-h-[500px] overflow-hidden bg-[#f5f7f5]" dir="rtl">
       
       {/* شبكة المربعات الهندسية الخلفية باللون الأخضر الهادئ */}
       <div 
@@ -41,6 +41,7 @@ export default function ContactSection() {
         <motion.div 
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
           className="w-full h-[450px] relative border-4 border-emerald-500 rounded-3xl overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] bg-white/60 backdrop-blur-md"
         >
           <iframe 
@@ -50,6 +51,7 @@ export default function ContactSection() {
             style={{ border: 0 }} 
             allowFullScreen 
             loading="lazy"
+            title="خريطة موقع الشركة في الإسكندرية"
             className="grayscale hover:grayscale-0 transition-all duration-500"
           ></iframe>
         </motion.div>
@@ -59,6 +61,7 @@ export default function ContactSection() {
       <motion.div 
         initial={{ opacity: 0, x: 50 }}
         whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
         className="w-full md:w-1/2 p-16 md:p-24 flex flex-col justify-center items-end text-right text-slate-900 z-10"
       >
         <h2 className="text-6xl font-black mb-8 tracking-wide text-slate-900">giotec</h2>
@@ -66,8 +69,8 @@ export default function ContactSection() {
           <p>العنوان: العجمي، الهانوفيل، الإسكندرية 📍</p>
           <div className="space-y-2">
             <p>للتواصل: 📞</p>
-            <a href="tel:01020347946" className="block hover:text-emerald-600 transition-colors font-black text-2xl">01020347946</a>
-            <a href="tel:01017741283" className="block hover:text-emerald-600 transition-colors font-black text-2xl">01017741283</a>
+            <a href="tel:01020347946" className="block hover:text-emerald-600 transition-colors font-black text-2xl" dir="ltr">01020347946</a>
+            <a href="tel:01017741283" className="block hover:text-emerald-600 transition-colors font-black text-2xl" dir="ltr">01017741283</a>
           </div>
         </div>
       </motion.div>

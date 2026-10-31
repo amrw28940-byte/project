@@ -41,6 +41,7 @@ export default function AboutSection() {
         <motion.div 
           initial={{ opacity: 0, x: 50 }} 
           whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
           className="flex flex-col items-end w-full"
         >
           <h2 className="text-slate-900 text-5xl font-black mb-8 tracking-wide text-right w-full">من أنا؟</h2>

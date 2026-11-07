@@ -4,21 +4,7 @@ import Link from "next/link";
 import { FaWhatsapp, FaFacebook, FaLinkedin, FaYoutube } from "react-icons/fa";
 
 export default function Footer() {
-  // مصفوفة روابط السيو (تم تحويل الـ slug إلى حروف صغيرة)
-  const seoLinks = [
-    { title: "شركة سيو في السعودية", slug: "seocompanysaudiarabia" },
-    { title: "شركة سيو في الرياض", slug: "seocompanyinriyadh" },
-    { title: "شركة سيو في جدة", slug: "seocompanyjeddah" },
-    { title: "شركة سيو في الامارات", slug: "seocompanyuae" },
-    { title: "شركة سيو في الشارقة", slug: "seocompanysharjah" },
-    { title: "شركة سيو في دبي", slug: "seocompanydubai" },
-    { title: "شركة سيو في الكويت", slug: "seocompanykuwait" },
-    { title: "شركة سيو في مصر", slug: "seocompanyegypt" },
-    { title: "شركة سيو في اسكندرية", slug: "seocompanyalexandria" },
-    { title: "شركة سيو في القاهرة", slug: "seocompanycairo" },
-  ];
-
-  // مصفوفة روابط تصميم المواقع (تم تحويل الـ slug إلى حروف صغيرة)
+  // مصفوفة روابط تصميم المواقع (بأحرف صغيرة بالكامل للـ slug)
   const designLinks = [
     { title: "شركة تصميم مواقع الكترونية في السعودية", slug: "websitedesigncompanysaudiarabia" },
     { title: "شركة تصميم مواقع الكترونية في الرياض", slug: "websitedesigncompanyriyadh" },
@@ -76,51 +62,24 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto relative z-10 flex flex-col items-center">
         
-        {/* شبكة توزيع الأقسام */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 w-full mb-16">
-          
-          {/* قسم خدمات السيو */}
-          <div>
-            <h3 className="text-2xl font-black text-slate-900 mb-8 border-r-4 border-emerald-500 pr-3">
-              خدمات الأرشفة والـ SEO
-            </h3>
-            <div className="flex flex-wrap gap-4">
-              {seoLinks.map((link, index) => (
-                <motion.div
-                  key={index}
-                  whileHover={{ scale: 1.04, y: -3 }}
-                  /* مستطيل أبيض، برواز أخضر، حواف دائرية، بروز وظل هادئ */
-                  className="bg-white/95 backdrop-blur-sm border-2 border-emerald-300 px-4 py-3 rounded-2xl shadow-[0_10px_20px_rgba(0,0,0,0.06)] transition-all"
-                >
-                  <Link href={`/${link.slug}`} title={link.title} className="text-slate-900 font-black text-sm hover:text-emerald-600 transition-colors block">
-                    {link.title}
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
+        {/* قسم خدمات تصميم المواقع الإلكترونية (يغطي العرض بالكامل بشكل مرتب) */}
+        <div className="w-full mb-16">
+          <h3 className="text-2xl font-black text-slate-900 mb-8 border-r-4 border-emerald-500 pr-3">
+            خدمات تصميم المواقع الإلكترونية
+          </h3>
+          <div className="flex flex-wrap gap-4">
+            {designLinks.map((link, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ scale: 1.04, y: -3 }}
+                className="bg-white/95 backdrop-blur-sm border-2 border-emerald-300 px-4 py-3 rounded-2xl shadow-[0_10px_20px_rgba(0,0,0,0.06)] transition-all"
+              >
+                <Link href={`/${link.slug}`} title={link.title} className="text-slate-900 font-black text-sm hover:text-emerald-600 transition-colors block">
+                  {link.title}
+                </Link>
+              </motion.div>
+            ))}
           </div>
-
-          {/* قسم خدمات تصميم المواقع */}
-          <div>
-            <h3 className="text-2xl font-black text-slate-900 mb-8 border-r-4 border-emerald-500 pr-3">
-              خدمات تصميم المواقع الإلكترونية
-            </h3>
-            <div className="flex flex-wrap gap-4">
-              {designLinks.map((link, index) => (
-                <motion.div
-                  key={index}
-                  whileHover={{ scale: 1.04, y: -3 }}
-                  /* مستطيل أبيض، برواز أخضر، حواف دائرية، بروز وظل هادئ */
-                  className="bg-white/95 backdrop-blur-sm border-2 border-emerald-300 px-4 py-3 rounded-2xl shadow-[0_10px_20px_rgba(0,0,0,0.06)] transition-all"
-                >
-                  <Link href={`/${link.slug}`} title={link.title} className="text-slate-900 font-black text-sm hover:text-emerald-600 transition-colors block">
-                    {link.title}
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
         </div>
 
         {/* خط فاصل سفلي أخضر عريض */}

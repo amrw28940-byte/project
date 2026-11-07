@@ -39,34 +39,31 @@ export default function Header() {
   ];
 
   const socialIcons = [
-    { icon: <FaWhatsapp className="w-5 h-5 md:w-6 md:h-6" />, link: "#", label: "واتساب" },
-    { icon: <FaFacebook className="w-5 h-5 md:w-6 md:h-6" />, link: "https://www.facebook.com/nadersalm123", label: "فيسبوك" },
-    { icon: <FaLinkedin className="w-5 h-5 md:w-6 md:h-6" />, link: "https://www.linkedin.com/in/amr-salem-5765b0401/", label: "لينكد إن" },
-    { icon: <FaYoutube className="w-5 h-5 md:w-6 md:h-6" />, link: "#", label: "يوتيوب" },
+    { icon: <FaWhatsapp className="w-4 h-4 md:w-6 md:h-6" />, link: "#", label: "واتساب" },
+    { icon: <FaFacebook className="w-4 h-4 md:w-6 md:h-6" />, link: "https://www.facebook.com/nadersalm123", label: "فيسبوك" },
+    { icon: <FaLinkedin className="w-4 h-4 md:w-6 md:h-6" />, link: "https://www.linkedin.com/in/amr-salem-5765b0401/", label: "لينكد إن" },
+    { icon: <FaYoutube className="w-4 h-4 md:w-6 md:h-6" />, link: "#", label: "يوتيوب" },
   ];
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-[#f5f7f5] border-b-[6px] border-emerald-500 h-28 md:h-32 px-4 md:px-10 flex items-center justify-between shadow-sm overflow-visible">
-      {/* تم إضافة aria-label و title لزر القائمة لحل مشكلة إمكانية الوصول Accessibility */}
+    <header className="fixed top-0 w-full z-50 bg-[#f5f7f5] border-b-[6px] border-emerald-500 h-24 md:h-32 px-3 md:px-10 flex items-center justify-between shadow-sm overflow-visible">
+      
       <button 
-        className="md:hidden text-slate-900 z-30" 
+        className="md:hidden text-slate-900 z-30 p-2 bg-white/80 rounded-xl border border-emerald-300 shadow-sm" 
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         aria-label="القائمة الرئيسية"
         title="القائمة الرئيسية"
       >
-        {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
 
-      <div className="flex flex-col gap-1.5 z-30">
-        <div className="flex items-center gap-2 md:gap-4">
-          <a href="https://wa.me/201020347946" target="_blank" rel="noopener noreferrer" title="ابدأ الآن" className="bg-emerald-600 text-white px-3 py-1.5 md:px-5 md:py-1.5 rounded-full font-black text-xs md:text-sm hover:bg-emerald-500 transition-transform hover:scale-105 shadow-sm">ابدأ الآن</a>
-          <div className="hidden md:flex items-center bg-white rounded-xl overflow-hidden border-2 border-emerald-300">
-            <input type="text" placeholder="addr..." className="px-2 py-1 text-slate-700 outline-none w-20 md:w-32 bg-transparent text-xs" />
-            <button title="بحث" className="bg-emerald-600 p-1.5 text-white hover:bg-emerald-500 transition-colors">🔍</button>
-          </div>
+      {/* الأزرار والسوشيال ميديا (مخفية جزئياً أو مصغرة على الموبايل لتوفير المساحة) */}
+      <div className="flex flex-col gap-1 z-30">
+        <div className="flex items-center gap-1.5 md:gap-4">
+          <a href="https://wa.me/201020347946" target="_blank" rel="noopener noreferrer" title="ابدأ الآن" className="bg-emerald-600 text-white px-2.5 py-1 md:px-5 md:py-1.5 rounded-full font-black text-[11px] md:text-sm hover:bg-emerald-500 transition-transform hover:scale-105 shadow-sm">ابدأ الآن</a>
         </div>
 
-        <div className="flex gap-1.5">
+        <div className="flex gap-1">
           {socialIcons.map((social, index) => (
             <motion.a
               key={index}
@@ -77,7 +74,7 @@ export default function Header() {
               title={social.label}
               whileHover={{ scale: 1.15, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-white border-2 border-emerald-500 p-1.5 rounded-xl text-emerald-600 shadow-sm hover:bg-emerald-600 hover:text-white transition-all flex items-center justify-center text-sm"
+              className="bg-white border border-emerald-500 p-1 rounded-lg text-emerald-600 shadow-sm hover:bg-emerald-600 hover:text-white transition-all flex items-center justify-center text-xs"
             >
               {social.icon}
             </motion.a>
@@ -85,19 +82,22 @@ export default function Header() {
         </div>
       </div>
 
-      <nav className={`${isMobileMenuOpen ? 'flex' : 'hidden'} md:flex absolute top-28 right-0 w-full bg-[#f5f7f5] flex-col items-center gap-4 p-6 z-40 border-b-4 border-emerald-500 md:static md:w-auto md:flex-row md:border-none shadow-md md:shadow-none`}>
+      {/* القائمة (تظهر منسدلة باحترافية على الموبايل وبجانب بعضها على الديسكتوب) */}
+      <nav className={`${isMobileMenuOpen ? 'flex' : 'hidden'} md:flex absolute top-24 right-0 w-full bg-[#f5f7f5] flex-col items-center gap-3 p-6 z-40 border-b-4 border-emerald-500 md:static md:w-auto md:flex-row md:border-none shadow-lg md:shadow-none max-h-[80vh] overflow-y-auto`}>
         {menuItems.map((item, index) => (
-          <div key={index} className="relative group" onMouseEnter={() => item.isDropdown && setIsServicesOpen(true)} onMouseLeave={() => item.isDropdown && setIsServicesOpen(false)}>
+          <div key={index} className="relative group w-full md:w-auto text-center" onMouseEnter={() => item.isDropdown && setIsServicesOpen(true)} onMouseLeave={() => item.isDropdown && setIsServicesOpen(false)}>
             {item.isDropdown ? (
-              <span className={`font-black text-base md:text-lg ${item.color} cursor-pointer hover:text-emerald-600 transition-colors`}>{item.name}</span>
+              <div onClick={() => setIsServicesOpen(!isServicesOpen)} className={`font-black text-base md:text-lg ${item.color} cursor-pointer hover:text-emerald-600 transition-colors py-1`}>
+                {item.name} ▾
+              </div>
             ) : (
-              <Link href={item.slug} title={item.name} className={`font-black text-base md:text-lg ${item.color} hover:text-emerald-600 transition-colors`}>{item.name}</Link>
+              <Link href={item.slug} title={item.name} className={`font-black text-base md:text-lg ${item.color} hover:text-emerald-600 transition-colors block py-1`}>{item.name}</Link>
             )}
 
             {item.isDropdown && isServicesOpen && (
-              <div className="absolute top-8 right-0 bg-slate-900 border-2 border-emerald-500 p-4 w-64 z-50 rounded-2xl shadow-xl">
+              <div className="md:absolute top-full right-0 bg-slate-900 border-2 border-emerald-500 p-3 w-full md:w-72 z-50 rounded-2xl shadow-xl text-right">
                 {item.subItems?.map((sub, i) => (
-                  <Link href={sub.slug} title={sub.name} key={i} className="block text-white hover:text-emerald-400 py-2 text-sm font-black transition-colors">↳ {sub.name}</Link>
+                  <Link href={sub.slug} title={sub.name} key={i} className="block text-white hover:text-emerald-400 py-2 text-xs md:text-sm font-black transition-colors border-b border-slate-800 last:border-none">↳ {sub.name}</Link>
                 ))}
               </div>
             )}
@@ -105,9 +105,8 @@ export default function Header() {
         ))}
       </nav>
 
-      {/* اللوجو بحجمه الكبير ومرتكز فوق الخط الأخضر تماماً */}
       <Link href="/" title="الرئيسية" className="flex-shrink-0 cursor-pointer transition-transform duration-200 hover:scale-105 flex items-center z-40">
-        <div className="relative h-32 w-64 md:h-40 md:w-80 bg-[#f5f7f5] rounded-b-2xl p-1 shadow-sm">
+        <div className="relative w-32 h-16 md:w-80 md:h-40 bg-[#f5f7f5] rounded-b-2xl p-0.5 shadow-sm">
           <Image 
             src="/logo.webp" 
             alt="شعار الشركة - Logo" 

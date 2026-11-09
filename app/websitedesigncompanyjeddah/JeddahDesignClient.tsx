@@ -638,13 +638,8 @@ export default function JeddahDesignClient() {
 
   return (
     <div className="min-h-screen bg-[#f5f7f5] text-slate-900 overflow-x-hidden" dir="rtl">
-      {/* الأيقونات العائمة والهيدر */}
       <FloatingSocials />
-      {/* =====================================================================
-          1. قسم الهيرو الرئيسي (HERO SECTION) + فيديو websitedesigncompanyjeddah.mp4
-      ===================================================================== */}
       <section className="relative w-full pt-32 pb-20 md:pt-40 md:pb-28 px-4 md:px-10 overflow-hidden bg-[#f5f7f5] border-b-4 border-emerald-500">
-        {/* خلفية الشبكة الهندسية */}
         <div
           className="absolute inset-0 z-0 pointer-events-none"
           style={{
@@ -656,7 +651,6 @@ export default function JeddahDesignClient() {
           }}
         />
 
-        {/* توهج زمردي خلفي */}
         <div
           className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[480px] pointer-events-none z-0"
           style={{
@@ -668,7 +662,6 @@ export default function JeddahDesignClient() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
-            {/* العمود الأيمن: المحتوى التسويقي الرئيسي وأزرار الـ CTA */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -688,7 +681,6 @@ export default function JeddahDesignClient() {
                 نحول نشاطك التجاري والسياحي في <strong className="text-slate-900">جدة (طريق الملك، التحلية، الروضة، الشاطئ، أبحر، السلامة، والميناء)</strong> إلى منصة رقمية فائقة السرعة والأمان. نصمم ونبرمج مواقع شركات، منصات سياحية وفندقية، ومتاجر إلكترونية بأحدث تقنيات <strong className="text-emerald-700">Next.js و WordPress</strong>، مربوطة مع <strong className="text-slate-900">مدى، تابي، تمارا</strong> ومهيأة بالكامل لتصدر نتائج بحث جوجل <strong className="text-emerald-700">SEO</strong>.
               </p>
 
-              {/* نقاط القوة السريعة في الهيرو */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full mb-8">
                 {[
                   "سرعة تحميل 99% على الجوال وشبكات الـ 5G في جدة",
@@ -706,7 +698,6 @@ export default function JeddahDesignClient() {
                 ))}
               </div>
 
-              {/* أزرار الـ Call To Action */}
               <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
                 <a
                   href={getWhatsappLink("مرحباً م. عمرو، أريد الاستفسار عن تصميم موقع إلكتروني في جدة")}
@@ -730,7 +721,6 @@ export default function JeddahDesignClient() {
               </div>
             </motion.div>
 
-            {/* العمود الأيسر: عرض فيديو الهيرو websitedesigncompanyjeddah.mp4 */}
             <motion.div
               initial={{ opacity: 0, scale: 0.92 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -738,7 +728,6 @@ export default function JeddahDesignClient() {
               className="lg:col-span-5"
             >
               <div className="bg-white rounded-3xl border-4 border-emerald-500 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.18)] overflow-hidden">
-                {/* شريط علوي أنيق */}
                 <div className="bg-slate-900 px-4 py-3 border-b-2 border-emerald-500 flex items-center justify-between" dir="ltr">
                   <div className="flex items-center gap-2">
                     <span className="w-3 h-3 rounded-full bg-emerald-400 inline-block" />
@@ -750,7 +739,6 @@ export default function JeddahDesignClient() {
                   </span>
                 </div>
 
-                {/* مشغل الفيديو الرئيسي لصفحة جدة */}
                 <div className="relative w-full aspect-video bg-slate-950">
                   <video
                     src="/websitedesigncompanyjeddah.mp4"
@@ -763,7 +751,6 @@ export default function JeddahDesignClient() {
                   />
                 </div>
 
-                {/* شريط سفلي تحت الفيديو */}
                 <div className="p-4 bg-white flex items-center justify-between border-t border-emerald-100">
                   <div className="flex items-center gap-2">
                     <FaShieldAlt className="text-emerald-600 w-5 h-5" />
@@ -787,10 +774,6 @@ export default function JeddahDesignClient() {
           </div>
         </div>
       </section>
-
-      {/* =====================================================================
-          2. شريط الإحصائيات والأرقام (JEDDAH STATS SECTION)
-      ===================================================================== */}
       <section className="py-14 px-4 md:px-10 bg-slate-900 text-white border-b-4 border-emerald-500 relative overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -820,10 +803,6 @@ export default function JeddahDesignClient() {
           </div>
         </div>
       </section>
-
-      {/* =====================================================================
-          3. لماذا الشركات في جدة تختارنا؟ + الفيديو الثاني websitedesign.mp4
-      ===================================================================== */}
       <section className="py-20 px-4 md:px-10 bg-white border-b-4 border-emerald-500">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -839,7 +818,6 @@ export default function JeddahDesignClient() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* عرض الفيديو الثاني websitedesign.mp4 */}
             <motion.div
               initial={{ opacity: 0, x: 25 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -888,7 +866,6 @@ export default function JeddahDesignClient() {
               </div>
             </motion.div>
 
-            {/* المزايا التنافسية الأربعة في جدة */}
             <div className="lg:col-span-6 space-y-5">
               {[
                 {
@@ -937,10 +914,6 @@ export default function JeddahDesignClient() {
           </div>
         </div>
       </section>
-
-      {/* =====================================================================
-          4. خدمات تصميم وتطوير المواقع في جدة (8 كروت تفصيلية شاملة)
-      ===================================================================== */}
       <section className="py-24 px-4 md:px-10 bg-[#f5f7f5] border-b-4 border-emerald-500">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -1012,10 +985,6 @@ export default function JeddahDesignClient() {
           </div>
         </div>
       </section>
-
-      {/* =====================================================================
-          5. التغطية الجغرافية التفاعلية لأحياء ومحاور جدة (JEDDAH ZONES TABS)
-      ===================================================================== */}
       <section className="py-24 px-4 md:px-10 bg-slate-900 text-white border-b-4 border-emerald-500">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-14">
@@ -1030,7 +999,6 @@ export default function JeddahDesignClient() {
             </p>
           </div>
 
-          {/* أزرار التبديل بين محاور جدة */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-10">
             {jeddahZones.map((zone, idx) => (
               <button
@@ -1048,7 +1016,6 @@ export default function JeddahDesignClient() {
             ))}
           </div>
 
-          {/* عرض تفاصيل المحور المختار */}
           <AnimatePresence mode="wait">
             <motion.div
               key={activeZone}
@@ -1079,7 +1046,6 @@ export default function JeddahDesignClient() {
                     </p>
                   </div>
 
-                  {/* الأحياء المشمولة */}
                   <div>
                     <span className="text-xs font-black text-slate-400 block mb-2">
                       أبرز الأحياء المستهدفة في السيو المحلي (Local SEO):
@@ -1121,10 +1087,6 @@ export default function JeddahDesignClient() {
           </AnimatePresence>
         </div>
       </section>
-
-      {/* =====================================================================
-          6. المستشار الرقمي التفاعلي: حدد هدفك في جدة لنرشح لك الحل الأنسب
-      ===================================================================== */}
       <section className="py-24 px-4 md:px-10 bg-white border-b-4 border-emerald-500">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-14">
@@ -1189,10 +1151,6 @@ export default function JeddahDesignClient() {
           </div>
         </div>
       </section>
-
-      {/* =====================================================================
-          7. مقارنة التقنيات البرمجية (TECH STACK TABS)
-      ===================================================================== */}
       <section className="py-24 px-4 md:px-10 bg-[#f5f7f5] border-b-4 border-emerald-500">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-14">
@@ -1207,7 +1165,6 @@ export default function JeddahDesignClient() {
             </p>
           </div>
 
-          {/* أزرار اختيار التقنية */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
             {[
               { id: "nextjs", label: "برمجة خاصة Next.js", sub: "سرعة خارقة وصدارة SEO" },
@@ -1242,7 +1199,6 @@ export default function JeddahDesignClient() {
             ))}
           </div>
 
-          {/* صندوق عرض تفاصيل التقنية المختارة */}
           <div className="bg-white border-4 border-emerald-500 rounded-3xl p-8 md:p-12 shadow-lg">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 border-b border-emerald-200 pb-6">
               <div>

@@ -51,9 +51,6 @@ import {
 } from "react-icons/fa";
 
 export default function DubaiDesignClient() {
-  // =====================================================================
-  // حالات التفاعل (States) داخل صفحة دبي
-  // =====================================================================
   const [activeHub, setActiveHub] = useState<number>(0);
   const [activeTech, setActiveTech] = useState<string>("nextjs");
   const [activeSector, setActiveSector] = useState<number>(0);
@@ -61,24 +58,16 @@ export default function DubaiDesignClient() {
   const [activeAuditTab, setActiveAuditTab] = useState<number>(0);
   const [activeCrmTab, setActiveCrmTab] = useState<number>(0);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-
-  // حالات حاسبة ومخطط المشروع التفاعلي لإمارة دبي
   const [calcProjectType, setCalcProjectType] = useState<number>(0);
   const [calcLanguage, setCalcLanguage] = useState<number>(1);
   const [calcIntegration, setCalcIntegration] = useState<number>(1);
   const [calcUrgency, setCalcUrgency] = useState<number>(0);
-
-  // إعدادات رقم الواتساب للـ Call To Action
   const whatsappNumber = "2010120347946";
   const displayPhone = "010120347946";
 
   const getWhatsappLink = (customMessage: string) => {
     return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(customMessage)}`;
   };
-
-  // =====================================================================
-  // 1. بيانات الإحصائيات الخاصة بسوق إمارة دبي
-  // =====================================================================
   const dubaiStats = [
     {
       number: "+110",
@@ -105,10 +94,6 @@ export default function DubaiDesignClient() {
       icon: <FaChartLine className="w-8 h-8 text-emerald-400" />
     }
   ];
-
-  // =====================================================================
-  // 2. بيانات محاور الأعمال والمناطق الحرة في دبي (Local SEO Business Hubs)
-  // =====================================================================
   const dubaiBusinessHubs = [
     {
       hubName: "الخليج التجاري، داون تاون، ومركز دبي المالي (Business Bay & DIFC)",
@@ -184,9 +169,6 @@ export default function DubaiDesignClient() {
     }
   ];
 
-  // =====================================================================
-  // 3. الخدمات التفصيلية المخصصة لسوق إمارة دبي (8 خدمات شاملة)
-  // =====================================================================
   const dubaiServices = [
     {
       icon: <FaCode className="w-9 h-9" />,
@@ -293,10 +275,6 @@ export default function DubaiDesignClient() {
       ]
     }
   ];
-
-  // =====================================================================
-  // 4. بيانات حاسبة ومخطط المشروع التفاعلي في دبي (4 خطوات)
-  // =====================================================================
   const projectTypesCalc = [
     {
       title: "موقع شركة / استشارات / مقاولات (Corporate Dubai)",
@@ -343,10 +321,6 @@ export default function DubaiDesignClient() {
     { label: "جدول زمني قياسي (أعلى جودة وفحص شامل)", note: "التنفيذ وفق المراحل الهندسية المعتادة" },
     { label: "مسار سريع للحملات الإعلانية (Fast-Track Launch)", note: "إطلاق سريع لصفحة الهبوط أو الواجهة الأساسية لبدء الإعلانات فوراً" }
   ];
-
-  // =====================================================================
-  // 5. مصفوفة التكامل مع أنظمة الـ CRM والأتمتة في دبي
-  // =====================================================================
   const crmIntegrations = [
     {
       tabName: "ربط أنظمة الـ CRM العقارية والخدمية (Bitrix24 & HubSpot)",
@@ -388,10 +362,6 @@ export default function DubaiDesignClient() {
       ]
     }
   ];
-
-  // =====================================================================
-  // 6. تشخيص أعطال ومشاكل المواقع في سوق دبي وكيف نعالجها هندسياً
-  // =====================================================================
   const auditProblems = [
     {
       problemTitle: "ننفق آلاف الدراهم على إعلانات جوجل وميتا في دبي ولكن معدل التحويل ضعيف",
@@ -422,10 +392,6 @@ export default function DubaiDesignClient() {
       metricImprovement: "توفير 80% من وقت إدارة المحتوى وتحديث العروض لحظياً"
     }
   ];
-
-  // =====================================================================
-  // 7. أداة المستشار الرقمي: حدد هدفك في دبي
-  // =====================================================================
   const dubaiGoals = [
     {
       goalTitle: "أريد تسويق مشاريع عقارية في دبي وجذب مستثمرين من داخل وخارج الإمارات",
@@ -476,10 +442,6 @@ export default function DubaiDesignClient() {
       ]
     }
   ];
-
-  // =====================================================================
-  // 8. تفاصيل المقارنة التقنية (Tech Stack Tabs)
-  // =====================================================================
   const techStackDetails: Record<
     string,
     {
@@ -534,10 +496,6 @@ export default function DubaiDesignClient() {
       performanceScore: "97%"
     }
   };
-
-  // =====================================================================
-  // 9. القطاعات الاقتصادية في دبي (Industries Interactive Section)
-  // =====================================================================
   const dubaiSectors = [
     {
       name: "العقارات والمطورون العقاريون",
@@ -606,10 +564,6 @@ export default function DubaiDesignClient() {
       ]
     }
   ];
-
-  // =====================================================================
-  // 10. جدول المقارنة مع الوكالات التقليدية في دبي
-  // =====================================================================
   const comparisonData = [
     {
       feature: "التقنية البرمجية وجودة الكود",
@@ -642,10 +596,6 @@ export default function DubaiDesignClient() {
       others: "أسعار مبالغ فيها جداً وعقود احتكارية مع بطء في الاستجابة والتعديلات"
     }
   ];
-
-  // =====================================================================
-  // 11. مراحل العمل الهندسية (6 خطوات)
-  // =====================================================================
   const processSteps = [
     {
       num: "01",
@@ -678,10 +628,6 @@ export default function DubaiDesignClient() {
       desc: "نختبر سرعة وأمان الموقع على كافة المتصفحات، نطلقه رسمياً على الدومين الخاص بك (.ae أو .com)، وندرب فريقك بالكامل مع دعم فني مستمر."
     }
   ];
-
-  // =====================================================================
-  // 12. الباقات التفصيلية لتصميم المواقع في دبي (3 باقات)
-  // =====================================================================
   const dubaiPackages = [
     {
       name: "باقة شركات وأعمال دبي (Dubai Corporate Pro)",
@@ -735,10 +681,6 @@ export default function DubaiDesignClient() {
       cta: "احجز استشارة البرمجة الخاصة"
     }
   ];
-
-  // =====================================================================
-  // 13. الأسئلة الشائعة الموسعة (12 سؤالاً شائعاً حول تصميم المواقع في دبي)
-  // =====================================================================
   const dubaiFaqs = [
     {
       q: "ما الذي يجعل وكالتكم أفضل شركة تصميم مواقع الكترونية في دبي؟",
@@ -793,7 +735,7 @@ export default function DubaiDesignClient() {
   return (
     <div className="min-h-screen bg-[#f5f7f5] text-slate-900 overflow-x-hidden" dir="rtl">
       <FloatingSocials />
-
+    
       <section className="relative w-full pt-32 pb-20 md:pt-40 md:pb-28 px-4 md:px-10 overflow-hidden bg-[#f5f7f5] border-b-4 border-emerald-500">
         <div
           className="absolute inset-0 z-0 pointer-events-none"
@@ -806,7 +748,6 @@ export default function DubaiDesignClient() {
           }}
         />
 
-        {/* توهج زمردي خلفي */}
         <div
           className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[480px] pointer-events-none z-0"
           style={{
@@ -818,7 +759,6 @@ export default function DubaiDesignClient() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
-            {/* العمود الأيمن: المحتوى التسويقي الرئيسي وأزرار الـ CTA */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -838,7 +778,6 @@ export default function DubaiDesignClient() {
                 نبتكر للشركات، المطورين العقاريين، المنشآت السياحية، والبراندات في <strong className="text-slate-900">دبي (Business Bay, Downtown, Marina, DIFC, JLT, JAFZA وكافة المناطق)</strong> منصات رقمية ومتاجر إلكترونية فائقة السرعة والأمان بأحدث تقنيات <strong className="text-emerald-700">Next.js و WordPress</strong>. مواقع ثنائية ومتعددة اللغات (<strong className="text-slate-900">عربي / إنجليزي / روسي</strong>)، متكاملة مع <strong className="text-slate-900">Stripe، تابي، تمارا، وأنظمة الـ CRM</strong> ومؤسسة هندسياً لتصدر نتائج جوجل <strong className="text-emerald-700">SEO</strong>.
               </p>
 
-              {/* نقاط القوة السريعة في الهيرو */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full mb-8">
                 {[
                   "سرعة تحميل 99% على الجوال وشبكات الـ 5G في دبي",
@@ -856,7 +795,6 @@ export default function DubaiDesignClient() {
                 ))}
               </div>
 
-              {/* أزرار الـ Call To Action */}
               <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
                 <a
                   href={getWhatsappLink("مرحباً م. عمرو، أريد الاستفسار عن تصميم موقع إلكتروني في دبي")}
@@ -880,7 +818,6 @@ export default function DubaiDesignClient() {
               </div>
             </motion.div>
 
-            {/* العمود الأيسر: عرض فيديو الهيرو */}
             <motion.div
               initial={{ opacity: 0, scale: 0.92 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -888,7 +825,6 @@ export default function DubaiDesignClient() {
               className="lg:col-span-5"
             >
               <div className="bg-white rounded-3xl border-4 border-emerald-500 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.18)] overflow-hidden">
-                {/* شريط علوي أنيق */}
                 <div className="bg-slate-900 px-4 py-3 border-b-2 border-emerald-500 flex items-center justify-between" dir="ltr">
                   <div className="flex items-center gap-2">
                     <span className="w-3 h-3 rounded-full bg-emerald-400 inline-block" />
@@ -900,7 +836,6 @@ export default function DubaiDesignClient() {
                   </span>
                 </div>
 
-                {/* مشغل الفيديو الرئيسي لصفحة دبي */}
                 <div className="relative w-full aspect-video bg-slate-950">
                   <video
                     src="/websitedesign.mp4"
@@ -913,7 +848,6 @@ export default function DubaiDesignClient() {
                   />
                 </div>
 
-                {/* شريط سفلي تحت الفيديو */}
                 <div className="p-4 bg-white flex items-center justify-between border-t border-emerald-100">
                   <div className="flex items-center gap-2">
                     <FaShieldAlt className="text-emerald-600 w-5 h-5" />
@@ -937,10 +871,6 @@ export default function DubaiDesignClient() {
           </div>
         </div>
       </section>
-
-      {/* =====================================================================
-          2. شريط الإحصائيات والأرقام (DUBAI STATS SECTION)
-      ===================================================================== */}
       <section className="py-14 px-4 md:px-10 bg-slate-900 text-white border-b-4 border-emerald-500 relative overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -970,10 +900,6 @@ export default function DubaiDesignClient() {
           </div>
         </div>
       </section>
-
-      {/* =====================================================================
-          3. لماذا الشركات والمستثمرون في دبي يختاروننا؟
-      ===================================================================== */}
       <section className="py-20 px-4 md:px-10 bg-white border-b-4 border-emerald-500">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -989,7 +915,6 @@ export default function DubaiDesignClient() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* صندوق منظومة التكامل المالي والعقاري واللوجستي في دبي */}
             <motion.div
               initial={{ opacity: 0, x: 25 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -1030,7 +955,6 @@ export default function DubaiDesignClient() {
                   </div>
                 </div>
 
-                {/* صندوق المعمارية المتعددة اللغات */}
                 <div className="bg-white p-5 rounded-2xl border-2 border-emerald-300 mb-6">
                   <div className="flex items-center gap-3 mb-2">
                     <FaLanguage className="w-7 h-7 text-emerald-600" />
@@ -1066,7 +990,6 @@ export default function DubaiDesignClient() {
               </div>
             </motion.div>
 
-            {/* المزايا التنافسية الأربعة في دبي */}
             <div className="lg:col-span-6 space-y-5">
               {[
                 {
@@ -1115,10 +1038,6 @@ export default function DubaiDesignClient() {
           </div>
         </div>
       </section>
-
-      {/* =====================================================================
-          4. خدمات تصميم وتطوير المواقع في دبي (8 كروت تفصيلية شاملة)
-      ===================================================================== */}
       <section className="py-24 px-4 md:px-10 bg-[#f5f7f5] border-b-4 border-emerald-500">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -1190,10 +1109,6 @@ export default function DubaiDesignClient() {
           </div>
         </div>
       </section>
-
-      {/* =====================================================================
-          5. التغطية الجغرافية التفاعلية لمحاور الأعمال والمناطق الحرة في دبي (DUBAI HUBS TABS)
-      ===================================================================== */}
       <section className="py-24 px-4 md:px-10 bg-slate-900 text-white border-b-4 border-emerald-500">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-14">
@@ -1207,8 +1122,6 @@ export default function DubaiDesignClient() {
               نفهم بدقة طبيعة الشركات والجمهور المستهدف في كل منطقة من مناطق إمارة دبي، ونهيئ موقعك ليتصدر البحث المحلي والدولي:
             </p>
           </div>
-
-          {/* أزرار التبديل بين محاور دبي */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-10">
             {dubaiBusinessHubs.map((hub, idx) => (
               <button
@@ -1225,8 +1138,6 @@ export default function DubaiDesignClient() {
               </button>
             ))}
           </div>
-
-          {/* عرض تفاصيل المحور المختار */}
           <AnimatePresence mode="wait">
             <motion.div
               key={activeHub}
@@ -1256,8 +1167,6 @@ export default function DubaiDesignClient() {
                       {dubaiBusinessHubs[activeHub].focusSectors}
                     </p>
                   </div>
-
-                  {/* المناطق المشمولة */}
                   <div>
                     <span className="text-xs font-black text-slate-400 block mb-2">
                       أبرز المناطق والمناطق الحرة المستهدفة في السيو (Dubai Local SEO):
@@ -1299,10 +1208,6 @@ export default function DubaiDesignClient() {
           </AnimatePresence>
         </div>
       </section>
-
-      {/* =====================================================================
-          6. حاسبة ومخطط المشروع التفاعلي لإمارة دبي (4-STEP PROJECT PLANNER)
-      ===================================================================== */}
       <section className="py-24 px-4 md:px-10 bg-white border-b-4 border-emerald-500">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-14">
@@ -1318,7 +1223,6 @@ export default function DubaiDesignClient() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* اختيارات الحاسبة */}
             <div className="lg:col-span-7 bg-[#f5f7f5] border-4 border-emerald-500 rounded-3xl p-6 md:p-8 space-y-6">
               <div>
                 <label className="block font-black text-slate-900 text-base mb-3">
@@ -1364,7 +1268,6 @@ export default function DubaiDesignClient() {
                   ))}
                 </div>
               </div>
-
               <div>
                 <label className="block font-black text-slate-900 text-base mb-3">
                   3. اختر مستوى الربط التقني والتسويقي:
@@ -1411,8 +1314,6 @@ export default function DubaiDesignClient() {
                 </div>
               </div>
             </div>
-
-            {/* ملخص المواصفات والطلب الفوري */}
             <div className="lg:col-span-5 bg-slate-900 text-white border-4 border-emerald-500 rounded-3xl p-7 md:p-8 shadow-2xl">
               <div className="inline-block bg-emerald-500 text-slate-950 px-3.5 py-1 rounded-full text-xs font-black mb-4">
                 ملخص خطة مشروعك في دبي
@@ -1467,10 +1368,6 @@ export default function DubaiDesignClient() {
           </div>
         </div>
       </section>
-
-      {/* =====================================================================
-          7. مصفوفة التكامل مع منظومة دبي الرقمية والـ CRM (CRM & FINTECH MATRIX)
-      ===================================================================== */}
       <section className="py-24 px-4 md:px-10 bg-[#f5f7f5] border-b-4 border-emerald-500">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-14">
@@ -1534,10 +1431,6 @@ export default function DubaiDesignClient() {
           </div>
         </div>
       </section>
-
-      {/* =====================================================================
-          8. تشخيص أعطال ومشاكل المواقع في دبي وكيف نعالجها هندسياً
-      ===================================================================== */}
       <section className="py-24 px-4 md:px-10 bg-white border-b-4 border-emerald-500">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-14">
@@ -1604,10 +1497,6 @@ export default function DubaiDesignClient() {
           </div>
         </div>
       </section>
-
-      {/* =====================================================================
-          9. المستشار الرقمي التفاعلي: حدد هدفك في دبي
-      ===================================================================== */}
       <section className="py-24 px-4 md:px-10 bg-[#f5f7f5] border-b-4 border-emerald-500">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-14">
@@ -1672,10 +1561,6 @@ export default function DubaiDesignClient() {
           </div>
         </div>
       </section>
-
-      {/* =====================================================================
-          10. مقارنة التقنيات البرمجية (TECH STACK TABS)
-      ===================================================================== */}
       <section className="py-24 px-4 md:px-10 bg-white border-b-4 border-emerald-500">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-14">
@@ -1689,8 +1574,6 @@ export default function DubaiDesignClient() {
               نختار لك التقنية البرمجية التي تضمن أعلى سرعة، أمان، وتوافق مع محركات البحث في سوق دبي:
             </p>
           </div>
-
-          {/* أزرار اختيار التقنية */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
             {[
               { id: "nextjs", label: "برمجة خاصة Next.js 15", sub: "سرعة خارقة وصدارة SEO" },
@@ -1725,7 +1608,6 @@ export default function DubaiDesignClient() {
             ))}
           </div>
 
-          {/* صندوق عرض تفاصيل التقنية المختارة */}
           <div className="bg-[#f5f7f5] border-4 border-emerald-500 rounded-3xl p-8 md:p-12 shadow-lg">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 border-b border-emerald-200 pb-6">
               <div>
@@ -1782,10 +1664,6 @@ export default function DubaiDesignClient() {
           </div>
         </div>
       </section>
-
-      {/* =====================================================================
-          11. القطاعات الاقتصادية في دبي (SECTORS INTERACTIVE SECTION)
-      ===================================================================== */}
       <section className="py-24 px-4 md:px-10 bg-[#f5f7f5] border-b-4 border-emerald-500">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-14">
@@ -1801,7 +1679,6 @@ export default function DubaiDesignClient() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* قائمة القطاعات */}
             <div className="lg:col-span-4 space-y-3">
               {dubaiSectors.map((sec, idx) => (
                 <button
@@ -1819,7 +1696,6 @@ export default function DubaiDesignClient() {
               ))}
             </div>
 
-            {/* تفاصيل القطاع المختار */}
             <div className="lg:col-span-8 bg-white border-4 border-emerald-500 rounded-3xl p-8 md:p-10 shadow-lg">
               <h3 className="text-2xl md:text-3xl font-black text-slate-900 mb-4">
                 {dubaiSectors[activeSector].title}
@@ -1857,10 +1733,6 @@ export default function DubaiDesignClient() {
           </div>
         </div>
       </section>
-
-      {/* =====================================================================
-          12. جدول المقارنة مع الشركات التقليدية في دبي
-      ===================================================================== */}
       <section className="py-20 px-4 md:px-10 bg-white border-b-4 border-emerald-500">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-14">
@@ -1909,10 +1781,6 @@ export default function DubaiDesignClient() {
           </div>
         </div>
       </section>
-
-      {/* =====================================================================
-          13. خطوات العمل الهندسية (6 STEPS TIMELINE)
-      ===================================================================== */}
       <section className="py-24 px-4 md:px-10 bg-[#f5f7f5] border-b-4 border-emerald-500">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -1954,10 +1822,6 @@ export default function DubaiDesignClient() {
           </div>
         </div>
       </section>
-
-      {/* =====================================================================
-          14. الباقات والعروض (3 PACKAGES SECTION)
-      ===================================================================== */}
       <section id="packages" className="py-24 px-4 md:px-10 bg-white border-b-4 border-emerald-500">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -2039,10 +1903,6 @@ export default function DubaiDesignClient() {
           </div>
         </div>
       </section>
-
-      {/* =====================================================================
-          15. الدليل الشامل والـ SEO Content المعمق لإمارة دبي
-      ===================================================================== */}
       <section className="py-20 px-4 md:px-10 bg-[#f5f7f5] border-b-4 border-emerald-500">
         <div className="max-w-5xl mx-auto bg-white border-4 border-emerald-500 rounded-3xl p-8 md:p-12 shadow-lg">
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-6 border-r-4 border-emerald-500 pr-4">
@@ -2077,10 +1937,6 @@ export default function DubaiDesignClient() {
           </div>
         </div>
       </section>
-
-      {/* =====================================================================
-          16. الأسئلة الشائعة التفاعلية (12 FAQs ACCORDION)
-      ===================================================================== */}
       <section className="py-24 px-4 md:px-10 bg-white border-b-4 border-emerald-500">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-14">
@@ -2127,10 +1983,6 @@ export default function DubaiDesignClient() {
           </div>
         </div>
       </section>
-
-      {/* =====================================================================
-          17. بانر الختام والـ Call To Action النهائي لصفحة دبي
-      ===================================================================== */}
       <section className="py-20 px-4 md:px-10 bg-slate-900 text-white relative overflow-hidden">
         <div className="max-w-5xl mx-auto relative z-10 bg-gradient-to-br from-emerald-700 to-emerald-900 border-4 border-emerald-400 rounded-3xl p-8 md:p-14 text-center shadow-2xl">
           <h2 className="text-3xl md:text-5xl font-black text-white mb-6 leading-tight">

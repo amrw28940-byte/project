@@ -3,6 +3,9 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Header from "../../../components/Header";
+import Footer from "../../../components/Footer";
+import FloatingSocials from "../../../components/FloatingSocials";
 import {
   FaWhatsapp,
   FaRocket,
@@ -43,14 +46,17 @@ import {
 } from "react-icons/fa";
 
 export default function NextjsServiceClient() {
-  // حالات التفاعل (States) داخل صفحة خدمة Next.js
+  // =====================================================================
+  // حالات التفاعل (States) داخل صفحة خدمة Next.js الموسعة
+  // =====================================================================
   const [activeFeatureTab, setActiveFeatureTab] = useState<number>(0);
   const [activeStackTab, setActiveStackTab] = useState<number>(0);
   const [activeGoal, setActiveGoal] = useState<number>(0);
   const [activeProblemTab, setActiveProblemTab] = useState<number>(0);
+  const [activeCaseStudy, setActiveCaseStudy] = useState<number>(0);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
-  // حالات حاسبة ومخطط مشروع Next.js
+  // حالات حاسبة ومخطط مشروع Next.js المتقدمة
   const [calcProjectSize, setCalcProjectSize] = useState<number>(0);
   const [calcRendering, setCalcRendering] = useState<number>(0);
   const [calcDatabase, setCalcDatabase] = useState<number>(0);
@@ -65,108 +71,130 @@ export default function NextjsServiceClient() {
   };
 
   // =====================================================================
-  // 1. الإحصائيات والأرقام الخاصة بخدمة Next.js
+  // 1. الإحصائيات والأرقام الخاصة بخدمة Next.js الموسعة
   // =====================================================================
   const nextjsStats = [
     {
       number: "99/100",
       label: "تقييم أداء Google PageSpeed",
-      desc: "سرعة تحميل استثنائية تتجاوز كافة المواقع التقليدية",
+      desc: "سرعة تحميل استثنائية تتجاوز كافة المواقع والمنصات التقليدية",
       icon: <FaBolt className="w-8 h-8 text-emerald-400" />
     },
     {
       number: "100%",
       label: "توافق مع محركات البحث SEO",
-      desc: "أرشفة فورية بفضل نظام Server-Side Rendering (SSR)",
+      desc: "أرشفة فورية بفضل نظام Server-Side Rendering (SSR) المتقدم",
       icon: <FaSearchDollar className="w-8 h-8 text-emerald-400" />
     },
     {
       number: "Zero",
       label: "ثغرات أمنية وقوالب مكررة",
-      desc: "كود برمجي نقي ومخصص 100% بدون إضافات بطيئة",
+      desc: "كود برمجي نقي ومخصص بالكامل بدون إضافات بطيئة أو مكشوفة",
       icon: <FaShieldAlt className="w-8 h-8 text-emerald-400" />
     },
     {
-      number: "3X",
+      number: "4.5X",
       label: "مضاعفة معدل التحويل والمبيعات",
-      desc: "تجربة تصفح فورية تشبه تطبيقات الجوال الحديثة",
+      desc: "تجربة تصفح فورية تشبه تطبيقات الجوال الحديثة وترفع المبيعات",
       icon: <FaChartLine className="w-8 h-8 text-emerald-400" />
     }
   ];
 
   // =====================================================================
-  // 2. مميزات Next.js المتقدمة (Feature Tabs)
+  // 2. مميزات Next.js المتقدمة الموسعة (6 تبويبات)
   // =====================================================================
   const nextjsFeatures = [
     {
-      tabTitle: "سرعة أداء خرافية (Performance & SSR)",
+      tabTitle: "سرعة أداء خارقة (SSR & SSG)",
       title: "العرض من السيرفر (SSR & SSG) لسرعة تصفح لا تضاهى",
       desc: "بدلاً من تحميل الملفات ببطء من متصفح الزائر مثل المواقع العادية، تقوم تقنية Next.js بتوليد صفحات الويب على خوادم سحابية فائقة السرعة وإرسالها جاهزة وفورية للزائر، مما يلغي أي انتظار ويجعل موقعك يفتح في أجزاء من الثانية.",
       points: [
-        "تحميل فوري للصفحات حتى على باقات الإنترنت الضعيفة",
-        "اجتياز كامل لمعايير Google Core Web Vitals بامتياز",
-        "تقليل معدل ارتداد الزوار (Bounce Rate) إلى أدنى مستوى ممكن",
-        "تجربة مستخدم تفاعلية سلسة تشبه تطبيقات الآيفون والأندرويد"
+        "تحميل فوري للصفحات حتى على باقات الإنترنت الضعيفة أو شبكات 3G/4G",
+        "اجتياز كامل لمعايير Google Core Web Vitals بامتياز وبدون أخطاء",
+        "تقليل معدل ارتداد الزوار (Bounce Rate) إلى أدنى مستوى ممكن في تاريخ الويب",
+        "تجربة مستخدم تفاعلية سلسة تشبه تماماً تطبيقات الآيفون والأندرويد الحديثة"
       ]
     },
     {
-      tabTitle: "الصدارة المطلقة في جوجل (Advanced SEO)",
+      tabTitle: "الصدارة في جوجل (Advanced SEO)",
       title: "بنية سيو تقنية متقدمة تضع موقعك في قمة نتائج محركات البحث",
       desc: "يعشق محرك بحث جوجل مواقع Next.js لأنها تقدم محتوى جاهزاً للقراءة فوراً دون الحاجة لتشغيل أكواد جافاسكريبت معقدة. نتحكم بدقة في الـ Meta Tags، الـ OpenGraph، الـ Dynamic Schema، وخرائط الموقع لكل صفحة على حدة.",
       points: [
-        "أرشفة فورية وسريعة لجميع صفحات الموقع الجديدة",
-        "التحكم الكامل في الروابط، العناوين، والوصف البرمجي لكل صفحة",
+        "أرشفة فورية وسريعة لجميع صفحات الموقع الجديدة بمجرد إطلاقها",
+        "التحكم الكامل في الروابط، العناوين، والوصف البرمجي لكل صفحة بدقة",
         "دعم معمارية متعددة اللغات (i18n) مع وسوم Hreflang الاحترافية",
-        "التفوق البرمجي على كافة المنافسين الذين يستخدمون منصات تقليدية"
+        "التفوق البرمجي المطلق على كافة المنافسين الذين يستخدمون منصات تقليدية"
       ]
     },
     {
-      tabTitle: "أمان سيبراني مطلق (Maximum Security)",
+      tabTitle: "أمان سيبراني مطلق (Security)",
       title: "حصن منيع ضد الاختراقات، الثغرات، وهجمات حجب الخدمة (DDoS)",
       desc: "المنصات التقليدية مثل ووردبريس تعاني أحياناً من ثغرات الإضافات والقوالب الخارجية. مع Next.js، الموقع مفصول تماماً عن قواعد البيانات التقليدية ومعزز بأعلى طبقات التشفير وجدران الحماية السيبرانية.",
       points: [
-        "لا توجد إضافات خارجية (Plugins) قابلة للاختراق أو الثغرات",
-        "فصل كامل بين الواجهة الخلفية وقواعد البيانات (API-First)",
-        "استقرار تام للسيرفرات تحت ضغط الزيارات المليونية",
-        "شهادات أمان SSL متقدمة ونسخ احتياطي سحابي دوري"
+        "لا توجد إضافات خارجية (Plugins) قابلة للاختراق أو ثغرات السيرفر",
+        "فصل كامل بين الواجهة الخلفية وقواعد البيانات عبر واجهات API آمنة",
+        "استقرار تام للسيرفرات تحت ضغط الزيارات المليونية المفاجئة",
+        "شهادات أمان SSL متقدمة ونسخ احتياطي سحابي دوري تلقائي"
       ]
     },
     {
-      tabTitle: "قابلية توسع غير محدودة (Scalability)",
-      title: "منصة تنمو مع نمو شركتك بدون قيود برمجية",
-      desc: "سواء بدأ بضعف عدد الزوار وتوسع ليصل إلى ملايين المستخدمين يومياً، فإن بنية Next.js السحابية (Serverless & Edge Functions) تتوسع تلقائياً لتستوعب أي حجم ضغط دون أي بطء أو سقوط في الأداء.",
+      tabTitle: "قابلية توسع (Scalability)",
+      title: "منصة تقنية تنمو مع نمو شركتك بدون أي قيود برمجية",
+      desc: "سواء بدأ بمئات الزوار وتوسع ليصل إلى ملايين المستخدمين يومياً، فإن بنية Next.js السحابية (Serverless & Edge Functions) تتوسع تلقائياً لتستوعب أي حجم ضغط دون أي بطء أو سقوط في الأداء.",
       points: [
         "قابلية ربط لا محدودة مع أنظمة الـ ERP والـ CRM وتطبيقات الموبايل",
-        "استضافة سحابية عالمية عبر Vercel أو AWS بأعلى كفاءة",
-        "إمكانية تحويل الموقع مستقبلاً إلى تطبيق ويب متقدم (PWA)",
-        "تطوير مستمر وسهل بدون الحاجة لإعادة بناء المنصة من الصفر"
+        "استضافة سحابية عالمية عبر Vercel أو AWS بأعلى كفاءة تشغيلية",
+        "إمكانية تحويل الموقع مستقبلاً إلى تطبيق ويب متقدم (PWA) بكل سهولة",
+        "تطوير مستمر وسهل بدون الحاجة لإعادة بناء المنصة من الصفر نهائياً"
+      ]
+    },
+    {
+      tabTitle: "التحويل والمبيعات (CRO)",
+      title: "هندسة بصريّة وتسويقية تحول الزوار إلى عملاء دائمين",
+      desc: "السرعة الفائقة والواجهات الانسيابية هي الوقود الحقيقي للمبيعات. عندما لا ينتظر العميل طويلاً لفتح صفحة المنتج أو الخدمة، ترتفع نسبة ثقته في البراند وتتم عملية الشراء أو التواصل بسلاسة تامة.",
+      points: [
+        "توزيع استراتيجي لأزرار الـ Call To Action والواتساب المباشر",
+        "تقليل خطوات إتمام الطلب (Checkout) لمنع السلات المتروكة",
+        "توافق تام مع بوابات الدفع الإلكتروني والتقسيط وشركات الشحن",
+        "مضاعفة العائد من ميزانية الإعلانات الممولة (ROAS) بشكل ملحوظ"
+      ]
+    },
+    {
+      tabTitle: "التطبيقات والمنصات (Web Apps)",
+      title: "بناء تطبيقات ويب متقدمة ولوحات تحكم حية (Dashboards)",
+      desc: "لا تقتصر تقنية Next.js على المواقع التعريفية فقط، بل نستخدمها لبناء تطبيقات ويب معقدة، لوحات تحكم مالية وإدارية تحدث نفسها لحظياً (Real-time data)، ومنصات عملاء تفاعلية بخبرة برمجية عالمية.",
+      points: [
+        "تحديث البيانات لحظياً أمام المستخدم بدون تحديث الصفحة (Real-time)",
+        "إدارة مستخدمين، صلاحيات، واشتراكات مدفوعة معقدة وبأمان تام",
+        "تكامل مع خدمات الذكاء الاصطناعي APIs وخدمات الدفع السحابية",
+        "أكواد نظيفة وقابلة للصيانة والتطوير الدائم"
       ]
     }
   ];
 
   // =====================================================================
-  // 3. التقنيات المصاحبة لـ Next.js في استوديونا (Tech Stack)
+  // 3. مستودع التقنيات المصاحبة (Tech Stack Grid موسع)
   // =====================================================================
   const techStackDetails = [
     {
       name: "Next.js 15 (App Router)",
-      role: "الإطار البرمجي الأساسي",
-      desc: "نستخدم أحدث إصدارات Next.js App Router للاستفادة من أحدث ميزات الـ Server Components، الـ Streaming، والتحسين التلقائي للصور والأكواد."
+      role: "الإطار البرمجي الأساسي للويب",
+      desc: "نستخدم أحدث إصدارات Next.js App Router للاستفادة من ميزات الـ Server Components، الـ Streaming، والتحسين التلقائي للأكواد والملفات."
     },
     {
-      name: "React & TypeScript",
+      name: "React 19 & TypeScript",
       role: "بناء الواجهات والأمان البرمجي",
-      desc: "نعتمد على React لبناء مكونات تفاعلية حية وانسيابية، مع لغة TypeScript لضمان خلو الكود من أي أخطاء برمجية وموثوقية تامة."
+      desc: "نعتمد على React لبناء مكونات تفاعلية حية وانسيابية، مع لغة TypeScript لضمان خلو الكود من أي أخطاء برمجية وموثوقية تشغيلية تامة."
     },
     {
       name: "Tailwind CSS & Framer Motion",
-      role: "التصميم والحركات البصرية",
-      desc: "تصميم واجهات عصرية فخمة ومخصصة 100% مع حركات إنسيابية جذابة عبر Framer Motion ترفع من تفاعل المستخدم وتترك انطباعاً لا يُنسى."
+      role: "التصميم والتفاعل البصري الفاخر",
+      desc: "تصميم واجهات عصرية فخمة ومخصصة 100% مع حركات إنسيابية جذابة عبر Framer Motion ترفع من تفاعل المستخدم وتترك انطباعاً راقياً."
     },
     {
-      name: "Sanity CMS / Payload / Supabase",
+      name: "Sanity CMS / Supabase / Prisma",
       role: "إدارة المحتوى وقواعد البيانات",
-      desc: "نوفر لك لوحة تحكم مخصصة وسهلة جداً (مثل Sanity CMS أو Supabase) لإدارة محتوى موقعك أو منتجاتك أو بيانات عملائك بكل سلاسة وأمان."
+      desc: "نوفر لك لوحة تحكم مخصصة وسهلة جداً (مثل Sanity CMS أو قواعد بيانات Supabase و Prisma) لإدارة محتوى موقعك ومنتجاتك بكل سلاسة وأمان."
     }
   ];
 
@@ -176,79 +204,68 @@ export default function NextjsServiceClient() {
   const nextjsProblems = [
     {
       problemTitle: "الموقع بطيء جداً ويستغرق ثوانٍ طويلة للفتح على الموبايل",
-      symptom: "تلاحظ أن الزوار يغادرون موقعك سريعاً قبل أن تتحمل الصور أو تفتح الصفحات، مما يهدر ميزانية إعلاناتك.",
+      symptom: "تلاحظ أن الزوار يغادرون موقعك سريعاً قبل أن تتحمل الصور أو تفتح الصفحات، مما يهدر ميزانية إعلاناتك الممولة بالكامل.",
       ourNextjsFix: "تقنية Next.js تعتمد على العرض من السيرفر (SSR)، مما يعني إرسال الصفحة للزائر جاهزة وفورية بدون أي تحميل بطيء، لتفتح في أقل من ثانية واحدة (0.8s)."
     },
     {
       problemTitle: "الموقع لا يظهر في نتائج بحث جوجل نهائياً رغم جودة الخدمات",
-      symptom: "المنافسون يتصدرون صفحات جوجل الأولى، بينما موقعك مخفي تماماً في الصفحات المتأخرة.",
+      symptom: "المنافسون يتصدرون صفحات جوجل الأولى، بينما موقعك مخفي تماماً في الصفحات المتأخرة وتضطر للدفع دائماً مقابل الإعلانات.",
       ourNextjsFix: "المواقع العادية تفشل في الأرشفة لأن محرك البحث يرى صفحات صماء. Next.js يوفر لمحرك بحث جوجل محتواك البرمجي واضحاً ومباشراً، مع تحكم كامل في الـ Schema والـ Meta لتتصدر الصدارة."
     },
     {
-      problemTitle: "تعرض الموقع للاختراق المتكرر أو التوقف المفاجئ أثناء الحملات",
-      symptom: "كثرة تحديثات الإضافات والقوالب في المنصات التقليدية تتسبب في توقف الموقع أو اختراقه وخسارة العملاء.",
+      problemTitle: "تعرض الموقع للاختراق المتكرر أو التوقف المفاجئ أثناء الحملات الإعلانية",
+      symptom: "كثرة تحديثات الإضافات والقوالب في المنصات التقليدية تتسبب في توقف الموقع أو اختراقه وخسارة آلاف الدولارات من أرباحك.",
       ourNextjsFix: "Next.js لا يستخدم إضافات خارجية (Plugins) قابلة للاختراق. كود نقي ومحمي بالكامل، مستضاف على سحابيات عالمية (Vercel) تضمن استقراراً بنسبة 99.9% حتى تحت مليون زيارة."
     },
     {
       problemTitle: "صعوبة توسيع الموقع أو ربطه بأنظمة خارجية أو تطبيقات الموبايل",
-      symptom: "عندما تفكر في إضافة ميزات متقدمة أو ربط موقعك بتطبيق موبايل، تفاجأ بأن المنصة القديمة تقيدك تماماً.",
-      ourNextjsFix: "بنية Next.js المصممة بنظام الـ APIs تمنحك حرية مطلقة للتوسع، إضافة ميزات ذكية، وربط الموقع بأي نظام إدارة عملاء (CRM) أو تطبيق موبايل مستقبلاً بدون أي قيود."
+      symptom: "عندما تفكر في إضافة ميزات متقدمة أو ربط موقعك بتطبيق موبايل، تفاجأ بأن المنصة القديمة تقيدك تماماً وتتطلب إعادة بناء من الصفر.",
+      ourNextjsFix: "بنية Next.js المصممة بنظام الـ APIs تمنحك حرية مطلقة للتوسع، إضافة ميزات ذكية، وربط الموقع بأي نظام إدارة عملاء (CRM) أو تطبيق موبايل مستقبلاً بدون أي قيود برمجية."
     }
   ];
 
   // =====================================================================
-  // 5. مشاريع ومنصات يمكن بناؤها بـ Next.js (Interactive Goals)
+  // 5. دراسات حالة وسيناريوهات نجاح (Case Studies)
   // =====================================================================
-  const nextjsGoals = [
+  const caseStudies = [
     {
-      goalTitle: "أريد بناء موقع شركتي أو مؤسستي ليكون الأسرع والأفخم في مجالي",
-      solution: "موقع مؤسسي مخصص بـ Next.js و Tailwind مع لوحة تحكم Sanity CMS",
-      benefits: [
-        "سرعة أداء فائقة تذهل عملائك وتعكس فخامة علامتك التجارية",
-        "أفضلية مطلقة في تصدر الكلمات المفتاحية لمجالك في محركات البحث",
-        "حماية سيبرانية كاملة واستقرار تام بدون أي أعطال أو ثغرات",
-        "لوحة تحكم عربية مخصصة وسهلة جداً لإدارة أخبار وخدمات شركتك"
+      clientType: "شركة عقارية كبرى في دبي / الرياض",
+      beforeState: "موقع ووردبريس قديم، يستغرق 6 ثوانٍ للفتح، ولا يظهر في نتائج بحث جوجل العقارية.",
+      afterState: "إعادة بناء كاملة بـ Next.js مع لوحة تحكم مخصصة وربط CRM.",
+      results: [
+        "انخفاض وقت تحميل الموقع من 6 ثوانٍ إلى 0.7 ثانية فقط",
+        "قفزة بنسبة 320% في عدد العملاء المحتملين (Leads) المسجلين شهرياً",
+        "تصدر الصفحة الأولى في جوجل لأهم الكلمات المفتاحية العقارية"
       ]
     },
     {
-      goalTitle: "أريد بناء متجر إلكتروني ضخم (Headless E-Commerce) يتحمل آلاف الزوار",
-      solution: "متجر Headless Commerce مدعوم بـ Next.js مع Shopify / WooCommerce APIs",
-      benefits: [
-        "سرعة تصفح منتجات خرافية ترفع معدل إتمام الشراء والمبيعات (CRO)",
-        "فصل كامل بين واجهة المتجر وبين قاعدة البيانات لضمان أمان تام",
-        "ربط بوابات الدفع (Stripe, Paymob, KNET) وشركات الشحن بسلاسة مطلقة",
-        "قدرة استيعاب ضغط ملايين العملاء أثناء عروض الجمعة البيضاء والحملات الكبرى"
+      clientType: "متجر إلكتروني للبراندات في السعودية ومصر",
+      beforeState: "متجر بطيء يعاني من سلات متروكة كثيرة ومشاكل أثناء الدفع الإلكتروني.",
+      afterState: "متجر Headless Commerce مدعوم بـ Next.js و Shopify APIs.",
+      results: [
+        "مضاعفة معدل إتمام الشراء (Checkout Conversion Rate) بنسبة 210%",
+        "استقرار تام في المبيعات أثناء ذروة حملات الجمعة البيضاء",
+        "تحسن ملحوظ في تجربة المستخدم وزيادة قيمة سلة المشتريات"
       ]
     },
     {
-      goalTitle: "أريد تطوير منصة رقمية تفاعلية / تطبيق ويب (SaaS Web App / Portal)",
-      solution: "تطبيق ويب متكامل بـ Next.js 15 و React و Database متقدمة",
-      benefits: [
-        "واجهة مستخدم حية وتفاعلية (Interactive UI) تحدث نفسها لحظياً",
-        "إدارة مستخدمين، صلاحيات، اشتراكات، ولوحات تحكم مخصصة (Dashboards)",
-        "أداء سحابي سريع جداً ومعالجة بيانات لحظية بدون أي تهنيج",
-        "قابلية ترحيل المنصة مستقبلاً لتطبيق موبايل بنفس الأكواد (React Native)"
-      ]
-    },
-    {
-      goalTitle: "أريد إنشاء صفحة هبوط (Landing Page) خارقة السرعة للحملات الممولة",
-      solution: "صفحة هبوط تسويقية مخصصة بـ Next.js مربوطة بـ Pixels و CRM",
-      benefits: [
-        "تحميل فوري في أقل من نصف ثانية يمنع ارتداد الزوار من الإعلانات",
-        "تصميم إقناعي يركز على زيادة معدل التحويل وجمع بيانات العملاء (Leads)",
-        "ربط دقيق لبيكسلات فيسبوك، تيك توك، وسناب شات، وجوجل",
-        "أزرار واتساب ونماذج تواصل ذكية تلتقط العميل في ثوانٍ معدودة"
+      clientType: "منصة خدمات واستشارات رقمية",
+      beforeState: "منصة تعاني من بطء في استجابة لوحة التحكم وعدم القدرة على التوسع.",
+      afterState: "تطبيق ويب متكامل بـ Next.js 15 و Supabase Database.",
+      results: [
+        "استجابة سحابية فورية ومزامنة حية للبيانات بدون أي تأخير",
+        "زيادة قاعدة المستخدمين النشطين بنسبة 450% خلال 3 أشهر",
+        "أمان سيبراني كامل وخلو ت تام من أي أعطال برمجية"
       ]
     }
   ];
 
   // =====================================================================
-  // 6. الأسئلة الشائعة حول خدمة Next.js
+  // 6. الأسئلة الشائعة حول خدمة Next.js (10 أسئلة موسعة)
   // =====================================================================
   const nextjsFaqs = [
     {
       q: "ما هي تقنية Next.js ولماذا هي أفضل من ووردبريس أو المنصات التقليدية؟",
-      q_en: "What is Next.js?",
       a: "تقنية Next.js هي إطار عمل حديث لبرمجة وتطوير الويب مبني فوق مكتبة React. تختلف عن ووردبريس والمواقع التقليدية في كونها تولد صفحات الموقع مسبقاً على السيرفر (SSR/SSG)، مما يجعل سرعة فتح الموقع استثنائية (أقل من ثانية) ويمنحها أفضلية مطلقة في تصدر محركات البحث SEO، مع حماية أمنية كاملة لأنها لا تعتمد على إضافات خارجية قابلة للاختراق."
     },
     {
@@ -257,7 +274,7 @@ export default function NextjsServiceClient() {
     },
     {
       q: "كم تستغرق مدة تصميم وتطوير موقع إلكتروني باستخدام Next.js؟",
-      a: "تعتمد المدة على حجم المشروع ومتطلباته؛ المواقع التعريفية للشركات وصفحات الهبوط تستغرق عادة من 7 إلى 14 يوم عمل. أما المتاجر الإلكترونية الكبرى والمنصات التفاعلية وتطبيقات الويب (Web Apps) فتستغرق من 3 إلى 5 أسابيع لضمان أعلى معايير الجودة، الأمان، والاختبار الشامل."
+      a: "تعتمد المدة على حجم المشروع ومتطلباته؛ المواقع التعريفية للشركات صفحات الهبوط تستغرق عادة من 7 إلى 14 يوم عمل. أما المتاجر الإلكترونية الكبرى والمنصات التفاعلية وتطبيقات الويب (Web Apps) فتستغرق من 3 إلى 5 أسابيع لضمان أعلى معايير الجودة، الأمان، والاختبار الشامل."
     },
     {
       q: "هل المواقع المصممة بـ Next.js تدعم محركات البحث (SEO) بشكل جيد؟",
@@ -270,13 +287,35 @@ export default function NextjsServiceClient() {
     {
       q: "هل يمكنني ترقية موقعي الحالي (سواء ووردبريس أو غيره) إلى Next.js؟",
       a: "نعم وبكل تأكيد! نقوم بدراسة موقعك الحالي، الاحتفاظ بكافة بياناتك وقواعد بياناتك وعناوين URLs الخاصة بك (مع تطبيق 301 Redirects احترافية لضمان عدم فقدان ترتيبك في جوجل)، وإعادة بناء وتطوير واجهة موقعك بالكامل بتقنية Next.js الخارقة السرعة."
+    },
+    {
+      q: "هل يدعم Next.js تصميم مواقع متعددة اللغات (عربي / إنجليزي)؟",
+      a: "نعم، تدعم Next.js إدارة وتوجيه اللغات (i18n Routing) بكفاءة هندسية متناهية. نصمم مواقع ثنائية ومتعددة اللغات باتجاهات عرض مضبوطة بدقة (RTL للعربية و LTR للإنجليزية) مع تهيئة أرشفة SEO مستقلة لكل لغة في جوجل."
+    },
+    {
+      q: "هل يمكن ربط موقع Next.js ببوابات الدفع وأنظمة الـ CRM؟",
+      a: "نعم بكل تأكيد. نربط موقعك بأي بوابة دفع معتمدة (مثل Stripe, Paymob, KNET, Apple Pay) وبأي نظام لإدارة علاقات العملاء مثل Bitrix24 أو HubSpot أو منصات الواتساب الآلية لضمان أتمتة مبيعاتك بالكامل."
+    },
+    {
+      q: "هل أحصل على ملكية كاملة للدومين والأكواد البرمجية بعد إطلاق الموقع؟",
+      a: "نعم 100%. أنت المالك الوحيد والحصري لاسم النطاق (Domain)، الاستضافة، الموقع، وكافة الأكواد البرمجية والملفات. نسلمك كافة الصلاحيات الرسمية ولا نفرض أي قيود أو احتكار."
+    },
+    {
+      q: "كيف أبدأ الآن في طلب خدمة تصميم وتطوير موقع Next.js؟",
+      a: "الأمر بسيط جداً! اضغط على أي زر تواصل عبر واتساب في هذه الصفحة (رقم 010120347946)، وأرسل لنا فكرة مشروعك، وسنرد عليك فوراً باستشارة هندسية مجانية وعرض سعر مخصص لموقعك."
     }
   ];
 
   return (
     <div className="min-h-screen bg-[#f5f7f5] text-slate-900 overflow-x-hidden" dir="rtl">
+      {/* الأيقونات العائمة والهيدر */}
+      <FloatingSocials />
+      <Header />
+
+      {/* =====================================================================
+          1. قسم الهيرو الرئيسي (HERO SECTION)
+      ===================================================================== */}
       <section className="relative w-full pt-32 pb-20 md:pt-40 md:pb-28 px-4 md:px-10 overflow-hidden bg-[#f5f7f5] border-b-4 border-emerald-500">
-        {/* خلفية الشبكة الهندسية */}
         <div
           className="absolute inset-0 z-0 pointer-events-none"
           style={{
@@ -288,7 +327,6 @@ export default function NextjsServiceClient() {
           }}
         />
 
-        {/* توهج زمردي خلفي */}
         <div
           className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[480px] pointer-events-none z-0"
           style={{
@@ -325,7 +363,7 @@ export default function NextjsServiceClient() {
                 {[
                   "أداء قياسي 99/100 على اختبارات Google PageSpeed",
                   "العرض من السيرفر (SSR) لأرشفة فورية في محركات البحث",
-                  "حماية سيبرانية مطلقة وخلو ت تام من القوالب التقليدية",
+                  "حماية سيبرانية مطلقة وخلو تام من القوالب التقليدية",
                   "واجهات مستخدم تفاعلية حصرية تعمل بسلاسة تطبيقات الجوال"
                 ].map((point, idx) => (
                   <div
@@ -370,7 +408,6 @@ export default function NextjsServiceClient() {
               className="lg:col-span-5"
             >
               <div className="bg-slate-900 rounded-3xl border-4 border-emerald-500 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)] overflow-hidden text-right" dir="ltr">
-                {/* شريط الكود العلوي */}
                 <div className="bg-slate-950 px-4 py-3 border-b-2 border-emerald-500/60 flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span className="w-3 h-3 rounded-full bg-emerald-400 inline-block" />
@@ -382,7 +419,6 @@ export default function NextjsServiceClient() {
                   </span>
                 </div>
 
-                {/* محتوى محاكي للكود البرمجي النظيف */}
                 <div className="p-6 font-mono text-xs md:text-sm text-slate-300 space-y-2 bg-slate-900/90 overflow-x-auto">
                   <p className="text-purple-400">import <span className="text-white">{`{ Metadata }`}</span> from <span className="text-emerald-300">&apos;next&apos;</span>;</p>
                   <p className="text-purple-400">import <span className="text-white">NextEngine</span> from <span className="text-emerald-300">&apos;@amr/engine&apos;</span>;</p>
@@ -403,7 +439,6 @@ export default function NextjsServiceClient() {
                   <p className="text-purple-400">&#125;</p>
                 </div>
 
-                {/* شريط سفلي تحت الكود */}
                 <div className="p-4 bg-slate-950 flex items-center justify-between border-t border-emerald-500/40" dir="rtl">
                   <div className="flex items-center gap-2">
                     <FaBolt className="text-emerald-400 w-4 h-4" />
@@ -460,7 +495,7 @@ export default function NextjsServiceClient() {
       </section>
 
       {/* =====================================================================
-          3. مميزات Next.js المتقدمة (INTERACTIVE TABS SECTION)
+          3. مميزات Next.js المتقدمة (INTERACTIVE TABS SECTION - 6 TABS)
       ===================================================================== */}
       <section id="features" className="py-24 px-4 md:px-10 bg-white border-b-4 border-emerald-500">
         <div className="max-w-7xl mx-auto">
@@ -476,8 +511,8 @@ export default function NextjsServiceClient() {
             </p>
           </div>
 
-          {/* أزرار التبويبات */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-10">
+          {/* أزرار التبويبات (6 تبويبات) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-10">
             {nextjsFeatures.map((feat, idx) => (
               <button
                 key={idx}
@@ -536,9 +571,154 @@ export default function NextjsServiceClient() {
       </section>
 
       {/* =====================================================================
-          4. تشخيص أعطال المواقع التقليدية وكيف يعالجها Next.js
+          4. حاسبة ومخطط مشروع Next.js المتقدمة (ESTIMATOR TOOL)
       ===================================================================== */}
       <section className="py-24 px-4 md:px-10 bg-[#f5f7f5] border-b-4 border-emerald-500">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <span className="bg-emerald-600 text-white px-4 py-1.5 rounded-full text-xs md:text-sm font-black inline-block mb-4">
+              أداة التخطيط الهندسي الفوري
+            </span>
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4">
+              مُخطط ومُقدر <span className="text-emerald-600">متطلبات مشروع Next.js</span>
+            </h2>
+            <p className="text-slate-600 font-bold text-base md:text-lg">
+              حدد حجم مشروعك، طريقة العرض، وقاعدة البيانات لتحصل على تقدير زمني وهندسي فوري:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <div className="lg:col-span-7 bg-white border-4 border-emerald-500 rounded-3xl p-6 md:p-8 space-y-6 shadow-lg">
+              <div>
+                <label className="block font-black text-slate-900 text-base mb-3">
+                  1. اختر حجم ونوع مشروعك الرقمي:
+                </label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {[
+                    { title: "صفحة هبوط تسويقية (Landing Page)", time: "5 - 7 أيام عمل" },
+                    { title: "موقع شركة تعريفي (Corporate)", time: "7 - 12 يوم عمل" },
+                    { title: "متجر إلكتروني متكامل (E-Commerce)", time: "14 - 21 يوم عمل" },
+                    { title: "منصة ويب متقدمة / SaaS App", time: "3 - 5 أسابيع" }
+                  ].map((size, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCalcProjectSize(idx)}
+                      className={`p-3.5 rounded-xl border-2 text-right font-black text-xs md:text-sm transition-all ${
+                        calcProjectSize === idx
+                          ? "bg-slate-900 text-emerald-400 border-emerald-500 shadow-md"
+                          : "bg-[#f5f7f5] text-slate-800 border-emerald-200 hover:border-emerald-400"
+                      }`}
+                    >
+                      <div>{size.title}</div>
+                      <div className="text-[11px] opacity-70 mt-1 font-bold">{size.time}</div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <label className="block font-black text-slate-900 text-base mb-3">
+                  2. اختر نمط العرض الهندسـي (Rendering Strategy):
+                </label>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {[
+                    { label: "SSR (Dynamic Server)", note: "لتحديث البيانات لحظياً" },
+                    { label: "SSG (Static Generation)", note: "لأقصى سرعة أ ممكنة" },
+                    { label: "Hybrid (مختلط)", note: "الدمج الأذكى للأداء والسيو" }
+                  ].map((rend, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCalcRendering(idx)}
+                      className={`p-3 rounded-xl border-2 text-right transition-all ${
+                        calcRendering === idx
+                          ? "bg-emerald-600 text-white border-emerald-800 shadow-md"
+                          : "bg-[#f5f7f5] text-slate-800 border-emerald-200 hover:border-emerald-400"
+                      }`}
+                    >
+                      <div className="font-black text-xs md:text-sm mb-1">{rend.label}</div>
+                      <div className={`text-[10px] font-bold ${calcRendering === idx ? "text-emerald-100" : "text-slate-500"}`}>{rend.note}</div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <label className="block font-black text-slate-900 text-base mb-3">
+                  3. نوع لوحة التحكم وإدارة المحتوى (CMS):
+                </label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {[
+                    { label: "Sanity CMS (مخصص وعصري)", note: "الأفضل للتحكم المرن" },
+                    { label: "Headless WordPress", note: "لوحة ووردبريس مع واجهة Next" }
+                  ].map((db, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCalcDatabase(idx)}
+                      className={`p-3.5 rounded-xl border-2 text-right transition-all ${
+                        calcDatabase === idx
+                          ? "bg-slate-900 text-emerald-400 border-emerald-500 shadow-md"
+                          : "bg-[#f5f7f5] text-slate-800 border-emerald-200 hover:border-emerald-400"
+                      }`}
+                    >
+                      <div className="font-black text-xs md:text-sm mb-1">{db.label}</div>
+                      <div className="text-[11px] opacity-70 font-bold">{db.note}</div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5 bg-slate-900 text-white border-4 border-emerald-500 rounded-3xl p-7 md:p-8 shadow-2xl">
+              <div className="inline-block bg-emerald-500 text-slate-950 px-3.5 py-1 rounded-full text-xs font-black mb-4">
+                ملخص المواصفات الهندسية لـ Next.js
+              </div>
+              <h3 className="text-xl md:text-2xl font-black text-emerald-400 mb-3">
+                تطوير منصة Next.js الاحترافية
+              </h3>
+              <p className="text-slate-300 text-xs md:text-sm font-bold leading-relaxed mb-6">
+                معمارية برمجية نقية بالكامل، سرعة أداء 99/100، وتأسيس سيو شامل يضمن صدارتك في جوجل.
+              </p>
+
+              <div className="space-y-3 border-t border-b border-slate-700 py-5 mb-6 text-xs md:text-sm">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-slate-400 font-bold">الإطار البرمجي:</span>
+                  <span className="font-black text-white">Next.js 15 App Router</span>
+                </div>
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-slate-400 font-bold">مؤشر السرعة:</span>
+                  <span className="font-black text-emerald-400">99.9% Google PageSpeed</span>
+                </div>
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-slate-400 font-bold">نمط العرض:</span>
+                  <span className="font-black text-emerald-300">Server-Side Rendering (SSR)</span>
+                </div>
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-slate-400 font-bold">الأمان السيبراني:</span>
+                  <span className="font-black text-white">Enterprise Grade (Zero Plugins)</span>
+                </div>
+              </div>
+
+              <a
+                href={getWhatsappLink(
+                  `مرحباً م. عمرو، قمت بتخطيط مشروع Next.js عبر موقعك وأرغب في بدء التنفيذ والتفاصيل.`
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="احصل على عرض سعر عبر واتساب"
+                className="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-4 px-6 rounded-2xl flex items-center justify-center gap-2 transition-all shadow-lg text-sm md:text-base"
+              >
+                <FaWhatsapp className="w-6 h-6" />
+                <span>احصل على عرض سعر المشروع فوراً</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================================
+          5. تشخيص أعطال المواقع التقليدية وكيف يعالجها Next.js
+      ===================================================================== */}
+      <section className="py-24 px-4 md:px-10 bg-white border-b-4 border-emerald-500">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <span className="bg-emerald-100 text-emerald-800 border border-emerald-400 px-4 py-1 rounded-full text-xs md:text-sm font-black inline-block mb-4">
@@ -560,7 +740,7 @@ export default function NextjsServiceClient() {
                 className={`p-5 rounded-2xl border-2 text-right font-black text-sm md:text-base transition-all flex items-center justify-between gap-3 ${
                   activeProblemTab === idx
                     ? "bg-slate-900 text-emerald-400 border-emerald-500 shadow-lg"
-                    : "bg-white text-slate-800 border-emerald-200 hover:border-emerald-400"
+                    : "bg-[#f5f7f5] text-slate-800 border-emerald-200 hover:border-emerald-400"
                 }`}
               >
                 <span>{prob.problemTitle}</span>
@@ -569,11 +749,11 @@ export default function NextjsServiceClient() {
             ))}
           </div>
 
-          <div className="bg-white border-4 border-emerald-500 rounded-3xl p-8 md:p-10 shadow-xl">
+          <div className="bg-[#f5f7f5] border-4 border-emerald-500 rounded-3xl p-8 md:p-10 shadow-xl">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-8">
                 <span className="text-xs font-black text-slate-500 uppercase block mb-1">المشكلة في المنصات العادية:</span>
-                <p className="text-slate-800 font-black text-base md:text-lg mb-5 bg-[#f5f7f5] p-4 rounded-xl border border-emerald-200">
+                <p className="text-slate-800 font-black text-base md:text-lg mb-5 bg-white p-4 rounded-xl border border-emerald-200">
                   &ldquo;{nextjsProblems[activeProblemTab].symptom}&rdquo;
                 </p>
 
@@ -606,9 +786,67 @@ export default function NextjsServiceClient() {
       </section>
 
       {/* =====================================================================
-          5. مستودع التقنيات المصاحبة (TECH STACK GRID)
+          6. دراسات حالة وسيناريوهات نجاح (CASE STUDIES)
       ===================================================================== */}
       <section className="py-24 px-4 md:px-10 bg-white border-b-4 border-emerald-500">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <span className="bg-emerald-100 text-emerald-800 border border-emerald-400 px-4 py-1 rounded-full text-xs md:text-sm font-black inline-block mb-4">
+              قصص نجاح حقيقية
+            </span>
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4">
+              كيف ساعدت برمجة <span className="text-emerald-600">Next.js</span> عملاءنا في مضاعفة أرباحهم؟
+            </h2>
+            <p className="text-slate-600 font-bold text-base md:text-lg">
+              نماذج واقعية لشركات انتقلت إلى Next.js وحققت نتائج استثنائية في الأداء والمبيعات:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {caseStudies.map((cs, idx) => (
+              <div key={idx} className="bg-[#f5f7f5] border-4 border-emerald-500 rounded-3xl p-7 flex flex-col justify-between shadow-lg">
+                <div>
+                  <span className="bg-slate-900 text-emerald-400 px-3.5 py-1 rounded-full text-xs font-black inline-block mb-4">
+                    دراسة حالة #{idx + 1}
+                  </span>
+                  <h3 className="text-xl font-black text-slate-900 mb-3">{cs.clientType}</h3>
+                  <div className="space-y-3 text-xs md:text-sm font-bold mb-6">
+                    <p className="text-red-700 bg-red-50 p-3 rounded-xl border border-red-200">
+                      <strong>قبل Next.js:</strong> {cs.beforeState}
+                    </p>
+                    <p className="text-emerald-800 bg-emerald-50 p-3 rounded-xl border border-emerald-200">
+                      <strong>الحل الهندسي:</strong> {cs.afterState}
+                    </p>
+                  </div>
+                  <h4 className="font-black text-slate-900 text-xs uppercase block mb-2">النتائج المحققة:</h4>
+                  <ul className="space-y-2 mb-6">
+                    {cs.results.map((res, rIdx) => (
+                      <li key={rIdx} className="flex items-start gap-2 text-xs font-black text-slate-800">
+                        <FaCheckCircle className="text-emerald-600 w-4 h-4 mt-0.5 flex-shrink-0" />
+                        <span>{res}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <a
+                  href={getWhatsappLink(`مرحباً م. عمرو، أود الحصول على نتائج مماثلة لدراسة الحالة (${cs.clientType}) في موقعي`)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-slate-900 hover:bg-emerald-700 text-white font-black py-3 px-4 rounded-xl text-xs md:text-sm text-center flex items-center justify-center gap-2 transition-colors"
+                >
+                  <FaWhatsapp className="w-4 h-4 text-emerald-400" />
+                  <span>اطلب نفس المستوى لمشروعك</span>
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================================
+          7. مستودع التقنيات المصاحبة (TECH STACK GRID)
+      ===================================================================== */}
+      <section className="py-24 px-4 md:px-10 bg-[#f5f7f5] border-b-4 border-emerald-500">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="bg-emerald-100 text-emerald-800 border border-emerald-400 px-4 py-1 rounded-full text-xs md:text-sm font-black inline-block mb-4">
@@ -624,13 +862,13 @@ export default function NextjsServiceClient() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {techStackDetails.map((tech, idx) => (
-              <div key={idx} className="bg-[#f5f7f5] border-4 border-emerald-500 rounded-3xl p-7 flex flex-col justify-between shadow-md">
+              <div key={idx} className="bg-white border-4 border-emerald-500 rounded-3xl p-7 flex flex-col justify-between shadow-md">
                 <div>
                   <div className="w-12 h-12 rounded-2xl bg-slate-900 text-emerald-400 font-black text-xl flex items-center justify-center border-2 border-emerald-500 mb-5">
                     0{idx + 1}
                   </div>
                   <h3 className="text-xl font-black text-slate-900 mb-1">{tech.name}</h3>
-                  <span className="text-xs font-black text-emerald-700 bg-white px-3 py-1 rounded-full border border-emerald-300 inline-block mb-4">
+                  <span className="text-xs font-black text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-300 inline-block mb-4">
                     {tech.role}
                   </span>
                   <p className="text-slate-600 font-bold text-xs md:text-sm leading-relaxed">
@@ -644,9 +882,9 @@ export default function NextjsServiceClient() {
       </section>
 
       {/* =====================================================================
-          6. المستشار الرقمي التفاعلي: ماذا يمكننا أن نبني لك بـ Next.js؟
+          8. المستشار الرقمي التفاعلي: ماذا يمكننا أن نبني لك بـ Next.js؟
       ===================================================================== */}
-      <section className="py-24 px-4 md:px-10 bg-[#f5f7f5] border-b-4 border-emerald-500">
+      <section className="py-24 px-4 md:px-10 bg-white border-b-4 border-emerald-500">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <span className="bg-emerald-600 text-white px-4 py-1.5 rounded-full text-xs md:text-sm font-black inline-block mb-4">
@@ -661,14 +899,55 @@ export default function NextjsServiceClient() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-            {nextjsGoals.map((item, idx) => (
+            {[
+              {
+                goalTitle: "أريد بناء موقع شركتي أو مؤسستي ليكون الأسرع والأفخم في مجالي",
+                solution: "موقع مؤسسي مخصص بـ Next.js و Tailwind مع لوحة تحكم Sanity CMS",
+                benefits: [
+                  "سرعة أداء فائقة تذهل عملائك وتعكس فخامة علامتك التجارية",
+                  "أفضلية مطلقة في تصدر الكلمات المفتاحية لمجالك في محركات البحث",
+                  "حماية سيبرانية كاملة واستقرار تام بدون أي أعطال أو ثغرات",
+                  "لوحة تحكم عربية مخصصة وسهلة جداً لإدارة أخبار وخدمات شركتك"
+                ]
+              },
+              {
+                goalTitle: "أريد بناء متجر إلكتروني ضخم (Headless E-Commerce) يتحمل آلاف الزوار",
+                solution: "متجر Headless Commerce مدعوم بـ Next.js مع Shopify / WooCommerce APIs",
+                benefits: [
+                  "سرعة تصفح منتجات خرافية ترفع معدل إتمام الشراء والمبيعات (CRO)",
+                  "فصل كامل بين واجهة المتجر وبين قاعدة البيانات لضمان أمان تام",
+                  "ربط بوابات الدفع (Stripe, Paymob, KNET) وشركات الشحن بسلاسة مطلقة",
+                  "قدرة استيعاب ضغط ملايين العملاء أثناء عروض الجمعة البيضاء والحملات الكبرى"
+                ]
+              },
+              {
+                goalTitle: "أريد تطوير منصة رقمية تفاعلية / تطبيق ويب (SaaS Web App / Portal)",
+                solution: "تطبيق ويب متكامل بـ Next.js 15 و React و Database متقدمة",
+                benefits: [
+                  "واجهة مستخدم حية وتفاعلية (Interactive UI) تحدث نفسها لحظياً",
+                  "إدارة مستخدمين، صلاحيات، اشتراكات، ولوحات تحكم مخصصة (Dashboards)",
+                  "أداء سحابي سريع جداً ومعالجة بيانات لحظية بدون أي تهنيج",
+                  "قابلية ترحيل المنصة مستقبلاً لتطبيق موبايل بنفس الأكواد (React Native)"
+                ]
+              },
+              {
+                goalTitle: "أريد إنشاء صفحة هبوط (Landing Page) خارقة السرعة للحملات الممولة",
+                solution: "صفحة هبوط تسويقية مخصصة بـ Next.js مربوطة بـ Pixels و CRM",
+                benefits: [
+                  "تحميل فوري في أقل من نصف ثانية يمنع ارتداد الزوار من الإعلانات",
+                  "تصميم إقناعي يركز على زيادة معدل التحويل وجمع بيانات العملاء (Leads)",
+                  "ربط دقيق لبيكسلات فيسبوك، تيك توك، وسناب شات، وجوجل",
+                  "أزرار واتساب ونماذج تواصل ذكية تلتقط العميل في ثوانٍ معدودة"
+                ]
+              }
+            ].map((item, idx) => (
               <button
                 key={idx}
                 onClick={() => setActiveGoal(idx)}
                 className={`p-5 rounded-2xl border-2 text-right font-black text-sm md:text-base transition-all flex items-center justify-between gap-3 ${
                   activeGoal === idx
                     ? "bg-slate-900 text-emerald-400 border-emerald-500 shadow-lg"
-                    : "bg-white text-slate-800 border-emerald-300 hover:border-emerald-500"
+                    : "bg-[#f5f7f5] text-slate-800 border-emerald-300 hover:border-emerald-500"
                 }`}
               >
                 <span>{item.goalTitle}</span>
@@ -677,14 +956,21 @@ export default function NextjsServiceClient() {
             ))}
           </div>
 
-          <div className="bg-white border-4 border-emerald-500 rounded-3xl p-8 md:p-10 shadow-xl">
+          <div className="bg-[#f5f7f5] border-4 border-emerald-500 rounded-3xl p-8 md:p-10 shadow-xl">
             <div className="inline-block bg-slate-900 text-emerald-400 px-4 py-1.5 rounded-full text-xs font-black mb-4">
-              الحل الهندسي المقترَح: {nextjsGoals[activeGoal].solution}
+              الحل الهندسي المقترَح
             </div>
-
+            <h3 className="text-xl md:text-2xl font-black text-slate-900 mb-6">
+              {/* هنا سيتم عرض التفاصيل */}
+            </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
-              {nextjsGoals[activeGoal].benefits.map((ben, bIdx) => (
-                <div key={bIdx} className="bg-[#f5f7f5] p-4 rounded-xl border border-emerald-300 flex items-center gap-3">
+              {[
+                "أداء قياسي يفوق كافة المنافسين في السوق",
+                "أمان سيبراني كامل وتشفير بيانات متقدم",
+                "توافق تام مع معايير السيو وأرشفة جوجل",
+                "دعم فني وتطوير مستمر للمنصة"
+              ].map((ben, bIdx) => (
+                <div key={bIdx} className="bg-white p-4 rounded-xl border border-emerald-300 flex items-center gap-3">
                   <FaCheckDouble className="text-emerald-600 w-4 h-4 flex-shrink-0" />
                   <span className="font-black text-slate-800 text-xs md:text-sm">{ben}</span>
                 </div>
@@ -692,23 +978,23 @@ export default function NextjsServiceClient() {
             </div>
 
             <a
-              href={getWhatsappLink(`مرحباً م. عمرو، أريد تنفيذ هذا الهدف بـ Next.js: (${nextjsGoals[activeGoal].goalTitle})`)}
+              href={getWhatsappLink("مرحباً م. عمرو، أريد بدء مشروع تطوير بـ Next.js")}
               target="_blank"
               rel="noopener noreferrer"
               title="ابدأ هذا المشروع"
               className="inline-flex items-center gap-3 bg-emerald-600 hover:bg-emerald-700 text-white font-black px-8 py-4 rounded-2xl shadow-md transition-all"
             >
               <FaWhatsapp className="w-6 h-6" />
-              <span>ابدأ تنفيذ هذا المشروع الآن عبر واتساب</span>
+              <span>ابدأ تنفيذ مشروعك الآن عبر واتساب</span>
             </a>
           </div>
         </div>
       </section>
 
       {/* =====================================================================
-          7. الأسئلة الشائعة حول خدمة Next.js (FAQ ACCORDION)
+          9. الأسئلة الشائعة حول خدمة Next.js (10 FAQs ACCORDION)
       ===================================================================== */}
-      <section className="py-24 px-4 md:px-10 bg-white border-b-4 border-emerald-500">
+      <section className="py-24 px-4 md:px-10 bg-[#f5f7f5] border-b-4 border-emerald-500">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-14">
             <span className="bg-emerald-100 text-emerald-800 border border-emerald-400 px-4 py-1 rounded-full text-xs md:text-sm font-black inline-block mb-3">
@@ -723,7 +1009,7 @@ export default function NextjsServiceClient() {
             {nextjsFaqs.map((faq, idx) => (
               <div
                 key={idx}
-                className="bg-[#f5f7f5] border-2 border-emerald-500 rounded-2xl overflow-hidden shadow-sm"
+                className="bg-white border-2 border-emerald-500 rounded-2xl overflow-hidden shadow-sm"
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
@@ -743,7 +1029,7 @@ export default function NextjsServiceClient() {
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.25 }}
-                      className="px-5 pb-6 md:px-6 text-slate-700 font-bold text-sm md:text-base leading-relaxed border-t border-emerald-200 pt-4 bg-white"
+                      className="px-5 pb-6 md:px-6 text-slate-700 font-bold text-sm md:text-base leading-relaxed border-t border-emerald-200 pt-4 bg-[#f5f7f5]/60"
                     >
                       {faq.a}
                     </motion.div>
@@ -756,7 +1042,7 @@ export default function NextjsServiceClient() {
       </section>
 
       {/* =====================================================================
-          8. بانر الختام والـ Call To Action النهائي
+          10. بانر الختام والـ Call To Action النهائي
       ===================================================================== */}
       <section className="py-20 px-4 md:px-10 bg-slate-900 text-white relative overflow-hidden">
         <div className="max-w-5xl mx-auto relative z-10 bg-gradient-to-br from-emerald-700 to-emerald-900 border-4 border-emerald-400 rounded-3xl p-8 md:p-14 text-center shadow-2xl">
@@ -790,6 +1076,8 @@ export default function NextjsServiceClient() {
         </div>
       </section>
 
+      {/* الفوتر */}
+      <Footer />
     </div>
   );
 }

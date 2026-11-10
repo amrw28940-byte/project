@@ -9,7 +9,6 @@ import ProjectsSection from '../components/ProjectsSection';
 import AboutSection from '../components/AboutSection';
 import TestimonialsSection from '../components/TestimonialsSection';
 import FloatingSocials from '../components/FloatingSocials'; 
-import ContactSection from '../components/ContactSection'; 
 import Contact from '../components/Contact'; 
 
 // إعدادات الـ SEO الاحترافية والتسويقية للصفحة الرئيسية
@@ -53,8 +52,6 @@ export default function HomePage() {
       <AboutSection /> 
       <TestimonialsSection />
 
-      {/* السكشن الأول: الخريطة */}
-      <ContactSection />
 
       {/* السكشن الثاني: النموذج بخلفية سوداء */}
       <Contact />

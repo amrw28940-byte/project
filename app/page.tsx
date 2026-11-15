@@ -3,15 +3,14 @@ import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
 import ServicesMarquee from '../components/ServicesMarquee';
 import ServicesMarqueeReverse from '../components/ServicesMarqueeReverse';
+import PortfolioSection from '../components/PortfolioSection';
 import ExperienceSection from '../components/ExperienceSection';
 import ServicesSection from '../components/ServicesSection';
-import ProjectsSection from '../components/ProjectsSection';
 import AboutSection from '../components/AboutSection';
 import TestimonialsSection from '../components/TestimonialsSection';
 import FloatingSocials from '../components/FloatingSocials'; 
 import Contact from '../components/Contact'; 
 
-// إعدادات الـ SEO الاحترافية والتسويقية للصفحة الرئيسية
 export const metadata: Metadata = {
   title: 'شركة تصميم مواقع وتحسين محركات البحث SEO | عمرو سالم',
   description: 'احصل على تصميم مواقع احترافية وتطبيقات Next.js سريعة ومتاجر إلكترونية متكاملة مع خدمات تحسين محركات البحث SEO لضمان تصدر موقعك قمة نتائج جوجل.',
@@ -29,12 +28,8 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    /* pt-24: إضافة مساحة علوية لمنع تغطية المحتوى بواسطة الهيدر الثابت
-       overflow-x-hidden: منع أي تحرك جانبي غير مرغوب فيه للشاشة 
-    */
     <main className="min-h-screen relative pt-24 overflow-x-hidden">
       
-      {/* الأيقونات الثابتة على اليمين */}
       <FloatingSocials />
 
       <Header />
@@ -46,14 +41,12 @@ export default function HomePage() {
         <ServicesMarqueeReverse />
       </div>
 
+      <PortfolioSection />
+
       <ExperienceSection />
       <ServicesSection />
-      <ProjectsSection />
       <AboutSection /> 
       <TestimonialsSection />
-
-
-      {/* السكشن الثاني: النموذج بخلفية سوداء */}
       <Contact />
       
     </main>

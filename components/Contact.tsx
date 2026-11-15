@@ -17,19 +17,14 @@ import {
 } from "react-icons/fa";
 
 export default function ContactSection() {
-  // حالات حقول النموذج (Form States)
   const [fullName, setFullName] = useState<string>("");
   const [phone, setPhone] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [selectedService, setSelectedService] = useState<string>("تصميم وتطوير موقع Next.js");
   const [projectNotes, setProjectNotes] = useState<string>("");
   const [formError, setFormError] = useState<string>("");
-
-  // رقم الواتساب المعتمد (بدون أصفار زائدة)
   const whatsappNumber = "201020347946";
   const displayPhone = "01020347946";
-
-  // قائمة الخدمات المتاحة للاختيار السريع
   const servicesList = [
     "تصميم وتطوير موقع Next.js",
     "تصميم موقع شركة تعريفي (Corporate)",
@@ -42,7 +37,6 @@ export default function ContactSection() {
     "استشارة تقنية أو مشروع برمجة خاصة"
   ];
 
-  // دالة إرسال البيانات تلقائياً إلى الواتساب
   const handleWhatsappSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -53,7 +47,6 @@ export default function ContactSection() {
 
     setFormError("");
 
-    // تنسيق الرسالة التلقائية التي ستصلك على الواتساب
     const formattedMessage = `مرحباً م. عمرو، لدي طلب مشروع جديد عبر الموقع:
 ----------------------------------
 👤 *الاسم:* ${fullName}
@@ -68,7 +61,6 @@ export default function ContactSection() {
       formattedMessage
     )}`;
 
-    // فتح الواتساب في نافذة جديدة تلقائياً
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
   };
 
@@ -77,9 +69,7 @@ export default function ContactSection() {
       id="contact-section"
       className="py-24 px-4 md:px-10 bg-slate-900 text-white border-t-4 border-b-4 border-emerald-500 relative overflow-hidden"
       dir="rtl"
-    >
-      {/* خلفية الشبكة الهندسية الخفيفة */}
-      <div
+    >      <div
         className="absolute inset-0 z-0 pointer-events-none"
         style={{
           backgroundImage: `
@@ -90,7 +80,6 @@ export default function ContactSection() {
         }}
       />
 
-      {/* توهج زمردي خلفي */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] pointer-events-none z-0"
         style={{
@@ -100,7 +89,6 @@ export default function ContactSection() {
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* عنوان السكشن */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="bg-emerald-500/20 text-emerald-300 border border-emerald-400 px-4 py-1.5 rounded-full text-xs md:text-sm font-black inline-block mb-4">
             ابدأ مشروعك الرقمي الآن في خطوة واحدة
@@ -114,7 +102,6 @@ export default function ContactSection() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          {/* العمود الأيمن: نموذج التواصل التفاعلي الذكي */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -136,9 +123,7 @@ export default function ContactSection() {
             </div>
 
             <form onSubmit={handleWhatsappSubmit} className="space-y-6">
-              {/* الصف الأول: الاسم ورقم الهاتف */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* حقل الاسم */}
                 <div>
                   <label className="block font-black text-slate-900 text-sm mb-2">
                     الاسم الكامل أو اسم الشركة <span className="text-emerald-600">*</span>
@@ -156,7 +141,6 @@ export default function ContactSection() {
                   </div>
                 </div>
 
-                {/* حقل رقم الهاتف */}
                 <div>
                   <label className="block font-black text-slate-900 text-sm mb-2">
                     رقم الهاتف / الجوال (مع كود الدولة) <span className="text-emerald-600">*</span>
@@ -177,9 +161,7 @@ export default function ContactSection() {
                 </div>
               </div>
 
-              {/* الصف الثاني: البريد الإلكتروني والقائمة المنسدلة للخدمة */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* حقل البريد الإلكتروني */}
                 <div>
                   <label className="block font-black text-slate-900 text-sm mb-2">
                     البريد الإلكتروني (Email) <span className="text-emerald-600">*</span>
@@ -199,7 +181,6 @@ export default function ContactSection() {
                   </div>
                 </div>
 
-                {/* القائمة المنسدلة لاختيار الخدمة */}
                 <div>
                   <label className="block font-black text-slate-900 text-sm mb-2">
                     اختر الخدمة المطلوبة <span className="text-emerald-600">*</span>
@@ -221,7 +202,6 @@ export default function ContactSection() {
                 </div>
               </div>
 
-              {/* أزرار اختيار سريع للخدمة (Quick Selection Chips) */}
               <div>
                 <span className="block font-black text-slate-700 text-xs mb-2.5">
                   أو اضغط مباشرة على الخدمة المطلوبة لتحديدها:
@@ -249,7 +229,6 @@ export default function ContactSection() {
                 </div>
               </div>
 
-              {/* حقل تفاصيل أو ملاحظات إضافية (اختياري) */}
               <div>
                 <label className="block font-black text-slate-900 text-sm mb-2">
                   نبذة سريعة عن مشروعك أو استفسارك (اختياري)
@@ -266,14 +245,12 @@ export default function ContactSection() {
                 </div>
               </div>
 
-              {/* تنبيه في حالة نسيان حقل أساسي */}
               {formError && (
                 <div className="bg-amber-50 border-2 border-amber-500 text-amber-900 px-4 py-3 rounded-xl text-xs md:text-sm font-black">
                   ⚠️ {formError}
                 </div>
               )}
 
-              {/* زر الإرسال الفوري للواتساب */}
               <button
                 type="submit"
                 className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black text-base md:text-lg py-4 px-8 rounded-2xl shadow-[0_12px_25px_-5px_rgba(16,185,129,0.45)] border-2 border-emerald-800 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-3 cursor-pointer"
@@ -285,7 +262,6 @@ export default function ContactSection() {
             </form>
           </motion.div>
 
-          {/* العمود الأيسر: معاينة حية للرسالة + معلومات التواصل المباشر */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -293,7 +269,6 @@ export default function ContactSection() {
             transition={{ delay: 0.15 }}
             className="lg:col-span-4 space-y-6"
           >
-            {/* كارت المعاينة الحية لرسالة الواتساب */}
             <div className="bg-slate-800 border-4 border-emerald-500 rounded-3xl p-6 shadow-2xl">
               <div className="flex items-center justify-between border-b border-slate-700 pb-3 mb-4">
                 <span className="text-xs font-black text-emerald-400 flex items-center gap-1.5">
@@ -334,7 +309,6 @@ export default function ContactSection() {
               </div>
             </div>
 
-            {/* كارت مميزات التواصل المباشر */}
             <div className="bg-slate-800 border-2 border-emerald-500/60 rounded-3xl p-6 space-y-4">
               <div className="flex items-start gap-3">
                 <div className="bg-slate-900 p-3 rounded-xl border border-emerald-500/40 text-emerald-400 mt-0.5">

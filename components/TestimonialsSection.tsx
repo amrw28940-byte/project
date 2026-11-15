@@ -13,9 +13,7 @@ export default function TestimonialsSection() {
 
   return (
     <section className="relative w-full py-24 px-6 overflow-hidden bg-[#f5f7f5]" dir="rtl">
-      
-      {/* شبكة المربعات الهندسية الخلفية باللون الأخضر الهادئ */}
-      <div 
+            <div 
         style={{
           position: "absolute",
           inset: 0,
@@ -28,8 +26,6 @@ export default function TestimonialsSection() {
           backgroundSize: "60px 60px",
         }}
       />
-
-      {/* هالة خضراء للتوهج الخلفي */}
       <div 
         style={{
           position: "absolute",
@@ -46,7 +42,6 @@ export default function TestimonialsSection() {
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* عنوان السيكشن باللون الأسود الداكن الواضح */}
         <h2 className="text-4xl md:text-5xl font-black text-slate-900 text-center mb-16 tracking-wide">
           آراء عملائنا
         </h2>
@@ -60,11 +55,9 @@ export default function TestimonialsSection() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
               whileHover={{ scale: 1.03, y: -5 }}
-              /* كروت ببرواز أخضر عريض وحواف دائرية 3xl وظل هادئ وعميق */
               className="bg-white/90 backdrop-blur-sm p-8 rounded-3xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.12)] border-4 border-emerald-500 flex flex-col justify-between transition-all"
             >
               <div>
-                {/* النجوم باللون الأخضر الزمردي المتناسق مع الهوية */}
                 <div className="text-emerald-500 mb-6 text-xl">★★★★★</div>
                 <p className="text-slate-700 text-lg font-extrabold mb-8 italic">"{t.text}"</p>
               </div>

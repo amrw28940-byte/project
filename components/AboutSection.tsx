@@ -161,7 +161,6 @@ export default function AboutSection({ lang = "ar" }: AboutProps) {
       className="relative w-full overflow-hidden bg-[#f5f7f5] py-24 px-4 sm:px-8 md:px-16 border-b-4 border-emerald-500 text-slate-900"
       dir={isAr ? "rtl" : "ltr"}
     >
-      {/* 1. شبكة المربعات الهندسية الخلفية باللون الأخضر الهادئ */}
       <div
         className="absolute inset-0 z-0 pointer-events-none"
         style={{
@@ -173,7 +172,6 @@ export default function AboutSection({ lang = "ar" }: AboutProps) {
         }}
       />
 
-      {/* 2. هالة خضراء للتوهج الخلفي */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[480px] pointer-events-none z-0"
         style={{
@@ -184,10 +182,6 @@ export default function AboutSection({ lang = "ar" }: AboutProps) {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          {/* =================================================================
-              العمود الأول (الأيمن في العربية): النص التعريفي والتبويبات التفاعلية
-          ================================================================= */}
           <motion.div
             initial={{ opacity: 0, x: isAr ? 40 : -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -195,13 +189,10 @@ export default function AboutSection({ lang = "ar" }: AboutProps) {
             transition={{ duration: 0.6 }}
             className="lg:col-span-7 flex flex-col items-start text-right"
           >
-            {/* الشارة العلوية */}
             <div className="inline-flex items-center gap-2 bg-emerald-100 border-2 border-emerald-500 text-emerald-900 px-4 py-1.5 rounded-full font-black text-xs sm:text-sm mb-5 shadow-sm">
               <FaUserCheck className="text-emerald-600 w-4 h-4" />
               <span>{content.badge}</span>
             </div>
-
-            {/* العنوان الرئيسي */}
             <h2 className="text-3xl sm:text-5xl font-black text-slate-900 mb-2 leading-tight">
               {content.titleStart}{" "}
               <span className="text-emerald-600 underline decoration-emerald-400 decoration-4 underline-offset-8">
@@ -212,13 +203,9 @@ export default function AboutSection({ lang = "ar" }: AboutProps) {
             <p className="text-base sm:text-lg font-black text-emerald-800 mb-6">
               {content.roleTitle}
             </p>
-
-            {/* الفقرة التعريفية الأساسية */}
             <p className="text-slate-700 text-base sm:text-lg md:text-xl leading-relaxed font-extrabold mb-8 bg-white/90 backdrop-blur-md p-6 rounded-3xl border-2 border-emerald-400 shadow-sm">
               {content.mainBio}
             </p>
-
-            {/* أزرار التبويبات الثلاثة (Interactive Profile Tabs) */}
             <div className="grid grid-cols-3 gap-2.5 w-full mb-5">
               {content.tabs.map((tab, idx) => (
                 <button
@@ -236,7 +223,6 @@ export default function AboutSection({ lang = "ar" }: AboutProps) {
               ))}
             </div>
 
-            {/* محتوى التبويب المختار */}
             <div className="w-full bg-white border-4 border-emerald-500 rounded-3xl p-6 sm:p-7 shadow-lg mb-8">
               <AnimatePresence mode="wait">
                 <motion.div
@@ -268,7 +254,6 @@ export default function AboutSection({ lang = "ar" }: AboutProps) {
               </AnimatePresence>
             </div>
 
-            {/* أزرار الـ Call To Action */}
             <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
               <a
                 href={whatsappUrl}
@@ -301,10 +286,6 @@ export default function AboutSection({ lang = "ar" }: AboutProps) {
               </Link>
             </div>
           </motion.div>
-
-          {/* =================================================================
-              العمود الثاني (الأيسر في العربية): كارت الفيديو الإبداعي والإحصائيات
-          ================================================================= */}
           <motion.div
             initial={{ opacity: 0, scale: 0.94 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -312,9 +293,7 @@ export default function AboutSection({ lang = "ar" }: AboutProps) {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="lg:col-span-5 flex flex-col items-center"
           >
-            {/* حاوية استوديو الفيديو المحاطة بالبرواز الزمردي */}
             <div className="w-full bg-white rounded-3xl border-4 border-emerald-500 shadow-[0_30px_65px_-15px_rgba(0,0,0,0.2)] overflow-hidden transition-transform duration-300 hover:scale-[1.01]">
-              {/* شريط علوي لنافذة الفيديو (بدون لون أحمر) */}
               <div
                 className="bg-slate-900 px-4 py-3 border-b-2 border-emerald-500 flex items-center justify-between"
                 dir="ltr"
@@ -329,7 +308,6 @@ export default function AboutSection({ lang = "ar" }: AboutProps) {
                 </span>
               </div>
 
-              {/* الفيديو مع شارات عائمة فوقه */}
               <div className="relative w-full bg-slate-950">
                 <video
                   src="/hero.mp4"
@@ -340,16 +318,13 @@ export default function AboutSection({ lang = "ar" }: AboutProps) {
                   className="w-full h-[380px] sm:h-[430px] object-cover opacity-95"
                 />
 
-                {/* تدرج سفلي خفيف فوق الفيديو */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-slate-950/30 pointer-events-none" />
 
-                {/* شارة عائمة علوية */}
                 <div className="absolute top-4 right-4 bg-slate-900/90 backdrop-blur-md border-2 border-emerald-400 text-white px-3.5 py-1.5 rounded-xl flex items-center gap-2 shadow-lg">
                   <FaCode className="text-emerald-400 w-4 h-4" />
                   <span className="text-xs font-black">{content.videoBadgeTop}</span>
                 </div>
 
-                {/* شبكة الأرقام الرباعية المدمجة أسفل الفيديو */}
                 <div className="absolute bottom-4 inset-x-4 grid grid-cols-4 gap-2">
                   {content.quickHighlights.map((hl, idx) => (
                     <div
@@ -367,7 +342,6 @@ export default function AboutSection({ lang = "ar" }: AboutProps) {
                 </div>
               </div>
 
-              {/* الشريط السفلي لكارت الفيديو */}
               <div className="p-4 bg-slate-900 text-white border-t-2 border-emerald-500 flex items-center justify-center text-center">
                 <span className="text-xs sm:text-sm font-black text-emerald-300">
                   {content.videoBadgeBottom}

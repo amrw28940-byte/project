@@ -12,7 +12,6 @@ export default function FloatingSocials() {
   ];
 
   return (
-    /* تم استخدام right-4 و right-6 لضمان انتقال الأيقونات للجانب الأيمن تماماً */
     <div className="fixed right-4 bottom-6 md:right-6 md:bottom-10 z-50 flex flex-col gap-2 md:gap-3" dir="rtl">
       {socials.map((social, index) => (
         <motion.a

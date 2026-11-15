@@ -19,7 +19,6 @@ export default function ServicesMarquee() {
 
   return (
     <div className="bg-white-500 py-3 overflow-hidden border-b-4 border-black relative">
-      {/* الشريط المتحرك */}
       <div className="flex animate-marquee whitespace-nowrap">
         {[...services, ...services].map((service, index) => (
           <span key={index} className="mx-8 font-black text-black text-lg">

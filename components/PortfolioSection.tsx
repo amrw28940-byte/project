@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   FaExternalLinkAlt,
@@ -28,7 +29,6 @@ export default function PortfolioSection({ lang = "ar" }: PortfolioProps) {
       : "Hello Eng. Amr, I saw your portfolio and would like to build a website for my project."
   )}`;
 
-  // مصفوفة المشاريع الـ 12 مع ضبط الـ ALT والـ TITLE لكل صورة ورابط لأقوى SEO
   const projects = [
     {
       name: "Unique Web Solutions",
@@ -176,7 +176,6 @@ export default function PortfolioSection({ lang = "ar" }: PortfolioProps) {
     }
   ];
 
-  // دالة مساعدة لرسم الكارت حتى نحافظ على نظافة الكود والـ SEO
   const renderProjectCard = (proj: (typeof projects)[0], index: number, isDuplicate = false) => {
     const imgAlt = isAr ? proj.altAr : proj.altEn;
     const imgTitle = isAr ? proj.titleAr : proj.titleEn;
@@ -186,7 +185,6 @@ export default function PortfolioSection({ lang = "ar" }: PortfolioProps) {
         key={`${proj.domain}-${isDuplicate ? "dup" : "main"}-${index}`}
         className="flex-shrink-0 group bg-white rounded-3xl border-4 border-emerald-500 shadow-[0_25px_55px_-15px_rgba(0,0,0,0.16)] hover:shadow-[0_30px_65px_-10px_rgba(16,185,129,0.4)] transition-all duration-300 hover:-translate-y-2 overflow-hidden flex flex-col justify-between"
       >
-        {/* الشريط العلوي لكارت الموقع (Browser Header) */}
         <div className="bg-slate-900 px-4 py-3 border-b-2 border-emerald-500 flex items-center justify-between gap-4">
           <div className="flex items-center gap-1.5">
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block" />
@@ -204,7 +202,6 @@ export default function PortfolioSection({ lang = "ar" }: PortfolioProps) {
           </span>
         </div>
 
-        {/* حاوية الصورة: تعرض الصورة بالطول والعرض الكاملين مع ALT و TITLE كاملين للـ SEO */}
         <a
           href={proj.url}
           target="_blank"
@@ -212,17 +209,18 @@ export default function PortfolioSection({ lang = "ar" }: PortfolioProps) {
           title={imgTitle}
           className="relative bg-slate-100 flex items-center justify-center p-2 overflow-hidden"
         >
-          <img
+          <Image
             src={proj.image}
-            alt={isDuplicate ? `${imgAlt} - عرض إضافي` : imgAlt}
+            alt={isDuplicate ? `${imgAlt} - معروض إضافي` : imgAlt}
             title={imgTitle}
-            width={340}
-            height={440}
+            width={350}
+            height={470}
+            quality={75}
+            sizes="(max-width: 640px) 280px, 350px"
             loading="lazy"
-            className="h-[360px] sm:h-[440px] w-auto max-w-none object-contain rounded-xl transition-transform duration-500 group-hover:scale-[1.02]"
+            className="h-[360px] sm:h-[440px] w-auto object-contain rounded-xl transition-transform duration-500 group-hover:scale-[1.02]"
           />
 
-          {/* طبقة شفافة تظهر عند تمرير الماوس لفتح الموقع */}
           <div className="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
             <div className="bg-emerald-500 text-slate-950 font-black text-sm sm:text-base px-6 py-3 rounded-2xl shadow-xl flex items-center gap-2 transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300 border-2 border-white">
               <span>{isAr ? "تصفح الموقع الحي الآن" : "Visit Live Website"}</span>
@@ -231,7 +229,6 @@ export default function PortfolioSection({ lang = "ar" }: PortfolioProps) {
           </div>
         </a>
 
-        {/* الشريط السفلي لكارت المشروع */}
         <div
           className="p-4 bg-white border-t-2 border-emerald-100 flex items-center justify-between gap-4"
           dir={isAr ? "rtl" : "ltr"}
@@ -251,7 +248,7 @@ export default function PortfolioSection({ lang = "ar" }: PortfolioProps) {
             target="_blank"
             rel="noopener noreferrer"
             title={imgTitle}
-            className="bg-slate-900 hover:bg-emerald-600 text-white font-black text-xs px-4 py-2.5 rounded-xl flex items-center gap-2 transition-colors shadow-sm"
+            className="bg-slate-900 hover:bg-emerald-800 text-white font-black text-xs px-4 py-2.5 rounded-xl flex items-center gap-2 transition-colors shadow-sm"
           >
             <span>{isAr ? "زيارة الموقع" : "Live Site"}</span>
             <FaExternalLinkAlt className="w-3 h-3 text-emerald-400 group-hover:text-white" />
@@ -267,7 +264,6 @@ export default function PortfolioSection({ lang = "ar" }: PortfolioProps) {
       className="relative w-full overflow-hidden bg-[#f5f7f5] py-24 border-b-4 border-emerald-500 text-slate-900"
       dir={isAr ? "rtl" : "ltr"}
     >
-      {/* ستايل أنيميشن شريط الأخبار المستمر مع التوقف عند تمرير الماوس */}
       <style>{`
         @keyframes portfolioMarquee {
           0% {
@@ -288,28 +284,6 @@ export default function PortfolioSection({ lang = "ar" }: PortfolioProps) {
         }
       `}</style>
 
-      {/* خلفية الشبكة الهندسية */}
-      <div
-        className="absolute inset-0 z-0 pointer-events-none"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(16, 185, 129, 0.08) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(16, 185, 129, 0.08) 1px, transparent 1px)
-          `,
-          backgroundSize: "60px 60px"
-        }}
-      />
-
-      {/* هالة خضراء خلفية */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[450px] pointer-events-none z-0"
-        style={{
-          background: "radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, transparent 70%)",
-          filter: "blur(90px)"
-        }}
-      />
-
-      {/* 1. عنوان السكشن العلوي */}
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10 mb-14 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -318,7 +292,7 @@ export default function PortfolioSection({ lang = "ar" }: PortfolioProps) {
           transition={{ duration: 0.5 }}
         >
           <div className="inline-flex items-center gap-2 bg-emerald-100 border-2 border-emerald-500 text-emerald-900 px-4 py-1.5 rounded-full font-black text-xs sm:text-sm mb-4 shadow-sm">
-            <FaRocket className="text-emerald-600 w-4 h-4" />
+            <FaRocket className="text-emerald-700 w-4 h-4" />
             <span>
               {isAr
                 ? "معرض أعمالنا الحية — اضغط على أي مشروع لمعاينته مباشرة"
@@ -328,7 +302,7 @@ export default function PortfolioSection({ lang = "ar" }: PortfolioProps) {
 
           <h2 className="text-3xl sm:text-5xl font-black text-slate-900 mb-4 leading-tight">
             {isAr ? "نماذج حقيقية من " : "Real Projects From "}
-            <span className="text-emerald-600 underline decoration-emerald-400 decoration-4 underline-offset-8">
+            <span className="text-emerald-700 underline decoration-emerald-400 decoration-4 underline-offset-8">
               {isAr ? "سابقة أعمالنا المتصدرة" : "Our Top-Ranked Work"}
             </span>
           </h2>
@@ -339,7 +313,6 @@ export default function PortfolioSection({ lang = "ar" }: PortfolioProps) {
               : "Corporate websites, tourism platforms, factories, and e-commerce stores engineered for speed and SEO. Hover to pause and click to visit the live site:"}
           </p>
 
-          {/* زر تحكم يدوي لإيقاف أو تشغيل حركة الشريط */}
           <div className="flex items-center justify-center gap-3">
             <button
               type="button"
@@ -363,20 +336,13 @@ export default function PortfolioSection({ lang = "ar" }: PortfolioProps) {
         </motion.div>
       </div>
 
-      {/* 2. شريط البورتفوليو المتحرك اللانهائي */}
       <div className="relative w-full z-10 py-4" dir="ltr">
-        <div className="hidden md:block absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#f5f7f5] to-transparent z-20 pointer-events-none" />
-        <div className="hidden md:block absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#f5f7f5] to-transparent z-20 pointer-events-none" />
-
         <div className={`animate-portfolio-ticker gap-8 px-4 ${isPaused ? "paused" : ""}`}>
-          {/* المجموعة الأساسية لـ 12 مشروع */}
           {projects.map((proj, index) => renderProjectCard(proj, index, false))}
-          {/* المجموعة المكملة لاستمرارية الشريط مع تمييز الـ ALT والـ Title */}
           {projects.map((proj, index) => renderProjectCard(proj, index, true))}
         </div>
       </div>
 
-      {/* 3. شريط الـ Call To Action السفلي تحت السلايدر */}
       <div className="max-w-5xl mx-auto px-4 sm:px-8 relative z-10 mt-14">
         <div className="bg-slate-900 text-white border-4 border-emerald-500 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-right">

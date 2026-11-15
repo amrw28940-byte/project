@@ -160,7 +160,6 @@ export default function ExperienceSection({ lang = "ar" }: ExperienceProps) {
       className="relative w-full overflow-hidden bg-[#f5f7f5] py-24 px-4 sm:px-8 md:px-16 border-b-4 border-emerald-500"
       dir={isAr ? "rtl" : "ltr"}
     >
-      {/* 1. شبكة المربعات الهندسية الخلفية باللون الأخضر الهادئ */}
       <div
         className="absolute inset-0 z-0 pointer-events-none"
         style={{
@@ -171,8 +170,6 @@ export default function ExperienceSection({ lang = "ar" }: ExperienceProps) {
           backgroundSize: "60px 60px"
         }}
       />
-
-      {/* 2. هالة خضراء للتوهج الخلفي */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[450px] pointer-events-none z-0"
         style={{
@@ -182,7 +179,6 @@ export default function ExperienceSection({ lang = "ar" }: ExperienceProps) {
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* 3. العنوان الرئيسي للسكشن */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -206,8 +202,6 @@ export default function ExperienceSection({ lang = "ar" }: ExperienceProps) {
             {content.sectionSubtitle}
           </p>
         </motion.div>
-
-        {/* 4. شبكة الكروت الثلاثة الاحترافية */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch mb-14">
           {content.cards.map((card, idx) => (
             <motion.div
@@ -224,7 +218,6 @@ export default function ExperienceSection({ lang = "ar" }: ExperienceProps) {
               }`}
             >
               <div>
-                {/* رأس الكارت: الأيقونة والشارة */}
                 <div className="flex items-center justify-between gap-3 mb-6">
                   <div
                     className={`p-4 rounded-2xl border-2 ${
@@ -245,8 +238,6 @@ export default function ExperienceSection({ lang = "ar" }: ExperienceProps) {
                     {card.badge}
                   </span>
                 </div>
-
-                {/* الرقم الرئيسي والوصف الفرعي */}
                 <h3
                   className={`text-4xl sm:text-5xl font-black mb-2 tracking-wide ${
                     card.featured ? "text-emerald-400" : "text-slate-900"
@@ -262,7 +253,6 @@ export default function ExperienceSection({ lang = "ar" }: ExperienceProps) {
                   {card.subLabel}
                 </div>
 
-                {/* الخط الزمردي المتحرك */}
                 <motion.div
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
@@ -273,7 +263,6 @@ export default function ExperienceSection({ lang = "ar" }: ExperienceProps) {
                   }`}
                 />
 
-                {/* الفقرة التوضيحية */}
                 <p
                   className={`text-base sm:text-lg font-extrabold leading-relaxed mb-6 ${
                     card.featured ? "text-slate-200" : "text-slate-700"
@@ -282,8 +271,6 @@ export default function ExperienceSection({ lang = "ar" }: ExperienceProps) {
                   {card.desc}
                 </p>
               </div>
-
-              {/* قائمة النقاط البارزة أسفل كل كارت */}
               <div
                 className={`pt-5 border-t space-y-2.5 ${
                   card.featured ? "border-slate-800" : "border-emerald-100"
@@ -305,8 +292,6 @@ export default function ExperienceSection({ lang = "ar" }: ExperienceProps) {
             </motion.div>
           ))}
         </div>
-
-        {/* 5. شريط التقنيات والـ Call To Action السفلي المدمج */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

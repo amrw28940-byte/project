@@ -18,11 +18,17 @@ export default function ServicesMarqueeReverse() {
   ];
 
   return (
-    <div className="bg-emerald-600 py-4 overflow-hidden border-b-4 border-emerald-700 relative" dir="ltr">
+    <div
+      className="bg-emerald-800 py-4 overflow-hidden border-b-4 border-emerald-950 relative"
+      dir="ltr"
+    >
       <div className="flex animate-marquee-reverse whitespace-nowrap">
         {[...services, ...services].map((service, index) => (
-          <span key={index} className="mx-6 font-black text-white text-lg flex items-center gap-4">
-            <span className="text-emerald-200">✦</span> {service}
+          <span
+            key={index}
+            className="mx-6 font-black text-white text-lg flex items-center gap-4"
+          >
+            <span className="text-emerald-300" aria-hidden="true">✦</span> {service}
           </span>
         ))}
       </div>

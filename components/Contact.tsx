@@ -4,27 +4,31 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   FaWhatsapp,
-  FaUser,
   FaPhoneAlt,
+  FaMapMarkerAlt,
+  FaUser,
   FaEnvelope,
   FaCogs,
   FaCheckCircle,
-  FaCommentDots,
   FaPaperPlane,
+  FaCommentDots,
   FaShieldAlt,
   FaBolt,
-  FaClock
+  FaGlobe
 } from "react-icons/fa";
 
-export default function ContactSection() {
+export default function Contact() {
   const [fullName, setFullName] = useState<string>("");
   const [phone, setPhone] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [selectedService, setSelectedService] = useState<string>("تصميم وتطوير موقع Next.js");
   const [projectNotes, setProjectNotes] = useState<string>("");
   const [formError, setFormError] = useState<string>("");
+
   const whatsappNumber = "201020347946";
-  const displayPhone = "01020347946";
+  const primaryPhone = "01020347946";
+  const secondaryPhone = "01017741283";
+
   const servicesList = [
     "تصميم وتطوير موقع Next.js",
     "تصميم موقع شركة تعريفي (Corporate)",
@@ -67,283 +71,318 @@ export default function ContactSection() {
   return (
     <section
       id="contact-section"
-      className="py-24 px-4 md:px-10 bg-slate-900 text-white border-t-4 border-b-4 border-emerald-500 relative overflow-hidden"
+      aria-labelledby="contact-heading"
+      className="relative w-full py-24 px-4 sm:px-8 md:px-16 overflow-hidden bg-[#f5f7f5] border-t-4 border-b-4 border-emerald-500 text-slate-900"
       dir="rtl"
-    >      <div
-        className="absolute inset-0 z-0 pointer-events-none"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(16, 185, 129, 0.06) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(16, 185, 129, 0.06) 1px, transparent 1px)
-          `,
-          backgroundSize: "50px 50px",
-        }}
-      />
-
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] pointer-events-none z-0"
-        style={{
-          background: "radial-gradient(circle, rgba(16, 185, 129, 0.14) 0%, transparent 70%)",
-          filter: "blur(90px)",
-        }}
-      />
-
+    >
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="bg-emerald-500/20 text-emerald-300 border border-emerald-400 px-4 py-1.5 rounded-full text-xs md:text-sm font-black inline-block mb-4">
-            ابدأ مشروعك الرقمي الآن في خطوة واحدة
-          </span>
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-6 leading-tight">
-            اختر خدمتك وأرسل بياناتك مباشرة عبر <span className="text-emerald-400">الواتساب</span>
+          <div className="inline-flex items-center gap-2 bg-emerald-100 border-2 border-emerald-500 text-emerald-900 px-4 py-1.5 rounded-full font-black text-xs sm:text-sm mb-4 shadow-sm">
+            <FaWhatsapp className="text-emerald-700 w-4 h-4" />
+            <span>تواصل مباشر واستشارة مجانية لمشروعك</span>
+          </div>
+
+          <h2
+            id="contact-heading"
+            className="text-3xl sm:text-5xl font-black text-slate-900 mb-4 leading-tight"
+          >
+            اختر خدمتك وتواصل معنا عبر{" "}
+            <span className="text-emerald-700 underline decoration-emerald-400 decoration-4 underline-offset-8">
+              الواتساب المباشر
+            </span>
           </h2>
-          <p className="text-slate-300 font-bold text-base md:text-lg leading-relaxed">
-            املأ بياناتك واختر الخدمة التي تحتاجها، وسيتم تحويل طلبك تلقائياً في رسالة منظمة إلى الواتساب المباشر للرد عليك فوراً باستشارة مجانية وعرض سعر مخصص:
+
+          <p className="text-slate-700 font-bold text-base sm:text-lg leading-relaxed">
+            سجل بياناتك واختر الخدمة المطلوبة، وسيتم تحويل طلبك تلقائياً إلى محادثة الواتساب المباشرة مع م. عمرو سالم للرد عليك فوراً:
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+          {/* العمود الأول: النموذج الذكي */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="lg:col-span-8 bg-white text-slate-900 rounded-3xl border-4 border-emerald-500 p-6 md:p-10 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.4)]"
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-7 bg-white rounded-3xl border-4 border-emerald-500 p-6 sm:p-8 md:p-10 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.12)] flex flex-col justify-between"
           >
-            <div className="flex items-center justify-between border-b-2 border-emerald-100 pb-5 mb-8">
-              <div>
-                <h3 className="text-2xl md:text-3xl font-black text-slate-900">
-                  نموذج طلب خدمة وعرض سعر فوري
-                </h3>
-                <p className="text-xs md:text-sm text-slate-600 font-bold mt-1">
-                  جميع البيانات تنتقل تلقائياً لمحادثة الواتساب المباشرة مع م. عمرو سالم
-                </p>
-              </div>
-              <div className="bg-emerald-100 p-3.5 rounded-2xl border-2 border-emerald-500 text-emerald-700 hidden sm:block">
-                <FaWhatsapp className="w-8 h-8" />
-              </div>
-            </div>
-
-            <form onSubmit={handleWhatsappSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <div className="flex items-center justify-between border-b-2 border-emerald-100 pb-5 mb-6">
                 <div>
-                  <label className="block font-black text-slate-900 text-sm mb-2">
-                    الاسم الكامل أو اسم الشركة <span className="text-emerald-600">*</span>
-                  </label>
-                  <div className="relative">
-                    <input
-                      type="text"
-                      required
-                      value={fullName}
-                      onChange={(e) => setFullName(e.target.value)}
-                      placeholder="مثال: محمد أحمد / شركة الأندلس"
-                      className="w-full bg-[#f5f7f5] border-2 border-emerald-300 focus:border-emerald-600 focus:bg-white rounded-2xl py-3.5 pr-11 pl-4 text-sm font-black text-slate-900 outline-none transition-all"
-                    />
-                    <FaUser className="absolute right-4 top-1/2 -translate-y-1/2 text-emerald-600 w-4 h-4" />
-                  </div>
+                  <h3 className="text-2xl font-black text-slate-900">
+                    نموذج طلب خدمة وعرض سعر فوري
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 font-bold mt-1">
+                    تنتقل البيانات تلقائياً في رسالة منسقة إلى رقم الواتساب {primaryPhone}
+                  </p>
                 </div>
-
-                <div>
-                  <label className="block font-black text-slate-900 text-sm mb-2">
-                    رقم الهاتف / الجوال (مع كود الدولة) <span className="text-emerald-600">*</span>
-                  </label>
-                  <div className="relative">
-                    <input
-                      type="tel"
-                      required
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      placeholder="مثال: 010xxxxxxx أو +9665xxxxxxx"
-                      className="w-full bg-[#f5f7f5] border-2 border-emerald-300 focus:border-emerald-600 focus:bg-white rounded-2xl py-3.5 pr-11 pl-4 text-sm font-black text-slate-900 outline-none transition-all"
-                      dir="ltr"
-                      style={{ textAlign: "right" }}
-                    />
-                    <FaPhoneAlt className="absolute right-4 top-1/2 -translate-y-1/2 text-emerald-600 w-4 h-4" />
-                  </div>
+                <div className="bg-emerald-50 p-3.5 rounded-2xl border-2 border-emerald-500 text-emerald-700 hidden sm:flex">
+                  <FaWhatsapp className="w-7 h-7" />
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block font-black text-slate-900 text-sm mb-2">
-                    البريد الإلكتروني (Email) <span className="text-emerald-600">*</span>
-                  </label>
-                  <div className="relative">
-                    <input
-                      type="email"
-                      required
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="name@company.com"
-                      className="w-full bg-[#f5f7f5] border-2 border-emerald-300 focus:border-emerald-600 focus:bg-white rounded-2xl py-3.5 pr-11 pl-4 text-sm font-black text-slate-900 outline-none transition-all"
-                      dir="ltr"
-                      style={{ textAlign: "right" }}
-                    />
-                    <FaEnvelope className="absolute right-4 top-1/2 -translate-y-1/2 text-emerald-600 w-4 h-4" />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block font-black text-slate-900 text-sm mb-2">
-                    اختر الخدمة المطلوبة <span className="text-emerald-600">*</span>
-                  </label>
-                  <div className="relative">
-                    <select
-                      value={selectedService}
-                      onChange={(e) => setSelectedService(e.target.value)}
-                      className="w-full bg-[#f5f7f5] border-2 border-emerald-300 focus:border-emerald-600 focus:bg-white rounded-2xl py-3.5 pr-11 pl-4 text-sm font-black text-slate-900 outline-none transition-all cursor-pointer"
+              <form onSubmit={handleWhatsappSubmit} className="space-y-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <label
+                      htmlFor="contact-fullname-input"
+                      className="block font-black text-slate-900 text-sm mb-2"
                     >
-                      {servicesList.map((srv, idx) => (
-                        <option key={idx} value={srv} className="font-bold text-slate-900">
-                          {srv}
-                        </option>
-                      ))}
-                    </select>
-                    <FaCogs className="absolute right-4 top-1/2 -translate-y-1/2 text-emerald-600 w-4 h-4 pointer-events-none" />
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <span className="block font-black text-slate-700 text-xs mb-2.5">
-                  أو اضغط مباشرة على الخدمة المطلوبة لتحديدها:
-                </span>
-                <div className="flex flex-wrap gap-2">
-                  {servicesList.map((srv, idx) => (
-                    <button
-                      type="button"
-                      key={idx}
-                      onClick={() => setSelectedService(srv)}
-                      className={`px-3.5 py-2 rounded-xl text-xs font-black transition-all border-2 flex items-center gap-1.5 ${
-                        selectedService === srv
-                          ? "bg-slate-900 text-emerald-400 border-emerald-500 shadow-md scale-[1.02]"
-                          : "bg-[#f5f7f5] text-slate-700 border-emerald-200 hover:border-emerald-400"
-                      }`}
-                    >
-                      <FaCheckCircle
-                        className={`w-3.5 h-3.5 ${
-                          selectedService === srv ? "text-emerald-400" : "text-slate-400"
-                        }`}
+                      الاسم الكامل أو الشركة <span className="text-emerald-700">*</span>
+                    </label>
+                    <div className="relative">
+                      <input
+                        id="contact-fullname-input"
+                        name="fullName"
+                        type="text"
+                        required
+                        aria-label="الاسم الكامل أو الشركة"
+                        value={fullName}
+                        onChange={(e) => setFullName(e.target.value)}
+                        placeholder="اكتب اسمك الكريم..."
+                        className="w-full bg-[#f5f7f5] border-2 border-emerald-300 focus:border-emerald-600 focus:bg-white rounded-2xl py-3.5 pr-11 pl-4 text-sm font-black text-slate-900 outline-none transition-all"
                       />
-                      <span>{srv}</span>
-                    </button>
-                  ))}
-                </div>
-              </div>
+                      <FaUser className="absolute right-4 top-1/2 -translate-y-1/2 text-emerald-700 w-4 h-4 pointer-events-none" />
+                    </div>
+                  </div>
 
-              <div>
-                <label className="block font-black text-slate-900 text-sm mb-2">
-                  نبذة سريعة عن مشروعك أو استفسارك (اختياري)
-                </label>
-                <div className="relative">
-                  <textarea
-                    rows={3}
-                    value={projectNotes}
-                    onChange={(e) => setProjectNotes(e.target.value)}
-                    placeholder="اكتب أي تفاصيل إضافية عن نشاطك التجاري أو الدولة المستهدفة..."
-                    className="w-full bg-[#f5f7f5] border-2 border-emerald-300 focus:border-emerald-600 focus:bg-white rounded-2xl py-3.5 pr-11 pl-4 text-sm font-black text-slate-900 outline-none transition-all resize-none"
-                  />
-                  <FaCommentDots className="absolute right-4 top-4 text-emerald-600 w-4 h-4" />
+                  <div>
+                    <label
+                      htmlFor="contact-phone-input"
+                      className="block font-black text-slate-900 text-sm mb-2"
+                    >
+                      رقم الهاتف / الجوال <span className="text-emerald-700">*</span>
+                    </label>
+                    <div className="relative">
+                      <input
+                        id="contact-phone-input"
+                        name="phone"
+                        type="tel"
+                        required
+                        aria-label="رقم الهاتف أو الجوال"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        placeholder="010xxxxxxx / +9665xxxxxxx"
+                        className="w-full bg-[#f5f7f5] border-2 border-emerald-300 focus:border-emerald-600 focus:bg-white rounded-2xl py-3.5 pr-11 pl-4 text-sm font-black text-slate-900 outline-none transition-all"
+                        dir="ltr"
+                        style={{ textAlign: "right" }}
+                      />
+                      <FaPhoneAlt className="absolute right-4 top-1/2 -translate-y-1/2 text-emerald-700 w-4 h-4 pointer-events-none" />
+                    </div>
+                  </div>
                 </div>
-              </div>
 
-              {formError && (
-                <div className="bg-amber-50 border-2 border-amber-500 text-amber-900 px-4 py-3 rounded-xl text-xs md:text-sm font-black">
-                  ⚠️ {formError}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <label
+                      htmlFor="contact-email-input"
+                      className="block font-black text-slate-900 text-sm mb-2"
+                    >
+                      البريد الإلكتروني (Email) <span className="text-emerald-700">*</span>
+                    </label>
+                    <div className="relative">
+                      <input
+                        id="contact-email-input"
+                        name="email"
+                        type="email"
+                        required
+                        aria-label="البريد الإلكتروني"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="name@example.com"
+                        className="w-full bg-[#f5f7f5] border-2 border-emerald-300 focus:border-emerald-600 focus:bg-white rounded-2xl py-3.5 pr-11 pl-4 text-sm font-black text-slate-900 outline-none transition-all"
+                        dir="ltr"
+                        style={{ textAlign: "right" }}
+                      />
+                      <FaEnvelope className="absolute right-4 top-1/2 -translate-y-1/2 text-emerald-700 w-4 h-4 pointer-events-none" />
+                    </div>
+                  </div>
+
+                  {/* عنصر الـ Select المربوط بالكامل مع الـ Label لحل تحذير Lighthouse */}
+                  <div>
+                    <label
+                      id="service-select-label"
+                      htmlFor="contact-service-select"
+                      className="block font-black text-slate-900 text-sm mb-2"
+                    >
+                      اختر الخدمة المطلوبة <span className="text-emerald-700">*</span>
+                    </label>
+                    <div className="relative">
+                      <select
+                        id="contact-service-select"
+                        name="selectedService"
+                        aria-label="اختر الخدمة المطلوبة"
+                        aria-labelledby="service-select-label"
+                        title="اختر الخدمة المطلوبة"
+                        value={selectedService}
+                        onChange={(e) => setSelectedService(e.target.value)}
+                        className="w-full bg-[#f5f7f5] border-2 border-emerald-300 focus:border-emerald-600 focus:bg-white rounded-2xl py-3.5 pr-11 pl-4 text-sm font-black text-slate-900 outline-none transition-all cursor-pointer"
+                      >
+                        {servicesList.map((srv, idx) => (
+                          <option key={idx} value={srv} className="font-bold text-slate-900">
+                            {srv}
+                          </option>
+                        ))}
+                      </select>
+                      <FaCogs className="absolute right-4 top-1/2 -translate-y-1/2 text-emerald-700 w-4 h-4 pointer-events-none" />
+                    </div>
+                  </div>
                 </div>
-              )}
 
-              <button
-                type="submit"
-                className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black text-base md:text-lg py-4 px-8 rounded-2xl shadow-[0_12px_25px_-5px_rgba(16,185,129,0.45)] border-2 border-emerald-800 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-3 cursor-pointer"
-              >
-                <FaWhatsapp className="w-7 h-7" />
-                <span>إرسال البيانات وفتح محادثة الواتساب الآن</span>
-                <FaPaperPlane className="w-4 h-4 mr-1" />
-              </button>
-            </form>
+                <div>
+                  <span className="block font-black text-slate-700 text-xs mb-2">
+                    أو اضغط مباشرة على الخدمة المطلوبة:
+                  </span>
+                  <div className="flex flex-wrap gap-2">
+                    {servicesList.map((srv, idx) => (
+                      <button
+                        type="button"
+                        key={idx}
+                        onClick={() => setSelectedService(srv)}
+                        className={`px-3 py-1.5 rounded-xl text-xs font-black transition-all border-2 flex items-center gap-1.5 cursor-pointer ${
+                          selectedService === srv
+                            ? "bg-slate-900 text-emerald-400 border-emerald-500 shadow-sm"
+                            : "bg-[#f5f7f5] text-slate-800 border-emerald-200 hover:border-emerald-400"
+                        }`}
+                      >
+                        <FaCheckCircle
+                          className={`w-3 h-3 ${
+                            selectedService === srv ? "text-emerald-400" : "text-slate-400"
+                          }`}
+                        />
+                        <span>{srv}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="contact-notes-textarea"
+                    className="block font-black text-slate-900 text-sm mb-2"
+                  >
+                    نبذة سريعة عن مشروعك (اختياري)
+                  </label>
+                  <div className="relative">
+                    <textarea
+                      id="contact-notes-textarea"
+                      name="projectNotes"
+                      rows={3}
+                      aria-label="نبذة سريعة عن مشروعك"
+                      value={projectNotes}
+                      onChange={(e) => setProjectNotes(e.target.value)}
+                      placeholder="اكتب أي تفاصيل إضافية عن نشاطك التجاري..."
+                      className="w-full bg-[#f5f7f5] border-2 border-emerald-300 focus:border-emerald-600 focus:bg-white rounded-2xl py-3 pr-11 pl-4 text-sm font-black text-slate-900 outline-none transition-all resize-none"
+                    />
+                    <FaCommentDots className="absolute right-4 top-4 text-emerald-700 w-4 h-4 pointer-events-none" />
+                  </div>
+                </div>
+
+                {formError && (
+                  <div className="bg-amber-50 border-2 border-amber-500 text-amber-900 px-4 py-3 rounded-xl text-xs sm:text-sm font-black">
+                    ⚠️ {formError}
+                  </div>
+                )}
+
+                <button
+                  type="submit"
+                  className="w-full bg-emerald-800 hover:bg-emerald-900 text-white font-black text-base sm:text-lg py-4 px-8 rounded-2xl shadow-lg border-2 border-emerald-500 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-3 cursor-pointer"
+                >
+                  <FaWhatsapp className="w-6 h-6 text-emerald-300" />
+                  <span>إرسال البيانات وفتح محادثة الواتساب الآن</span>
+                  <FaPaperPlane className="w-4 h-4" />
+                </button>
+              </form>
+            </div>
           </motion.div>
 
+          {/* العمود الثاني: بطاقة بيانات التواصل المباشر والمميزات (بدون خريطة) */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.94 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.15 }}
-            className="lg:col-span-4 space-y-6"
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="lg:col-span-5 flex flex-col justify-between gap-6"
           >
-            <div className="bg-slate-800 border-4 border-emerald-500 rounded-3xl p-6 shadow-2xl">
-              <div className="flex items-center justify-between border-b border-slate-700 pb-3 mb-4">
-                <span className="text-xs font-black text-emerald-400 flex items-center gap-1.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping inline-block" />
-                  معاينة رسالتك التلقائية للواتساب
-                </span>
-                <span className="text-xs font-mono text-slate-400" dir="ltr">
-                  {displayPhone}
-                </span>
+            <div className="bg-slate-900 text-white rounded-3xl border-4 border-emerald-500 p-7 sm:p-9 shadow-xl h-full flex flex-col justify-between">
+              <div>
+                <div className="inline-block bg-emerald-500 text-slate-950 font-black text-xs px-3.5 py-1 rounded-full mb-4">
+                  AMR SALEM DIGITAL STUDIO
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-black text-white mb-3">
+                  استوديو م. عمرو سالم الرقمي
+                </h3>
+                <p className="text-slate-300 font-bold text-sm leading-relaxed mb-6">
+                  تواصل مباشر مع المؤسس والمطور الرئيسي لمناقشة مشروعك ووضع الخطة الهندسية والتسويقية الأنسب لنجاحك.
+                </p>
+
+                <div className="space-y-4 text-sm sm:text-base font-bold mb-6">
+                  {/* العنوان */}
+                  <div className="flex items-start gap-3.5 bg-slate-800/90 p-4 rounded-2xl border border-emerald-500/40">
+                    <FaMapMarkerAlt className="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <span className="text-xs text-slate-400 block mb-0.5">العنوان والمقر:</span>
+                      <p className="text-white font-black">
+                        العجمي، الهانوفيل، الإسكندرية، مصر 📍
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* أرقام التواصل */}
+                  <div className="flex items-start gap-3.5 bg-slate-800/90 p-4 rounded-2xl border border-emerald-500/40">
+                    <FaPhoneAlt className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-1" />
+                    <div className="w-full">
+                      <span className="text-xs text-slate-400 block mb-1.5">
+                        أرقام الاتصال المباشر والواتساب:
+                      </span>
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <a
+                          href={`tel:${primaryPhone}`}
+                          title="اتصال هاتفي مباشر بالرقم الأول"
+                          className="text-emerald-400 hover:text-white transition-colors font-black text-xl tracking-wide"
+                          dir="ltr"
+                        >
+                          {primaryPhone}
+                        </a>
+                        <a
+                          href={`tel:${secondaryPhone}`}
+                          title="اتصال هاتفي مباشر بالرقم الثاني"
+                          className="text-teal-300 hover:text-white transition-colors font-black text-xl tracking-wide"
+                          dir="ltr"
+                        >
+                          {secondaryPhone}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* الأسواق المخدومة */}
+                  <div className="flex items-start gap-3.5 bg-slate-800/90 p-4 rounded-2xl border border-emerald-500/40">
+                    <FaGlobe className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-1" />
+                    <div>
+                      <span className="text-xs text-slate-400 block mb-0.5">نطاق خدماتنا الإقليمي:</span>
+                      <p className="text-white font-black text-xs sm:text-sm">
+                        🇪🇬 مصر • 🇸🇦 السعودية • 🇦🇪 الإمارات • 🇰🇼 الكويت
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <div className="bg-slate-900 rounded-2xl p-4 border border-emerald-500/40 text-xs md:text-sm space-y-2.5 font-bold text-slate-200">
-                <p className="text-emerald-300 font-black">
-                  مرحباً م. عمرو، لدي طلب مشروع جديد:
-                </p>
-                <p>
-                  👤 <span className="text-slate-400">الاسم:</span>{" "}
-                  <span className="text-white font-black">{fullName || "---"}</span>
-                </p>
-                <p>
-                  📱 <span className="text-slate-400">الهاتف:</span>{" "}
-                  <span className="text-white font-black" dir="ltr">{phone || "---"}</span>
-                </p>
-                <p>
-                  📧 <span className="text-slate-400">الإيميل:</span>{" "}
-                  <span className="text-white font-black" dir="ltr">{email || "---"}</span>
-                </p>
-                <p>
-                  🚀 <span className="text-slate-400">الخدمة:</span>{" "}
-                  <span className="text-emerald-400 font-black">{selectedService}</span>
-                </p>
-                {projectNotes && (
-                  <p>
-                    📝 <span className="text-slate-400">التفاصيل:</span>{" "}
-                    <span className="text-white">{projectNotes}</span>
-                  </p>
-                )}
-              </div>
-            </div>
-
-            <div className="bg-slate-800 border-2 border-emerald-500/60 rounded-3xl p-6 space-y-4">
-              <div className="flex items-start gap-3">
-                <div className="bg-slate-900 p-3 rounded-xl border border-emerald-500/40 text-emerald-400 mt-0.5">
-                  <FaBolt className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="font-black text-white text-base">رد فوري واستشارة مجانية</h4>
-                  <p className="text-xs text-slate-300 font-bold leading-relaxed mt-1">
-                    نتلقى طلبك فوراً على الواتساب ونقوم بدراسته والرد عليك بخطة عمل واضحة وعرض سعر دقيق.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="bg-slate-900 p-3 rounded-xl border border-emerald-500/40 text-emerald-400 mt-0.5">
-                  <FaShieldAlt className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="font-black text-white text-base">خصوصية وأمان تام لبياناتك</h4>
-                  <p className="text-xs text-slate-300 font-bold leading-relaxed mt-1">
-                    بيانات مشروعك وفكرتك التجارية في أمان تام وتناقش بشكل مباشر مع م. عمرو سالم.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="bg-slate-900 p-3 rounded-xl border border-emerald-500/40 text-emerald-400 mt-0.5">
-                  <FaClock className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="font-black text-white text-base">تواصل مباشر: {displayPhone}</h4>
-                  <p className="text-xs text-slate-300 font-bold leading-relaxed mt-1">
-                    متاحون للرد على استفسارات عملائنا في مصر، السعودية، الإمارات، والكويت على مدار الساعة.
-                  </p>
-                </div>
+              {/* زر واتساب سريع أسفل الكارت */}
+              <div className="pt-5 border-t border-slate-800">
+                <a
+                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+                    "مرحباً م. عمرو، أرغب في استشارة مجانية لمشروع جديد."
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="تحدث معنا مباشرة عبر واتساب"
+                  className="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-4 px-6 rounded-2xl flex items-center justify-center gap-2.5 transition-all shadow-lg text-sm sm:text-base"
+                >
+                  <FaWhatsapp className="w-6 h-6" />
+                  <span>محادثة واتساب فورية: {primaryPhone}</span>
+                </a>
               </div>
             </div>
           </motion.div>

@@ -27,12 +27,6 @@ export default function Header() {
         { name: 'تصميم متاجر ايزي اوردر', slug: '/services/easy-order' },
         { name: 'تحسين محركات البحث', slug: '/services/seo' },
         { name: 'باقات صيانة المواقع الدورية', slug: '/services/maintenance' },
-        { name: 'تحسين سرعة وأداء المواقع', slug: '/services/speed' },
-        { name: 'إعداد تتبع وتحليل البيانات', slug: '/services/analytics' },
-        { name: 'ربط أنظمة الدفع والشحن', slug: '/services/payments' },
-        { name: 'نقل المواقع بين المنصات', slug: '/services/migration' },
-        { name: 'تحسين معدل تحويل العملاء', slug: '/services/cro' },
-        { name: 'فحص وتدقيق الأمان التقني', slug: '/services/security' },
         { name: 'تطوير صفحات الهبوط التسويقية', slug: '/services/landing-pages' },
       ]
     },

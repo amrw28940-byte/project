@@ -7,6 +7,7 @@ import PortfolioSection from '../components/PortfolioSection';
 import ExperienceSection from '../components/ExperienceSection';
 import ServicesSection from '../components/ServicesSection';
 import AboutSection from '../components/AboutSection';
+import BlogMarqueeSection from "../components/BlogMarqueeSection";
 import TestimonialsSection from '../components/TestimonialsSection';
 import FloatingSocials from '../components/FloatingSocials'; 
 import Contact from '../components/Contact'; 
@@ -46,6 +47,7 @@ export default function HomePage() {
       <ExperienceSection />
       <ServicesSection />
       <AboutSection /> 
+      <BlogMarqueeSection />
       <TestimonialsSection />
       <Contact />
       

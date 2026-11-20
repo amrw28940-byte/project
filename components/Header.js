@@ -24,9 +24,7 @@ export default function Header() {
         { name: 'تصميم مواقع الكترونية next js', slug: '/services/nextjs' },
         { name: 'تصميم متاجر شوبيفاي', slug: '/services/shopify' },
         { name: 'تصميم فيديوهات بالذكاء الاصطناعي AI', slug: '/services/vidioai' },
-        { name: 'تصميم متاجر ايزي اوردر', slug: '/services/easy-order' },
         { name: 'تحسين محركات البحث', slug: '/services/seo' },
-        { name: 'باقات صيانة المواقع الدورية', slug: '/services/maintenance' },
         { name: 'تطوير صفحات الهبوط التسويقية', slug: '/services/landing-pages' },
       ]
     },
